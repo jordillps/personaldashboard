@@ -12,7 +12,9 @@ return [
 
     'login' => 'Acceso',
     'register' => 'Registrarse',
-    'home' => 'Inici',
-
+    'home' => 'Inicio',
+    'dashboard' => 'Panel de gestión personal',
+    'logged' => 'Sesión iniciada',
+    'logout' => 'Cerrar sesión'
 
 ];

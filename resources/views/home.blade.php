@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">@lang('global.dashboard')</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,9 +14,25 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    @lang('global.logged')
                 </div>
             </div>
+            <div class="card">
+                    <div class="card-header">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                @lang('global.logout')
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                    </div>
+                    <div class="card-body">
+
+                    </div>
+                </div>
         </div>
     </div>
 </div>
