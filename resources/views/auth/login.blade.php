@@ -12,7 +12,7 @@
               <div class="card-body">
                 <h5 class="card-title text-center">{{ __('Login') }}</h5>
                 <form method="POST" action="{{ route('login') }}">
-
+                        @csrf
                   <div class="form-label-group">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
                         value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -45,9 +45,11 @@
                                 {{ __('Forgot Your Password?') }}
                             </a>
                         @endif
+                  <a class="d-block text-center mt-2" href="{{ route('register') }}">{{ __('Register') }}</a>
+                  <a class="d-block text-center mt-2" href="{{ route('welcome') }}">@lang('global.home')</a>
                   <hr class="my-4">
-                  <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
-                  <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
+                  <button class="btn btn-lg btn-google btn-block" type="submit"><i class="fab fa-google mr-2"></i>@lang('global.Sign in with Google')</button>
+                  <button class="btn btn-lg btn-facebook btn-block" type="submit"><i class="fab fa-facebook-f mr-2"></i>@lang('global.Sign in with Facebook')</button>
 
                 </form>
               </div>
