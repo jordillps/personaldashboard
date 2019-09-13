@@ -21,5 +21,7 @@ return [
     'Sign in with Facebook' => 'Acceder con Facebook',
     'Sign up with Google' => 'Registrarse con Google',
     'Sign up with Facebook' => 'Registrarse con Facebook',
+    'contact' => 'Contacto',
+    'agenda' => 'Agenda Personal'
 
 ];
