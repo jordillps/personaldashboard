@@ -22,6 +22,8 @@ return [
     'Sign up with Google' => 'Registrarse con Google',
     'Sign up with Facebook' => 'Registrarse con Facebook',
     'contact' => 'Contacto',
-    'agenda' => 'Agenda Personal'
+    'agenda' => 'Agenda Personal',
+    'settings'=>'Ajustes',
+    'activity'=>'Actividades'
 
 ];

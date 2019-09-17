@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "datatables.net-bs4": "^1.10.19",
         "yarn": "^1.17.3"
     }
 }

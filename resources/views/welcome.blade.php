@@ -10,15 +10,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">@lang('global.home')
-                                <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
                         @if (Route::has('login'))
                                 @auth
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/home') }}">@lang('global.home')</a>
+                                        <a class="nav-link" href="{{ url('/home') }}">@lang('global.agenda')</a>
                                     </li>
                                 @else
                                     <li class="nav-item">
