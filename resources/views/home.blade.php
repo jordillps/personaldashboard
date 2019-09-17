@@ -77,12 +77,12 @@
       <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+          <span>@lang('global.charts')</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+          <span>@lang('global.tablas')</span></a>
       </li>
     </ul>
 
@@ -93,7 +93,7 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="#">Dashboard</a>
+            <a href="#">@lang('global.dashboard')</a>
           </li>
           <li class="breadcrumb-item active">Overview</li>
         </ol>
@@ -181,42 +181,43 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            Data Table Example</div>
+            @lang('global.users')</div>
           <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                  </tr>
-                </thead>
-                <tfoot>
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                  </tr>
-                </tfoot>
-                <tbody>
-                  <tr>
-                    <td>Donna Snider</td>
-                    <td>Customer Support</td>
-                    <td>New York</td>
-                    <td>27</td>
-                    <td>2011/01/25</td>
-                    <td>$112,000</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>@lang('global.id')</th>
+                        <th>@lang('global.role')</th>
+                        <th>@lang('global.name')</th>
+                        <th>@lang('global.email')</th>
+                        <th>@lang('global.created')</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
+                    <tr>
+                        <th>@lang('global.id')</th>
+                        <th>@lang('global.role')</th>
+                        <th>@lang('global.name')</th>
+                        <th>@lang('global.email')</th>
+                        <th>@lang('global.created')</th>
+                    </tr>
+                    </tfoot>
+                    <tbody>
+                    @forelse ($users as $user)
+                    <tr>
+                        <td>{{$user->id}}</td>
+                        <td>{{$user->role_id}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
+                        <td>{{$user->created_at->format('d-m-Y')}}</td>
+                    </tr>
+                    @empty
+                        <p>@lang('global.No users')</p>
+                    @endforelse
+                    </tbody>
+                </table>
+                </div>
           </div>
           <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>

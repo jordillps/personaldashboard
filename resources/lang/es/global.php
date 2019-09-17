@@ -27,5 +27,14 @@ return [
     'activity'=>'Actividades',
     'welcome' =>'Bienvenido   ',
     'dashboard'=>'Panel de resultados',
-    'pages'=>'Páginas'
+    'pages'=>'Páginas',
+    'charts'=>'Gráficas',
+    'tables'=>'Tablas',
+    'users'=>'Usuarios',
+    'id'=>'Identificador',
+    'role'=>'Rol',
+    'name'=>'Nombre',
+    'email'=>'Email',
+    'created'=>'Fecha de alta',
+    'No users' =>'No hay usuarios para mostrar',
 ];
