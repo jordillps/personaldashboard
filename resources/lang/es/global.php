@@ -24,6 +24,8 @@ return [
     'contact' => 'Contacto',
     'agenda' => 'Agenda Personal',
     'settings'=>'Ajustes',
-    'activity'=>'Actividades'
-
+    'activity'=>'Actividades',
+    'welcome' =>'Bienvenido   ',
+    'dashboard'=>'Panel de resultados',
+    'pages'=>'Páginas'
 ];
