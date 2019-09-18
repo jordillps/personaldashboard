@@ -19,6 +19,7 @@ Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/home/tables', 'TablesController@index')->name('home.tables');
+Route::get('/home/charts', 'ChartsController@index')->name('home.charts');
 
 

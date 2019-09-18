@@ -6,17 +6,8 @@ use App\User;
 use DB;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class TablesController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -29,9 +20,6 @@ class HomeController extends Controller
         ->join('roles', 'users.id', '=', 'roles.id')
         ->select('users.id as id', 'roles.name as role', 'users.name as name', 'users.email as email', 'users.created_at as created_at' )
         ->get();
-        return view('home',compact('users'));
+        return view('tables',compact('users'));
     }
-
-
-
 }

@@ -25,7 +25,20 @@
 <body>
     <div id="app">
         <main class="py-4">
-            @yield('content')
+            @yield('navbar')
+
+            <div id="wrapper">
+
+                @yield('sidebar')
+
+                @yield('content')
+
+            </div>
+
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+              <i class="fas fa-angle-up"></i>
+            </a>
         </main>
     </div>
     <!-- Scripts -->
