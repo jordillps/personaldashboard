@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('welcome')
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
         <div class="container">

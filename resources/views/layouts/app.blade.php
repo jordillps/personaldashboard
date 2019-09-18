@@ -27,13 +27,17 @@
         <main class="py-4">
             @yield('navbar')
 
-            <div id="wrapper">
+            @hasSection('content')
+                <div id="wrapper">
 
-                @yield('sidebar')
+                    @yield('sidebar')
 
-                @yield('content')
+                    @yield('content')
 
-            </div>
+                </div>
+            @else
+                @yield('welcome')
+            @endif
 
             <!-- Scroll to Top Button-->
             <a class="scroll-to-top rounded" href="#page-top">
