@@ -28,7 +28,7 @@
             @lang('global.users')</div>
           <div class="card-body">
                 <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="user_datatable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
                         <th>@lang('global.id')</th>
@@ -81,6 +81,29 @@
     </div>
     <!-- /.content-wrapper -->
 @endsection
+
+@push('scripts')
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready( function () {
+        $('#user_datatable').DataTable({
+                //processing: true,
+                //serverSide: true,
+                //ajax: "{{ url('users-list') }}",
+                //columns: [
+                //         { data: 'id', name: 'id' },
+                //         { data: 'name', name: 'name' },
+                //         { data: 'email', name: 'email' },
+                //         { data: 'created_at', name: 'created_at' }
+                //      ]
+            });
+        });
+    </script>
+@endpush
+
 
 
 

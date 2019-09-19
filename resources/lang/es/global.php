@@ -23,6 +23,7 @@ return [
     'Sign up with Facebook' => 'Registrarse con Facebook',
     'contact' => 'Contacto',
     'agenda' => 'Agenda Personal',
+    'organize'=>'Organiza tu día a día',
     'settings'=>'Ajustes',
     'activity'=>'Actividades',
     'welcome' =>'Bienvenido   ',
@@ -37,4 +38,7 @@ return [
     'email'=>'Email',
     'created'=>'Fecha de alta',
     'No users' =>'No hay usuarios para mostrar',
+    'select language'=>'Idioma',
+    'spanish' =>'Español',
+    'english'=>'Inglés'
 ];

@@ -27,6 +27,20 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">@lang('global.contact')</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdownMenuLink"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false"
+                            >@lang('global.select language')</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="{{ route('setLocale', ['es']) }}">@lang('global.spanish')</a>
+                                <a class="dropdown-item" href="{{ route('setLocale', ['en']) }}">@lang('global.english')</a>
+                            </div>
+                        </li>
                 </ul>
             </div>
         </div>
@@ -37,8 +51,8 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12 text-center">
-                    <h1 class="font-weight-light">Agenda Personal</h1>
-                    <p class="lead">Organiza tu día a día</p>
+                    <h1 class="font-weight-light">@lang('global.agenda')</h1>
+                    <p class="lead">@lang('global.organize')</p>
                 </div>
             </div>
         </div>

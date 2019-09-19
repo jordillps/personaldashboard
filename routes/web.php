@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('locale/{locale}', 'LocalizationController@setLocale')->name('setLocale');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/tables', 'TablesController@index')->name('home.tables');
