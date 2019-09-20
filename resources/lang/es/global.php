@@ -24,7 +24,7 @@ return [
     'contact' => 'Contacto',
     'agenda' => 'Agenda Personal',
     'organize'=>'Organiza tu día a día',
-    'settings'=>'Ajustes',
+    'profile'=>'Mi Perfil',
     'activity'=>'Actividades',
     'welcome' =>'Bienvenido   ',
     'dashboard'=>'Panel de resultados',
@@ -40,5 +40,6 @@ return [
     'No users' =>'No hay usuarios para mostrar',
     'select language'=>'Idioma',
     'spanish' =>'Español',
-    'english'=>'Inglés'
+    'english'=>'Inglés',
+    'search' => 'Buscar...'
 ];

@@ -30,17 +30,20 @@
                             </span>
                         @enderror
                   </div>
-
-                  <div class="custom-control custom-checkbox mb-3">
-                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                    <label class="custom-control-label" for="remember">{{ __('Remember Me') }}</label>
+                  <div class="form-label-group">
+                    <div class="custom-control custom-checkbox mb-3">
+                        <input class="custom-control-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                        <label class="custom-control-label" for="remember">{{ __('Remember Me') }}</label>
+                    </div>
                   </div>
-                  <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">{{ __('Login') }}</button>
-                        @if (Route::has('password.request'))
-                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
-                            </a>
-                        @endif
+                  <div class="form-label-group">
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">{{ __('Login') }}</button>
+                            @if (Route::has('password.request'))
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                            @endif
+                  <div class="form-label-group">
                   <a class="d-block text-center mt-2" href="{{ route('register') }}">{{ __('Register') }}</a>
                   <a class="d-block text-center mt-2" href="{{ route('welcome') }}">@lang('global.home')</a>
                   <hr class="my-4">

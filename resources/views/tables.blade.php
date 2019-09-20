@@ -51,7 +51,7 @@
                     @forelse ($users as $user)
                     <tr>
                         <td>{{$user->id}}</td>
-                        <td>{{$user->role}}</td>
+                        <td>{{$user->role_id}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{ Carbon\Carbon::parse($user->created_at)->format('d-m-Y') }}</td>
@@ -90,15 +90,13 @@
     <script>
         $(document).ready( function () {
         $('#user_datatable').DataTable({
-                //processing: true,
-                //serverSide: true,
-                //ajax: "{{ url('users-list') }}",
-                //columns: [
-                //         { data: 'id', name: 'id' },
-                //         { data: 'name', name: 'name' },
-                //         { data: 'email', name: 'email' },
-                //         { data: 'created_at', name: 'created_at' }
-                //      ]
+            "language": {
+                "lengthMenu": "Muestra _MENU_ registros por página",
+                "zeroRecords": "No se han encontrado registros",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "No se han encontrado registros",
+                "infoFiltered": "(filtrado de _MAX_ registros totales)"
+            }
             });
         });
     </script>

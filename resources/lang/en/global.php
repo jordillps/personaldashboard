@@ -24,7 +24,7 @@ return [
     'contact' => 'Contact',
     'agenda' => 'Personal Agenda',
     'organize'=>'Daily Organization',
-    'settings'=>'Settings',
+    'profile'=>'My Profile',
     'activity'=>'Activities',
     'welcome' =>'Welcome   ',
     'dashboard'=>'Dashboard',
@@ -41,4 +41,5 @@ return [
     'select language'=>'Language',
     'spanish' =>'Spanish',
     'english'=>'English',
+    'search' =>'Search for...'
 ];

@@ -15,5 +15,7 @@ return [
 
     'failed' => 'Estas credenciales no coinciden con nuestros registros.',
     'throttle' => 'Demasiados intentos fallidos en muy poco tiempo. Por favor intente de nuevo en :seconds segundos.',
+    'verify'=>'Verifique se dirección de correo electrónico',
+    'verification link' => 'Hemos enviado a su correo electrónico un enlace de verificación',
 
 ];

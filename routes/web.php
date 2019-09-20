@@ -15,13 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('locale/{locale}', 'LocalizationController@setLocale')->name('setLocale');
 
+Route::group(['middleware' => ['auth']], function () {
+	Route::group(["prefix" => "home"], function() {
+        Route::get('/', 'HomeController@index')->name('home');
+        Route::get('/tables', 'TablesController@index')->name('home.tables');
+        Route::get('/charts', 'ChartsController@index')->name('home.charts');
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/tables', 'TablesController@index')->name('home.tables');
-Route::get('/home/charts', 'ChartsController@index')->name('home.charts');
+        Route::get('/profile', 'ProfileController@index')->name('home.profile');
 
+    });
+});
 
