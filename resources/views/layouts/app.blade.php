@@ -17,7 +17,7 @@
     <!-- Styles -->
     <!-- Latest compiled and minified CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    @stack('styles')
 
 
 </head>
@@ -45,7 +45,11 @@
         </main>
     </div>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+        @if(Route::current()->getName() == 'home.calendar')
+            <script src="{{ asset('js/app.js') }}"></script>
+        @else
+            <script src="{{ asset('js/app.js') }}" defer></script>
+        @endif
     @stack('scripts')
 
 </body>

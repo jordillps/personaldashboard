@@ -41,5 +41,6 @@ return [
     'select language'=>'Idioma',
     'spanish' =>'Español',
     'english'=>'Inglés',
-    'search' => 'Buscar...'
+    'search' => 'Buscar...',
+    'calendar' =>'Calendario'
 ];

@@ -41,5 +41,6 @@ return [
     'select language'=>'Language',
     'spanish' =>'Spanish',
     'english'=>'English',
-    'search' =>'Search for...'
+    'search' =>'Search for...',
+    'calendar' => 'Calendar',
 ];

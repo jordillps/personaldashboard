@@ -78,3 +78,5 @@ const app = new Vue({
 
   })(jQuery); // End of use strict
 
+
+

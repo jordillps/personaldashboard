@@ -28,6 +28,11 @@
           <span>@lang('global.charts')</span></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="{{ route('home.calendar')}}">
+          <i class="fas fa-fw fa-calendar"></i>
+          <span>@lang('global.calendar')</span></a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="{{ route('home.tables')}}">
           <i class="fas fa-fw fa-table"></i>
           <span>@lang('global.tables')</span></a>

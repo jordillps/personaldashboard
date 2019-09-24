@@ -27,6 +27,13 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::get('/profile', 'ProfileController@index')->name('home.profile');
 
+        Route::group(["prefix" => "calendar"], function() {
+            Route::get('/','CalendarController@index')->name('home.calendar');
+            Route::post('/create','CalendarController@store')->name('home.calendar.store');
+            Route::post('/update','CalendarController@update')->name('home.calendar.update');
+            Route::post('/delete','CalendarController@destroy')->name('home.calendar.destroy');
+        });
+
     });
 });
 
