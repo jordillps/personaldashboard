@@ -41,6 +41,6 @@ class LoginController extends Controller
     public function logout (Request $request) {
     	auth()->logout();
     	session()->flush();
-    	return view('welcome');
+    	return redirect()->route('welcome');
     }
 }

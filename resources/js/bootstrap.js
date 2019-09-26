@@ -55,3 +55,7 @@ if (token) {
 // });
 
 require('datatables.net-bs4');
+
+require('@fullcalendar/core');
+
+require('@fullcalendar/daygrid');

@@ -22,8 +22,9 @@
 @import "_cards.scss";
 @import "_footer.scss";
 
-
-
+//fullCalendar
+@import '~@fullcalendar/core/main.css' ;
+@import '~@fullcalendar/daygrid/main.css' ;
 
 
 :root {
@@ -34,7 +35,7 @@
   body {
     //background: #007bff;
     //background: linear-gradient(to right, #0062E6, #33AEFF);
-    background-image: url('https://source.unsplash.com/LAaSoL0LrYs/1920x1080');
+    background-image: url('images/apple-background-connection-399161.jpg');
  }
 
   .card-signin {

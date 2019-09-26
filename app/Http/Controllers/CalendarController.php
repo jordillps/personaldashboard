@@ -52,4 +52,6 @@ class CalendarController extends Controller
 
         return Response::json($event);
     }
+
+
 }
