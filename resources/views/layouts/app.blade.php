@@ -17,13 +17,6 @@
     <!-- Styles -->
     <!-- Latest compiled and minified CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    @if(Route::current()->getName() == 'home.calendar')
-        <link href="{{asset('fullcalendar/css/core/main.css')}}" rel='stylesheet' />
-        <link href="{{asset('fullcalendar/css/daygrid/main.css')}}" rel='stylesheet' />
-        <link href="{{asset('fullcalendar/bootstrap/main.css')}}" rel='stylesheet' />
-    @endif
-
     @stack('styles')
 
 
@@ -52,16 +45,7 @@
         </main>
     </div>
     <!-- Scripts -->
-        @if(Route::current()->getName() == 'home.calendar')
-            <script src="{{ asset('js/app.js') }}"></script>
-            <script src="{{ asset('fullcalendar/js/core/main.js') }}"></script>
-            <script src="{{ asset('fullcalendar/js/daygrid/main.js') }}"></script>
-            <script src="{{ asset('fullcalendar/locales/es.js') }}"></script>
-            <script src="{{ asset('fullcalendar/bootstrap/main.js') }}"></script>
-        @else
             <script src="{{ asset('js/app.js') }}" defer></script>
-        @endif
-
     @stack('scripts')
 
 </body>

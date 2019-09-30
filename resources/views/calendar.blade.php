@@ -9,7 +9,9 @@
 @endsection
 
 @push('styles')
-    {{--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />  --}}
+    <link href="{{asset('fullcalendar/css/core/main.css')}}" rel='stylesheet' />
+    <link href="{{asset('fullcalendar/css/daygrid/main.css')}}" rel='stylesheet' />
+    <link href="{{asset('fullcalendar/bootstrap/main.css')}}" rel='stylesheet' />
 @endpush
 
 @section('content')
@@ -47,6 +49,10 @@
 @endsection
 
 @push('scripts')
+    <script src="{{ asset('fullcalendar/js/core/main.js') }}"></script>
+    <script src="{{ asset('fullcalendar/js/daygrid/main.js') }}"></script>
+    <script src="{{ asset('fullcalendar/locales/es.js') }}"></script>
+    <script src="{{ asset('fullcalendar/bootstrap/main.js') }}"></script>
           <script>
                 document.addEventListener('DOMContentLoaded', function() {
 
