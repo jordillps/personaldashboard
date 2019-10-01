@@ -35,9 +35,14 @@ class CalendarController extends Controller
 
     public function update(Request $request)
     {
-        $where = array('id' => $request->id);
-        $updateArr = ['title' => $request->title,'start' => $request->start, 'end' => $request->end];
-        $event  = Event::where($where)->update($updateArr);
+        $updateArr = ['user_id' =>$request->user_id,
+                        'title' => $request->title,
+                        'location' =>$request->location,
+                        'start' => $request->start,
+                        'end' => $request->end
+                    ];
+        //   dd($updateArr);
+        $event  = Event::where('id', $request->id)->update($updateArr);
 
         return Response::json($event);
     }

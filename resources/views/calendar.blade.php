@@ -72,6 +72,7 @@
                             right: 'dayGridMonth,timeGridWeek,timeGridDay'
                         },
                         locale: locale_lang,
+                        timeZone: 'Europe/Madrid',
                         themeSystem: 'bootstrap',
                         height: 'auto',
                         events: [
@@ -85,16 +86,16 @@
                                 @endforeach
 
                         ],
-                        defaultDate: '2019-10-01',
+                        defaultDate: new Date(),
                         navLinks: true, // can click day/week names to navigate views
                         selectable: true,
                         selectMirror: true,
+                        selectHelper: true,
                         select: function(arg) {
-                            var title = prompt('Event Title:');
-                            var location =prompt('Event Location:');
+                            var title = prompt("@lang('global.titleevent')");
+                            var location =prompt("@lang('global.locationevent')");
 
                             if (title) {
-                                var created_at = new Date();
                                 calendar.addEvent({
                                     title: title,
                                     location:location,
@@ -108,7 +109,7 @@
                                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                     },
                                     url: SITEURL + "/create",
-                                    data:{user_id:ID, title:title, location:location,start:arg.startStr,end:arg.endStr, created_at:created_at},
+                                    data:{user_id:ID, title:title, location:location,start:arg.startStr,end:arg.endStr},
                                     type: "POST",
                                     success: function (data) {
                                         displayMessage("@lang('global.eventadded')");
@@ -119,6 +120,33 @@
                         },
                         editable: true,
                         eventLimit: true,
+                        eventDrop: function (event, delta) {
+                            console.log(event.title);
+                            $.ajax({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                },
+                                url: SITEURL + '/update',
+                                data:{id:event.id,user_id:event.user_id, title:event.title, location:event.location,start:event.start,end:event.end},
+                                type: "POST",
+                                success: function (response) {
+                                    displayMessage("@lang('global.eventupdated')");
+                                }
+                            });
+
+                        },
+                        eventClick: function(info) {
+                            alert('Event: ' + info.event.title);
+                            alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+                            alert('View: ' + info.view.type);
+
+                            // change the border color just for fun
+                            info.el.style.borderColor = 'red';
+                        }
+                        // eventDrop: function(event, delta) {
+                        //     console.log(event.title);
+                        //     alert("eventDrop: " + event);
+                        // }
 
                     });
                     calendar.render();

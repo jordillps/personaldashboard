@@ -43,5 +43,8 @@ return [
     'english'=>'English',
     'search' =>'Search for...',
     'calendar' => 'Calendar',
-    'eventadded'=>'Event added'
+    'eventadded'=>'Event added',
+    'titleevent' =>'Title',
+    'locationevent'=>'Location',
+    'eventupdated'=>'Event updated'
 ];

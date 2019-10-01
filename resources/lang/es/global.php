@@ -43,5 +43,8 @@ return [
     'english'=>'Inglés',
     'search' => 'Buscar...',
     'calendar' =>'Calendario',
-    'eventadded'=>'Evento añadido correctamente'
+    'eventadded'=>'Evento añadido correctamente',
+    'titleevent' =>'Título del evento',
+    'locationevent'=>'Lugar del evento',
+    'eventupdated'=>'Evento actualizado'
 ];
