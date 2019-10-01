@@ -42,5 +42,6 @@ return [
     'spanish' =>'Español',
     'english'=>'Inglés',
     'search' => 'Buscar...',
-    'calendar' =>'Calendario'
+    'calendar' =>'Calendario',
+    'eventadded'=>'Evento añadido correctamente'
 ];

@@ -43,4 +43,5 @@ return [
     'english'=>'English',
     'search' =>'Search for...',
     'calendar' => 'Calendar',
+    'eventadded'=>'Event added'
 ];

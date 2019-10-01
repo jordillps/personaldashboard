@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Role;
 use Illuminate\Http\Request;
 use Redirect,Response;
 
@@ -10,16 +11,12 @@ class CalendarController extends Controller
 {
     public function index()
     {
-        if(request()->ajax())
-        {
-
-         $start = (!empty($_GET["start"])) ? ($_GET["start"]) : ('');
-         $end = (!empty($_GET["end"])) ? ($_GET["end"]) : ('');
-
-         $data = Event::whereDate('start', '>=', $start)->whereDate('end',   '<=', $end)->get(['id','title','start', 'end']);
-         return Response::json($data);
+        if(auth()->user()->role_id == 1){
+            $events = Event::all();
+        }else{
+            $events = Event::where('user_id', auth()->user()->id)->get();
         }
-        return view('calendar');
+        return view('calendar', compact('events'));
     }
 
 
