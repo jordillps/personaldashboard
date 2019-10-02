@@ -46,5 +46,7 @@ return [
     'eventadded'=>'Event added',
     'titleevent' =>'Title',
     'locationevent'=>'Location',
-    'eventupdated'=>'Event updated'
+    'eventupdated'=>'Event updated',
+    'eventdeleteconfirm' => 'Do you really want to delete?',
+    'eventdeletedsuccessfully' => 'Deleted Successfully'
 ];

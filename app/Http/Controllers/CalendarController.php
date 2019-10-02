@@ -51,7 +51,6 @@ class CalendarController extends Controller
     public function destroy(Request $request)
     {
         $event = Event::where('id',$request->id)->delete();
-
         return Response::json($event);
     }
 

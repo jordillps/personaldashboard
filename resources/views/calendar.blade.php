@@ -79,7 +79,10 @@
 
                                 @foreach($events as $event)
                                 {
+                                    id: '{{ $event->id }}',
+                                    user_id:'{{ $event->user_id }}',
                                     title : '{{ $event->title }}',
+                                    location : '{{ $event->location }}',
                                     start : '{{ $event->start }}',
                                     end: '{{ $event->end }}',
                                 },
@@ -91,12 +94,14 @@
                         selectable: true,
                         selectMirror: true,
                         selectHelper: true,
+                        //Add an event
                         select: function(arg) {
                             var title = prompt("@lang('global.titleevent')");
                             var location =prompt("@lang('global.locationevent')");
 
                             if (title) {
                                 calendar.addEvent({
+                                    user_id:ID,
                                     title: title,
                                     location:location,
                                     start: arg.start,
@@ -120,36 +125,56 @@
                         },
                         editable: true,
                         eventLimit: true,
-                        eventDrop: function (event, delta) {
-                            console.log(event.title);
-                            $.ajax({
-                                headers: {
-                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                },
-                                url: SITEURL + '/update',
-                                data:{id:event.id,user_id:event.user_id, title:event.title, location:event.location,start:event.start,end:event.end},
-                                type: "POST",
-                                success: function (response) {
-                                    displayMessage("@lang('global.eventupdated')");
-                                }
-                            });
+                        //Delete event
+                        eventClick: function(info) {
+                            var deleteMsg = confirm("@lang('global.eventdeleteconfirm')");
+                            if (deleteMsg) {
+                                $.ajax({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    },
+                                    type: "POST",
+                                    url: SITEURL + '/delete',
+                                    data: {id:info.event.id},
+                                    success: function (response) {
+                                            displayMessage("@lang('global.eventdeletedsuccessfully')");
+                                    }
+                                });
+                            }
+                            info.event.remove();
+                        },
+                        //Update an event
+                        eventDrop: function (info) {
+                            console.log(info);
+                             var start = calendar.formatDate(info.event.start, {
+                                month: 'numeric',
+                                year: 'numeric',
+                                day: 'numeric'
+                              });
+                             //var end = formatDate(event.end, "Y-MM-DD HH:mm:ss");
+                            alert(info.event.title + " was dropped on " + info.event.start);
+                            var dropMsg = confirm("@lang('global.eventdeleteconfirm')");
+                            if (dropMsg) {
+                                $.ajax({
+                                    headers: {
+                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                    },
+                                    url: SITEURL + '/update',
+                                    data:{id:info.event.id,user_id:info.event.extendedProps.user_id, title:info.event.title, location:info.event.extendedProps.location,start:start,end:info.end},
+                                    type: "POST",
+                                    success: function (response) {
+                                        displayMessage("@lang('global.eventupdated')");
+                                    }
+                                });
+                            }else{
+                                info.revert();
+                            }
 
                         },
-                        eventClick: function(info) {
-                            alert('Event: ' + info.event.title);
-                            alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-                            alert('View: ' + info.view.type);
-
-                            // change the border color just for fun
-                            info.el.style.borderColor = 'red';
-                        }
-                        // eventDrop: function(event, delta) {
-                        //     console.log(event.title);
-                        //     alert("eventDrop: " + event);
-                        // }
 
                     });
                     calendar.render();
+
                     function displayMessage(message) {
                         $(".response").html("<div class='alert alert-success' role='alert'>"+message+"</div>");
                         setInterval(function() { $(".success").fadeOut(); }, 1000);

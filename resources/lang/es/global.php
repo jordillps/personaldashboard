@@ -46,5 +46,7 @@ return [
     'eventadded'=>'Evento añadido correctamente',
     'titleevent' =>'Título del evento',
     'locationevent'=>'Lugar del evento',
-    'eventupdated'=>'Evento actualizado'
+    'eventupdated'=>'Evento actualizado',
+    'eventdeleteconfirm' => 'Seguro que quiere borrar el evento?',
+    'eventdeletedsuccessfully' => 'Evento borrado correctamente'
 ];
