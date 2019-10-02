@@ -12413,3 +12413,38 @@ body {
   }
 }
 
+/* The Modal Events in Calendar (background) */
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+}
+
+/* Modal Content */
+
+.modal-content {
+  background-color: #378006;
+  color: #fff;
+  -webkit-text-size-adjust: 1.5rem;
+     -moz-text-size-adjust: 1.5rem;
+      -ms-text-size-adjust: 1.5rem;
+          text-size-adjust: 1.5rem;
+  margin: auto;
+  padding: 15px;
+  width: 20%;
+}
+

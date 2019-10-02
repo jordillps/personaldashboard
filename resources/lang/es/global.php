@@ -48,5 +48,8 @@ return [
     'locationevent'=>'Lugar del evento',
     'eventupdated'=>'Evento actualizado',
     'eventdeleteconfirm' => 'Seguro que quiere borrar el evento?',
-    'eventdeletedsuccessfully' => 'Evento borrado correctamente'
+    'eventdeletedsuccessfully' => 'Evento borrado correctamente',
+    'eventdropinfo' =>'se ha modificado al ',
+    'eventdroppedconfirm' => 'Seguro que quiere modificar el evento?',
+
 ];

@@ -29,8 +29,18 @@
 
         <!-- Calendar -->
         <div class="container">
-            <div class="response"></div>
-            <div id='calendar'></div>
+            <div id="response"></div>
+            <div id='calendar'>
+                <!-- The Modal -->
+                {{-- <div id="showevent" class="modal"> --}}
+
+                    <!-- Modal content -->
+                    {{-- <div id="modalcontent" class="modal-content" > --}}
+                        {{-- <p>Some text in the Modal..</p> --}}
+                    {{-- </div> --}}
+
+                {{-- </div> --}}
+            </div>
         </div>
 
       </div>
@@ -56,13 +66,18 @@
     <script src="{{ asset('fullcalendar/bootstrap/main.js') }}"></script>
     <script src="{{ asset('fullcalendar/js/interaction/main.js') }}"></script>
     <script src="{{ asset('fullcalendar/js/timegrid/main.js') }}"></script>
+    <script src="{{ asset('fullcalendar/moment/moment.min.js') }}"></script>
           <script>
                 document.addEventListener('DOMContentLoaded', function() {
 
                     var calendarEl = document.getElementById('calendar');
+                    var response = document.getElementById('response');
+                    var modal = document.getElementById("showevent");
+                    var modalcontent = document.getElementById("modalcontent");
                     var locale_lang = "{{app()->getLocale()}}";
                     var SITEURL = "{{url('/home/calendar')}}";
                     var ID = "{{Auth::id()}}";
+
 
                     var calendar = new FullCalendar.Calendar(calendarEl, {
                         plugins: [ 'interaction', 'dayGrid', 'timeGrid','bootstrap' ],
@@ -75,6 +90,7 @@
                         timeZone: 'Europe/Madrid',
                         themeSystem: 'bootstrap',
                         height: 'auto',
+                        eventColor: '#378006',
                         events: [
 
                                 @foreach($events as $event)
@@ -140,27 +156,31 @@
                                             displayMessage("@lang('global.eventdeletedsuccessfully')");
                                     }
                                 });
+                                info.event.remove();
                             }
-                            info.event.remove();
                         },
+                        eventMouseEnter: function(info){
+                           //modal.style.display = "block";
+                           //modalcontent.innerHTML=
+                           //"<p>"+info.event.title+"</p>";
+                        },
+                        eventMouseLeave: function(info){
+                            //modal.style.display = "none";
+                        },
+
                         //Update an event
                         eventDrop: function (info) {
-                            console.log(info);
-                             var start = calendar.formatDate(info.event.start, {
-                                month: 'numeric',
-                                year: 'numeric',
-                                day: 'numeric'
-                              });
-                             //var end = formatDate(event.end, "Y-MM-DD HH:mm:ss");
-                            alert(info.event.title + " was dropped on " + info.event.start);
-                            var dropMsg = confirm("@lang('global.eventdeleteconfirm')");
+                            var start = moment(info.event.start).format('YYYY-MM-DD HH:mm:ss');
+                            var end = moment(info.event.end).format('YYYY-MM-DD HH:mm:ss');
+                            //alert(info.event.title + "@lang('global.eventdropinfo')" + start);
+                            var dropMsg = confirm("@lang('global.eventdroppedconfirm')");
                             if (dropMsg) {
                                 $.ajax({
                                     headers: {
                                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                     },
                                     url: SITEURL + '/update',
-                                    data:{id:info.event.id,user_id:info.event.extendedProps.user_id, title:info.event.title, location:info.event.extendedProps.location,start:start,end:info.end},
+                                    data:{id:info.event.id,user_id:info.event.extendedProps.user_id, title:info.event.title, location:info.event.extendedProps.location,start:start,end:end},
                                     type: "POST",
                                     success: function (response) {
                                         displayMessage("@lang('global.eventupdated')");
@@ -176,9 +196,12 @@
                     calendar.render();
 
                     function displayMessage(message) {
-                        $(".response").html("<div class='alert alert-success' role='alert'>"+message+"</div>");
-                        setInterval(function() { $(".success").fadeOut(); }, 1000);
-                      }
+                        response.innerHTML = "<div class='alert alert-success' role='alert'>"+message+"</div>";
+                        setTimeout(function(){
+                            response.innerHTML = '';
+                        }, 2000);
+
+                    }
 
                 });
 
