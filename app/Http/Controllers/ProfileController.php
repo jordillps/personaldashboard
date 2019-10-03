@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Rules\StrengthPassword;
 
 class ProfileController extends Controller
 {
@@ -19,11 +20,21 @@ class ProfileController extends Controller
     public function update (Request $request) {
 		$this->validate(request(), [
 			'password' => ['confirmed', new StrengthPassword]
-		]);
+        ]);
+
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
 
         $user = auth()->user();
         $user->name = $request->name;
         $user->email = $request->email;
+
+        //Avatar
+        $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+        $request->avatar->storeAs('avatars',$avatarName);
+        $user->avatar = $avatarName;
+
         $user->password = bcrypt(request('password'));
         $user->phone = $request->phone;
         $user->postalcode = $request->postalcode;

@@ -61,6 +61,7 @@ return [
     'confirmpassword'=>'Confirm password',
     'postalcode'=> 'Postal Code',
     'city'=>'City',
-    'update' =>'Update Profile'
+    'update' =>'Update Profile',
+    'updatepassword'=>'Update password'
 
 ];

@@ -24,9 +24,9 @@
             <div class="container">
                     <div class="card-header">@lang('global.profile')</div>
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-9">
                         <div class="card-body">
-                            <form form method="POST" action="{{ route('home.profile.update') }}" novalidate>
+                            <form form method="POST" action="{{ route('home.profile.update') }}" novalidate enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                 <div class="form-group">
@@ -97,39 +97,58 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                <div class="form-group">
+                                    <div class="form-label-group">
+                                        <input type="file" class="custom-file-input{{ $errors->has('picture') ? ' is-invalid' : ''}}"
+                                            id="avatar" name="avatar"/>
+                                        <label class="custom-file-label" for="picture">
+                                                {{ __("Escoge una imagen para tu curso") }}
+                                        </label>
+                                    </div>
+                                </div>
                                 <hr>
                                 <div class="form-group">
                                     <div class="form-row">
                                         <div class="col-md-6">
                                         <div class="form-label-group">
-                                            <input type="password" id="inputPassword" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                            <input type="password" id="inputPassword" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
+                                            name="password" value="{{ old('password') ?: $user->password }}" required readonly>
+                                            @if ($errors->has('password'))
+                                                <span class="invalid-feedback">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                            @endif
                                             <label for="inputPassword">@lang('global.password')</label>
                                         </div>
                                         </div>
                                         <div class="col-md-6">
                                         <div class="form-label-group">
-                                            <input type="password" id="confirmPassword" class="form-control" name="password_confirmation" required="required">
+                                            <input type="password" id="confirmPassword" class="form-control"
+                                            name="password_confirmation" value="{{ old('password') ?: $user->password }}" required readonly>
                                             <label for="confirmPassword">@lang('global.confirmpassword')</label>
                                         </div>
                                         </div>
                                     </div>
+                                    <button type="button" class="btn btn-outline-primary btn-sm" id="allowupdatepassword" >@lang('global.updatepassword')</button>
                                 </div>
-                                <button type="submit" class="btn btn-primary">@lang('global.update')</button>
+                                <hr>
+                                <button type="submit" class="btn btn-primary btn-lg">@lang('global.update')</button>
                             </form>
+
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                        <div class="card" >
+                            <img class="rounded-circle" src="/storage/avatars/{{ $user->avatar }}" />
                             <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                     <!-- badge -->
+                                <div class="rank-label-container">
+                                    <span class="label label-default rank-label">{{$user->name}}</span>
+                                </div>
                             </div>
+                        </div>
                     </div>
-                </div>
-
-
-
-
-
                 </div>
             </div>
 
@@ -147,6 +166,26 @@
     </div>
     <!-- /.content-wrapper -->
 @endsection
+
+@push('scripts')
+ <script>
+     window.addEventListener('DOMContentLoaded', function(){
+        var button = document.querySelector("#allowupdatepassword");
+
+        button.addEventListener('click',function(){
+			document.getElementById("inputPassword").removeAttribute("readonly");
+            document.getElementById("confirmPassword").removeAttribute("readonly");
+            document.getElementById("inputPassword").removeAttribute("value");
+            document.getElementById("confirmPassword").removeAttribute("value");
+		});
+
+
+
+    });
+
+ </script>
+
+@endpush
 
 
 
