@@ -25,7 +25,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/tables', 'TablesController@index')->name('home.tables');
         Route::get('/charts', 'ChartsController@index')->name('home.charts');
 
-        Route::get('/profile', 'ProfileController@index')->name('home.profile');
+        Route::get('/profile', 'ProfileController@index')->name('home.profile.index');
+        Route::post('/profile', 'ProfileController@update')->name('home.profile.update');
 
         Route::group(["prefix" => "calendar"], function() {
             Route::get('/','CalendarController@index')->name('home.calendar');

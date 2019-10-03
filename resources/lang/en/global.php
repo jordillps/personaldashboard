@@ -41,6 +41,8 @@ return [
     'select language'=>'Language',
     'spanish' =>'Spanish',
     'english'=>'English',
+
+    //Calendar
     'search' =>'Search for...',
     'calendar' => 'Calendar',
     'eventadded'=>'Event added',
@@ -48,5 +50,17 @@ return [
     'locationevent'=>'Location',
     'eventupdated'=>'Event updated',
     'eventdeleteconfirm' => 'Do you really want to delete?',
-    'eventdeletedsuccessfully' => 'Deleted Successfully'
+    'eventdeletedsuccessfully' => 'Deleted Successfully',
+
+    //Profile
+    'firstname' => 'Firstname',
+    'lastname' => 'Lastname',
+    'emailaddress'=>'Email Address',
+    'telephone'=> 'Telephone',
+    'password'=> 'Password',
+    'confirmpassword'=>'Confirm password',
+    'postalcode'=> 'Postal Code',
+    'city'=>'City',
+    'update' =>'Update Profile'
+
 ];

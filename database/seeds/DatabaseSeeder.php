@@ -18,15 +18,15 @@ class DatabaseSeeder extends Seeder
 
         factory(\App\User::class, 1)->create([
             'role_id' => \App\Role::ADMIN,
-        	'name' => 'admin',
+            'name' => 'Jordi Llobet',
 	        'email' => 'admin@mail.com',
 	        'password' => bcrypt('secret')
         ]);
 
         factory(\App\User::class, 1)->create([
             'role_id' => \App\Role::USER,
-        	'name' => 'user',
-	        'email' => 'user@mail.com',
+            'name' => 'Joan Pérez',
+	        'email' => 'joanperez@mail.com',
 	        'password' => bcrypt('secret')
         ]);
     }

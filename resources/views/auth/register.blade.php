@@ -14,10 +14,10 @@
             <form method="POST" action="{{ route('register') }}">
                     @csrf
               <div class="form-label-group">
-                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                    name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                    <label for="name">{{ __('Name') }}</label>
-                    @error('name')
+                    <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror"
+                    name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
+                    <label for="firstname">{{ __('FisrtName') }}</label>
+                    @error('firstname')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

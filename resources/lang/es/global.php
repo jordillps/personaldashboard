@@ -42,6 +42,8 @@ return [
     'spanish' =>'Español',
     'english'=>'Inglés',
     'search' => 'Buscar...',
+
+    //Calendar
     'calendar' =>'Calendario',
     'eventadded'=>'Evento añadido correctamente',
     'titleevent' =>'Título del evento',
@@ -51,5 +53,16 @@ return [
     'eventdeletedsuccessfully' => 'Evento borrado correctamente',
     'eventdropinfo' =>'se ha modificado al ',
     'eventdroppedconfirm' => 'Seguro que quiere modificar el evento?',
+
+    //Profile
+    'firstname' => 'Nombre',
+    'lastname' => 'Apellidos',
+    'emailaddress'=>'Correo electrónico',
+    'telephone'=> 'Teléfono',
+    'password'=> 'Contraseña',
+    'confirmpassword'=>'Confirma contraseña',
+    'postalcode'=> 'Código Postal',
+    'city'=>'Ciudad',
+    'update' =>'Actualiza Perfil'
 
 ];

@@ -22,53 +22,116 @@
             </div>
 
             <div class="container">
-                    <div class="card card-register mx-auto mt-5">
-                      <div class="card-header">@lang('global.profile')</div>
-                      <div class="card-body">
-                        <form>
-                          <div class="form-group">
-                            <div class="form-row">
-                              <div class="col-md-6">
-                                <div class="form-label-group">
-                                  <input type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
-                                  <label for="firstName">First name</label>
+                    <div class="card-header">@lang('global.profile')</div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <form form method="POST" action="{{ route('home.profile.update') }}" novalidate>
+                                    @csrf
+                                    @method('PUT')
+                                <div class="form-group">
+                                        <div class="form-label-group">
+                                                <input  id="inputName" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
+                                                name="name" value="{{ old('name') ?: $user->name }}" required autofocus/>
+                                                @if($errors->has('name'))
+                                                    <span class="invalid-feedback">
+                                                        <strong>{{ $errors->first('name') }}</strong>
+                                                    </span>
+                                                @endif
+                                            <label for="inputName">@lang('global.firstname')</label>
+                                        </div>
                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-label-group">
-                                  <input type="text" id="lastName" class="form-control" placeholder="Last name" required="required">
-                                  <label for="lastName">Last name</label>
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="form-label-group">
+                                                    <input  id="inputEmail" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
+                                                    name="email" value="{{ old('email') ?: $user->email }}" required autofocus/>
+                                                    @if($errors->has('email'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('email') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                <label for="inputEmail">@lang('global.emailaddress')</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-label-group">
+                                                    <input  id="inputPhone" type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"
+                                                    name="phone" value="{{ old('phone') ?: $user->phone }}" autofocus/>
+                                                    @if($errors->has('phone'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('phone') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                <label for="inputPhone">@lang('global.telephone')</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <div class="form-label-group">
-                              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="required">
-                              <label for="inputEmail">Email address</label>
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <div class="form-row">
-                              <div class="col-md-6">
-                                <div class="form-label-group">
-                                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="required">
-                                  <label for="inputPassword">Password</label>
+                                <div class="form-group">
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="form-label-group">
+                                                        <input  id="inputPostalCode" type="text" class="form-control{{ $errors->has('postalcode') ? ' is-invalid' : '' }}"
+                                                        name="postalcode" value="{{ old('postalcode') ?: $user->postalcode }}" autofocus/>
+                                                        @if($errors->has('postalcode'))
+                                                            <span class="invalid-feedback">
+                                                                <strong>{{ $errors->first('postalcode') }}</strong>
+                                                            </span>
+                                                        @endif
+                                                    <label for="inputPostalCode">@lang('global.postalcode')</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-label-group">
+                                                        <input  id="inputCity" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}"
+                                                        name="city" value="{{ old('city') ?: $user->city }}" autofocus/>
+                                                        @if($errors->has('city'))
+                                                            <span class="invalid-feedback">
+                                                                <strong>{{ $errors->first('city') }}</strong>
+                                                            </span>
+                                                        @endif
+                                                    <label for="inputCity">@lang('global.city')</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <hr>
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                        <div class="form-label-group">
+                                            <input type="password" id="inputPassword" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                            <label for="inputPassword">@lang('global.password')</label>
+                                        </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                        <div class="form-label-group">
+                                            <input type="password" id="confirmPassword" class="form-control" name="password_confirmation" required="required">
+                                            <label for="confirmPassword">@lang('global.confirmpassword')</label>
+                                        </div>
+                                        </div>
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-label-group">
-                                  <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm password" required="required">
-                                  <label for="confirmPassword">Confirm password</label>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <a class="btn btn-primary btn-block" href="login.html">Register</a>
-                        </form>
-                      </div>
+                                <button type="submit" class="btn btn-primary">@lang('global.update')</button>
+                            </form>
+                        </div>
                     </div>
-                  </div>
+                    <div class="col-md-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            </div>
+                    </div>
+                </div>
+
+
+
+
+
+                </div>
+            </div>
 
 
 
@@ -85,25 +148,7 @@
     <!-- /.content-wrapper -->
 @endsection
 
-@push('scripts')
-    <script
-        src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-        crossorigin="anonymous"></script>
-    <script>
-        $(document).ready( function () {
-        $('#user_datatable').DataTable({
-            "language": {
-                "lengthMenu": "Muestra _MENU_ registros por página",
-                "zeroRecords": "No se han encontrado registros",
-                "info": "Mostrando página _PAGE_ de _PAGES_",
-                "infoEmpty": "No se han encontrado registros",
-                "infoFiltered": "(filtrado de _MAX_ registros totales)"
-            }
-            });
-        });
-    </script>
-@endpush
+
 
 
 
