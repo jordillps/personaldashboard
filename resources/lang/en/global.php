@@ -37,6 +37,7 @@ return [
     'name'=>'Name',
     'email'=>'Email',
     'created'=>'Created at',
+    'action'=> 'Action',
     'No users' =>'There is no users to show',
     'select language'=>'Language',
     'spanish' =>'Spanish',
@@ -62,6 +63,7 @@ return [
     'postalcode'=> 'Postal Code',
     'city'=>'City',
     'update' =>'Update Profile',
-    'updatepassword'=>'Update password'
+    'updatepassword'=>'Update password',
+    'imageprofile' => 'Choose an image profile. Max 2Mb',
 
 ];

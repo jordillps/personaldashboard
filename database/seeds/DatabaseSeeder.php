@@ -13,6 +13,10 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
+        Storage::deleteDirectory('avatars');
+
+        Storage::makeDirectory('avatars');
+
         factory(\App\Role::class, 1)->create(['name' => 'admin','description' =>'administrador']);
         factory(\App\Role::class, 1)->create(['name' => 'user','description' =>'usuario de la aplicación']);
 
@@ -29,5 +33,7 @@ class DatabaseSeeder extends Seeder
 	        'email' => 'joanperez@mail.com',
 	        'password' => bcrypt('secret')
         ]);
+
+        factory(\App\User::class, 20)->create();
     }
 }

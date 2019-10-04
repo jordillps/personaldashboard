@@ -17,15 +17,17 @@ class TablesController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        foreach($users as $user){
-            if($user->role_id == Role::USER){
-                $user->role_id = 'user';
-            }
-            if($user->role_id == Role::ADMIN){
-                $user->role_id = 'admin';
-            }
-        }
+        $users = User::with('role')->get();
         return view('tables',compact('users'));
+    }
+
+    public function destroy ($id) {
+        try {
+            $user= User::where('id', '=', $id)->first();
+            $user->delete();
+			return back()->with('message', ['success', __("Usuario profesor eliminado correctamente")]);
+		} catch (\Exception $exception) {
+			return back()->with('message', ['danger', __("Error eliminando el profesor")]);
+		}
     }
 }

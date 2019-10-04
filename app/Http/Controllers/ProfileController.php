@@ -23,9 +23,12 @@ class ProfileController extends Controller
         ]);
 
         $request->validate([
-            'name' => 'required|min:5',
+            'name' => ['required', 'regex:/^[A-ZÀÂÇÉÈÊËÎÏÔÛÙÜŸÑa-zàâçéèêëîïôûùüÿñ. ]+$/','min:4'],
             'email' =>  'required',
             'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'phone' => 'nullable|digits:9',
+            'postalcode' => 'nullable|digits:5',
+            'city' => ['nullable', 'regex:/^[A-ZÀÂÇÉÈÊËÎÏÔÛÙÜŸÑa-zàâçéèêëîïôûùüÿñ. ]+$/'],
         ]);
 
         $user = auth()->user();

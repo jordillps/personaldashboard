@@ -24,10 +24,10 @@
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2">{{auth()->user()->name}}</span>
-                @if(auth()->user()->avatar != 'user.jpg')
-                    <img height="30" width="30" src="/storage/avatars/{{ auth()->user()->avatar }}" />
-                @else
+                @if(auth()->user()->avatar == 'avatar_nopicture.jpg')
                     <i class="fas fa-user-circle fa-fw"></i>
+                @else
+                    <img height="30" width="30" src="/storage/avatars/{{ auth()->user()->avatar }}" />
                 @endif
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">

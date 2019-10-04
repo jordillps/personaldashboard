@@ -31,15 +31,6 @@
         <div class="container">
             <div id="response"></div>
             <div id='calendar'>
-                <!-- The Modal -->
-                {{-- <div id="showevent" class="modal"> --}}
-
-                    <!-- Modal content -->
-                    {{-- <div id="modalcontent" class="modal-content" > --}}
-                        {{-- <p>Some text in the Modal..</p> --}}
-                    {{-- </div> --}}
-
-                {{-- </div> --}}
             </div>
         </div>
 
@@ -72,8 +63,6 @@
 
                     var calendarEl = document.getElementById('calendar');
                     var response = document.getElementById('response');
-                    var modal = document.getElementById("showevent");
-                    var modalcontent = document.getElementById("modalcontent");
                     var locale_lang = "{{app()->getLocale()}}";
                     var SITEURL = "{{url('/home/calendar')}}";
                     var ID = "{{Auth::id()}}";
@@ -158,14 +147,6 @@
                                 });
                                 info.event.remove();
                             }
-                        },
-                        eventMouseEnter: function(info){
-                           //modal.style.display = "block";
-                           //modalcontent.innerHTML=
-                           //"<p>"+info.event.title+"</p>";
-                        },
-                        eventMouseLeave: function(info){
-                            //modal.style.display = "none";
                         },
 
                         //Update an event

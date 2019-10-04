@@ -109,7 +109,7 @@
                                         <input type="file" class="custom-file-input{{ $errors->has('picture') ? ' is-invalid' : ''}}"
                                             id="avatar" name="avatar"/>
                                         <label class="custom-file-label" for="picture">
-                                                {{ __("Escoge una imagen para tu curso") }}
+                                                @lang('global.imageprofile')
                                         </label>
                                     </div>
                                 </div>
@@ -148,11 +148,7 @@
                         <div class="row justify-content-center">
                             <div class="profile-header-container">
                                 <div class="profile-header-img my-3">
-                                    @if(auth()->user()->avatar != 'user.jpg')
-                                        <img class="rounded-circle" src="/storage/avatars/{{ $user->avatar }}" />
-                                    @else
-                                        <i class="fas fa-user-circle fa-fw"></i>
-                                    @endif
+                                    <img class="rounded-circle img-thumbnail" height="200" width="200" src="/storage/avatars/{{ $user->avatar }}" />
                                     <!-- badge -->
                                     <div class="rank-label-container text-center text-primary font-weight-bold my-3">
                                         <span class="label label-default rank-label">{{$user->name}}</span>

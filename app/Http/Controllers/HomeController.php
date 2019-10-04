@@ -32,14 +32,7 @@ class HomeController extends Controller
         // ->get();
         // return view('home',compact('users'));
 
-        $users = User::all();
-        foreach($users as $user){
-            if($user->role_id == Role::USER){
-                $user->role_id = 'user';
-            }elseif($user->role_id == Role::ADMIN){
-                $user->role_id = 'admin';
-            }
-        }
+        $users = User::with('role')->get();
         return view('tables',compact('users'));
 
     }

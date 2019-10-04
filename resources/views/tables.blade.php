@@ -22,6 +22,12 @@
         </ol>
 
         <!-- DataTables -->
+        {{-- @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+            </div>
+        @endif --}}
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
@@ -36,6 +42,7 @@
                         <th>@lang('global.name')</th>
                         <th>@lang('global.email')</th>
                         <th>@lang('global.created')</th>
+                        <th>@lang('global.action')</th>
                     </tr>
                     </thead>
                     <tfoot>
@@ -45,16 +52,24 @@
                         <th>@lang('global.name')</th>
                         <th>@lang('global.email')</th>
                         <th>@lang('global.created')</th>
+                        <th>@lang('global.action')</th>
                     </tr>
                     </tfoot>
                     <tbody>
                     @forelse ($users as $user)
                     <tr>
                         <td>{{$user->id}}</td>
-                        <td>{{$user->role_id}}</td>
+                        <td>{{$user->role->name}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{ Carbon\Carbon::parse($user->created_at)->format('d-m-Y') }}</td>
+                        <td>
+                            <form action="{{ route('home.tables.destroy', ['id' => $user->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                            </form>
+                        </td>
                     </tr>
                     @empty
                         <p>@lang('global.No users')</p>
