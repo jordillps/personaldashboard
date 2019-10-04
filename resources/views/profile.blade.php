@@ -26,6 +26,12 @@
                 <div class="row">
                     <div class="col-md-9">
                         <div class="card-body">
+                            @if ($message = Session::get('success'))
+                                <div class="alert alert-success alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @endif
                             <form form method="POST" action="{{ route('home.profile.update') }}" novalidate enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
@@ -139,12 +145,18 @@
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <div class="card" >
-                            <img class="rounded-circle" src="/storage/avatars/{{ $user->avatar }}" />
-                            <div class="card-body">
-                                     <!-- badge -->
-                                <div class="rank-label-container">
-                                    <span class="label label-default rank-label">{{$user->name}}</span>
+                        <div class="row justify-content-center">
+                            <div class="profile-header-container">
+                                <div class="profile-header-img my-3">
+                                    @if(auth()->user()->avatar != 'user.jpg')
+                                        <img class="rounded-circle" src="/storage/avatars/{{ $user->avatar }}" />
+                                    @else
+                                        <i class="fas fa-user-circle fa-fw"></i>
+                                    @endif
+                                    <!-- badge -->
+                                    <div class="rank-label-container text-center text-primary font-weight-bold my-3">
+                                        <span class="label label-default rank-label">{{$user->name}}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

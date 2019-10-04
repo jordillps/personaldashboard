@@ -23,7 +23,9 @@ class ProfileController extends Controller
         ]);
 
         $request->validate([
-            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name' => 'required|min:5',
+            'email' =>  'required',
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $user = auth()->user();
@@ -31,15 +33,18 @@ class ProfileController extends Controller
         $user->email = $request->email;
 
         //Avatar
-        $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
-        $request->avatar->storeAs('avatars',$avatarName);
-        $user->avatar = $avatarName;
+        if($request->avatar != null){
+            $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+            $request->avatar->storeAs('avatars',$avatarName);
+            $user->avatar = $avatarName;
+        }
+
 
         $user->password = bcrypt(request('password'));
         $user->phone = $request->phone;
         $user->postalcode = $request->postalcode;
         $user->city = $request->city;
 		$user->save();
-	    return back()->with('message', ['success', __("Usuario actualizado correctamente")]);
+        return back()->with('success', "Usuario actualizado correctamente");
     }
 }

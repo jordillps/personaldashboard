@@ -23,7 +23,12 @@
     <ul class="navbar-nav ml-auto ml-md-0">
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                @lang('global.welcome')<span>{{auth()->user()->name}}</span><i class="fas fa-user-circle fa-fw"></i>
+                <span class="mr-2">{{auth()->user()->name}}</span>
+                @if(auth()->user()->avatar != 'user.jpg')
+                    <img height="30" width="30" src="/storage/avatars/{{ auth()->user()->avatar }}" />
+                @else
+                    <i class="fas fa-user-circle fa-fw"></i>
+                @endif
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <a class="dropdown-item" href="{{ route('home.profile.index') }}">@lang('global.profile')</a>
