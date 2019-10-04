@@ -60,6 +60,7 @@ return [
     'lastname' => 'Apellidos',
     'emailaddress'=>'Correo electrónico',
     'telephone'=> 'Teléfono',
+    'birthdate'=> 'Fecha nacimiento',
     'password'=> 'Contraseña',
     'confirmpassword'=>'Confirma contraseña',
     'postalcode'=> 'Código Postal',

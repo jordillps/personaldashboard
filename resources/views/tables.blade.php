@@ -41,7 +41,7 @@
                         <th>@lang('global.role')</th>
                         <th>@lang('global.name')</th>
                         <th>@lang('global.email')</th>
-                        <th>@lang('global.created')</th>
+                        <th>@lang('global.birthdate')</th>
                         <th>@lang('global.action')</th>
                     </tr>
                     </thead>
@@ -51,7 +51,7 @@
                         <th>@lang('global.role')</th>
                         <th>@lang('global.name')</th>
                         <th>@lang('global.email')</th>
-                        <th>@lang('global.created')</th>
+                        <th>@lang('global.birthdate')</th>
                         <th>@lang('global.action')</th>
                     </tr>
                     </tfoot>
@@ -62,7 +62,7 @@
                         <td>{{$user->role->name}}</td>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
-                        <td>{{ Carbon\Carbon::parse($user->created_at)->format('d-m-Y') }}</td>
+                        <td>{{ Carbon\Carbon::parse($user->birthdate)->format('d-m-Y') }}</td>
                         <td>
                             <form action="{{ route('home.tables.destroy', ['id' => $user->id]) }}" method="POST">
                                     @csrf

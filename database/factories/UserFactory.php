@@ -21,6 +21,7 @@ $factory->define(User::class, function (Faker $faker) {
         'name' => $faker->name,
         'role_id' => \App\Role::USER,
         'email' => $faker->unique()->safeEmail,
+        //'birthdate' => date($format = 'Y-m-d', $max = 'now'),
         'email_verified_at' => now(),
         'password' => bcrypt('secret'), // password
         'remember_token' => Str::random(10),

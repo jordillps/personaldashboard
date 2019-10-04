@@ -61,7 +61,7 @@
                                                 <label for="inputEmail">@lang('global.emailaddress')</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <div class="form-label-group">
                                                     <input  id="inputPhone" type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"
                                                     name="phone" value="{{ old('phone') ?: $user->phone }}" autofocus/>
@@ -71,6 +71,18 @@
                                                         </span>
                                                     @endif
                                                 <label for="inputPhone">@lang('global.telephone')</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-label-group">
+                                                    <input  id="inputBirthDate" type="date" class="form-control{{ $errors->has('birthdate') ? ' is-invalid' : '' }}"
+                                                    name="birthdate" value="{{ old('birthdate') ?: $user->birthdate }}" autofocus/>
+                                                    @if($errors->has('birthdate'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('birthdate') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                <label for="inputBirthDate">@lang('global.birthdate')</label>
                                             </div>
                                         </div>
                                     </div>

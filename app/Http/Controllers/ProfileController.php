@@ -45,6 +45,7 @@ class ProfileController extends Controller
 
         $user->password = bcrypt(request('password'));
         $user->phone = $request->phone;
+        $user->birthdate = $request->birthdate;
         $user->postalcode = $request->postalcode;
         $user->city = $request->city;
 		$user->save();

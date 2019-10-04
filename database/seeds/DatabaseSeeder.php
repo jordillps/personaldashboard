@@ -23,14 +23,16 @@ class DatabaseSeeder extends Seeder
         factory(\App\User::class, 1)->create([
             'role_id' => \App\Role::ADMIN,
             'name' => 'Jordi Llobet',
-	        'email' => 'admin@mail.com',
+            'email' => 'admin@mail.com',
+            //'birthdate' => date($format = 'Y-m-d', $max = 'now'),
 	        'password' => bcrypt('secret')
         ]);
 
         factory(\App\User::class, 1)->create([
             'role_id' => \App\Role::USER,
             'name' => 'Joan Pérez',
-	        'email' => 'joanperez@mail.com',
+            'email' => 'joanperez@mail.com',
+            //'birthdate' => date($format = 'Y-m-d', $max = 'now'),
 	        'password' => bcrypt('secret')
         ]);
 
