@@ -22,19 +22,22 @@
         </ol>
 
         <!-- Area Chart Example-->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-chart-area"></i>
-            Area Chart Example</div>
-          <div class="card-body">
-            <canvas id="myAreaChart" width="100%" height="30"></canvas>
-          </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-        </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fas fa-chart-area"></i>
+                             Chart 1
+                        </div>
+                        <div class="card-body">
+                                {!! $userschart->container() !!}
+                        </div>
+                         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                        </div>
+                    </div>
+                </div>
 
-
-
-      </div>
+            </div>
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
@@ -49,6 +52,11 @@
     </div>
     <!-- /.content-wrapper -->
 @endsection
+
+@push('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+    {!! $userschart->script() !!}
+@endpush
 
 
 

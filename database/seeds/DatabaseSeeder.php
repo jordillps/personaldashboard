@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'role_id' => \App\Role::ADMIN,
             'name' => 'Jordi Llobet',
             'email' => 'admin@mail.com',
-            //'birthdate' => new Date(1972,09,14),
+            'birthdate' => new DateTime("1972/09/14"),
 	        'password' => bcrypt('secret')
         ]);
 
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'role_id' => \App\Role::USER,
             'name' => 'Joan Pérez',
             'email' => 'joanperez@mail.com',
-            //'birthdate' => new Date(2000,12,14),
+            'birthdate' => new DateTime("2000/12/14"),
 	        'password' => bcrypt('secret')
         ]);
 

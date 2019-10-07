@@ -163,7 +163,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
         PragmaRX\Health\ServiceProvider::class,
-        ConsoleTVs\Charts\ChartsServiceProvider::class,
 
         /*
          * Package Service Providers...
