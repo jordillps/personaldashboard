@@ -11,18 +11,18 @@
 @section('content')
     <div id="content-wrapper">
 
-      <div class="container-fluid">
+        <div class="container-fluid">
 
-        <!-- Breadcrumbs-->
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
-            <a href="#">@lang('global.charts')</a>
-          </li>
-          {{-- <li class="breadcrumb-item active">Overview</li> --}}
-        </ol>
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">@lang('global.charts')</a>
+            </li>
+            {{-- <li class="breadcrumb-item active">Overview</li> --}}
+            </ol>
 
         <!-- Area Chart Example-->
-            <div class="row">
+            <div class="row mx-auto">
                 <div class="col-md-6">
                     <div class="card mb-3">
                         <div class="card-header">
@@ -30,14 +30,28 @@
                              Chart 1
                         </div>
                         <div class="card-body">
-                                {!! $userschart->container() !!}
+                                {!! $userschartbar->container() !!}
                         </div>
                          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
                         </div>
                     </div>
                 </div>
-
+                <div class="col-md-6">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <i class="fas fa-chart-area"></i>
+                                Chart 2
+                        </div>
+                        <div class="card-body">
+                                {!! $userschartdoughnut->container() !!}
+                        </div>
+                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
@@ -55,7 +69,8 @@
 
 @push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
-    {!! $userschart->script() !!}
+    {!! $userschartbar->script() !!}
+    {!! $userschartdoughnut->script() !!}
 @endpush
 
 

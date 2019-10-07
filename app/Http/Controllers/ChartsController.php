@@ -24,11 +24,16 @@ class ChartsController extends Controller
                              ->count();
         $youngest_users = User::whereDate('birthdate', '>', '2000-01-01')
                             ->count();
-        $userschart = new UsersChart;
-        $userschart->labels(['Old', 'Young', 'Youngest']);
-        $userschart->dataset('My dataset', 'bar', [$old_users, $young_users, $youngest_users]);
-        $userschart->title("Users Age");
+        $userschartbar = new UsersChart;
+        $userschartbar->labels(['>30', '30-20', '<20']);
+        $userschartbar->dataset('Number of users', 'bar', [$old_users, $young_users, $youngest_users]);
+        $userschartbar->title("Users Age");
 
-        return view('charts', compact('userschart'));
+        $userschartdoughnut = new UsersChart;
+        $userschartdoughnut->labels(['>30', '30-20', '<20']);
+        $userschartdoughnut->dataset('Number of users', 'doughnut', [$old_users, $young_users, $youngest_users]);
+        $userschartdoughnut->title("Users Age");
+
+        return view('charts', compact('userschartbar','userschartdoughnut'));
     }
 }
