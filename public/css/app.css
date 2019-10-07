@@ -12283,7 +12283,7 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 body {
-  background-image: url(/images/apple-background-connection-399161.jpg?c14a7f36ec82bd92c7efb91abc18877b);
+  background-image: url(/images/apple-background-connection-399161.jpg?d41d8cd98f00b204e9800998ecf8427e);
 }
 
 .card-signin {
@@ -12321,6 +12321,11 @@ body {
 }
 
 .form-label-group input {
+  height: auto;
+  border-radius: 2rem;
+}
+
+.custom-file-input {
   height: auto;
   border-radius: 2rem;
 }

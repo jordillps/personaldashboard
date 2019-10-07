@@ -80,6 +80,7 @@
                         themeSystem: 'bootstrap',
                         height: 'auto',
                         eventColor: '#378006',
+                        eventBorderColor: '#000',
                         events: [
 
                                 @foreach($events as $event)
@@ -94,6 +95,19 @@
                                 @endforeach
 
                         ],
+                        eventTimeFormat: { // like '14:30:00'
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: false,
+                        },
+                        //eventRender: function(info) {
+                            //var tooltip = new Tooltip(info.el, {
+                              //title: info.event.extendedProps.description,
+                              //placement: 'top',
+                              //trigger: 'hover',
+                              //container: 'body'
+                            //});
+                          //},
                         defaultDate: new Date(),
                         navLinks: true, // can click day/week names to navigate views
                         selectable: true,

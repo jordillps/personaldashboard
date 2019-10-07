@@ -6,7 +6,7 @@
           <span>@lang('global.dashboard')</span>
         </a>
       </li>
-      <li class="nav-item dropdown">
+      {{--  <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
           <span>@lang('global.pages')</span>
@@ -21,7 +21,7 @@
           <a class="dropdown-item" href="404.html">404 Page</a>
           <a class="dropdown-item" href="blank.html">Blank Page</a>
         </div>
-      </li>
+      </li>  --}}
       <li class="nav-item">
         <a class="nav-link" href="{{ route('home.charts')}}">
           <i class="fas fa-fw fa-chart-area"></i>
