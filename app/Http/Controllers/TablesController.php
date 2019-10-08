@@ -31,7 +31,7 @@ class TablesController extends Controller
 		}
     }
 
-    public function export(){
-        return Excel::download(new UsersExport, 'users.ods');
-    }
+    // public function export(){
+    //     return Excel::download(new UsersExport, 'users.ods');
+    // }
 }

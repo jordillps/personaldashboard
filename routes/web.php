@@ -23,7 +23,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::group(["prefix" => "home"], function() {
         Route::get('/', 'HomeController@index')->name('home');
         Route::get('/tables', 'TablesController@index')->name('home.tables');
-        Route::get('/tables/export/', 'TablesController@export')->name('home.tables.export');
+        //Route::get('/tables/export/', 'TablesController@export')->name('home.tables.export');
         Route::delete('/tables/{id}', 'TablesController@destroy')->name('home.tables.destroy');
         Route::get('/charts', 'ChartsController@index')->name('home.charts');
 

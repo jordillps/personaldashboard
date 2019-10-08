@@ -33,9 +33,9 @@
             <i class="fas fa-table"></i>
             @lang('global.users')</div>
           <div class="card-body">
-              <div class="mb-3 text-right">
+              {{-- <div class="mb-3 text-right">
                     <button href="{{ route('home.tables.export') }}" type="button" class="btn btn-primary btn-sm">@lang('global.exportToExcel')</button>
-              </div>
+              </div> --}}
                 <div class="table-responsive">
                 <table class="table table-bordered" id="user_datatable" width="100%" cellspacing="0">
                     <thead>
