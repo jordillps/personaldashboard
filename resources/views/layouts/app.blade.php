@@ -39,7 +39,7 @@
             @endif
 
             <!-- Scroll to Top Button-->
-            <a class="scroll-to-top rounded" href=".">
+            <a class="scroll-to-top rounded" href="">
               <i class="fas fa-angle-up"></i>
             </a>
         </main>

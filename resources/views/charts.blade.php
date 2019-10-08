@@ -15,10 +15,9 @@
 
             <!-- Breadcrumbs-->
             <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="#">@lang('global.charts')</a>
-            </li>
-            {{-- <li class="breadcrumb-item active">Overview</li> --}}
+                <li class="breadcrumb-item">
+                    <a href="#">@lang('global.charts')</a>
+                </li>
             </ol>
 
         <!-- Area Chart Example-->
@@ -27,26 +26,24 @@
                     <div class="card mb-3">
                         <div class="card-header">
                             <i class="fas fa-chart-area"></i>
-                             Chart 1
+                             @lang('global.chart')
                         </div>
                         <div class="card-body">
                                 {!! $userschartbar->container() !!}
                         </div>
                          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card mb-3">
                         <div class="card-header">
                             <i class="fas fa-chart-area"></i>
-                                Chart 2
+                            @lang('global.chart')
                         </div>
                         <div class="card-body">
                                 {!! $userschartdoughnut->container() !!}
                         </div>
                         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-                        </div>
                     </div>
                 </div>
             </div>

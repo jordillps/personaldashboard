@@ -69,4 +69,7 @@ return [
     'updatepassword'=>'Actualiza password',
     'imageprofile' => 'Escoge una imagen de perfil. Max 2Mb',
 
+    //Charts
+    'chart' => 'Gráfico',
+
 ];

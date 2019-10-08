@@ -67,4 +67,7 @@ return [
     'birthdate'=> 'Birth date',
     'imageprofile' => 'Choose an image profile. Max 2Mb',
 
+    //Charts
+    'chart' => 'Chart',
+
 ];
