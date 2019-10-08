@@ -43,6 +43,7 @@ return [
     'spanish' =>'Español',
     'english'=>'Inglés',
     'search' => 'Buscar...',
+    'exportToExcel' => 'Exportar a Excel',
 
     //Calendar
     'calendar' =>'Calendario',

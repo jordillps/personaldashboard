@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Role;
-use DB;
+use App\Exports\UsersExport;
 use Illuminate\Http\Request;
 
 class TablesController extends Controller
@@ -25,9 +25,13 @@ class TablesController extends Controller
         try {
             $user= User::where('id', '=', $id)->first();
             $user->delete();
-			return back()->with('message', ['success', __("Usuario profesor eliminado correctamente")]);
+			return back()->with('success', "Usuario eliminado correctamente");
 		} catch (\Exception $exception) {
-			return back()->with('message', ['danger', __("Error eliminando el profesor")]);
+			return back()->with('success', "Error al eliminar el usuario");
 		}
+    }
+
+    public function export(){
+        return Excel::download(new UsersExport, 'users.ods');
     }
 }

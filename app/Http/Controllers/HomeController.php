@@ -33,9 +33,11 @@ class HomeController extends Controller
         // return view('home',compact('users'));
 
         $users = User::with('role')->get();
-        return view('tables',compact('users'));
+        return view('home',compact('users'));
 
     }
+
+
 
 
 

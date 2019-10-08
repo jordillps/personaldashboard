@@ -22,17 +22,20 @@
         </ol>
 
         <!-- DataTables -->
-        {{-- @if ($message = Session::get('success'))
+        @if ($message = Session::get('success'))
             <div class="alert alert-success alert-block">
                 <button type="button" class="close" data-dismiss="alert">×</button>
                 <strong>{{ $message }}</strong>
             </div>
-        @endif --}}
+        @endif
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
             @lang('global.users')</div>
           <div class="card-body">
+              <div class="mb-3 text-right">
+                    <button href="{{ route('home.tables.export') }}" type="button" class="btn btn-primary btn-sm">@lang('global.exportToExcel')</button>
+              </div>
                 <div class="table-responsive">
                 <table class="table table-bordered" id="user_datatable" width="100%" cellspacing="0">
                     <thead>

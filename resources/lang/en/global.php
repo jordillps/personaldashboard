@@ -42,6 +42,7 @@ return [
     'select language'=>'Language',
     'spanish' =>'Spanish',
     'english'=>'English',
+    'exportToExcel' => 'Export to Excel',
 
     //Calendar
     'search' =>'Search for...',
