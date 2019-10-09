@@ -37,6 +37,7 @@ return [
     'name'=>'Name',
     'email'=>'Email',
     'created'=>'Created at',
+    'image'=>'Image',
     'action'=> 'Action',
     'No users' =>'There is no users to show',
     'select language'=>'Language',

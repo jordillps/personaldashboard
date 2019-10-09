@@ -37,7 +37,7 @@
                     <a href="{{ route('home.tables.export') }}" class="btn btn-primary btn-sm">@lang('global.exportToExcel')</a>
               </div>
                 <div class="table-responsive">
-                <table class="table table-bordered" id="user_datatable" width="100%" cellspacing="0">
+                <table class="table table-bordered table-hover" id="user_datatable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
                         <th>@lang('global.id')</th>
@@ -45,6 +45,7 @@
                         <th>@lang('global.name')</th>
                         <th>@lang('global.email')</th>
                         <th>@lang('global.birthdate')</th>
+                        <th>@lang('global.image')</th>
                         <th>@lang('global.action')</th>
                     </tr>
                     </thead>
@@ -55,6 +56,7 @@
                         <th>@lang('global.name')</th>
                         <th>@lang('global.email')</th>
                         <th>@lang('global.birthdate')</th>
+                        <th>@lang('global.image')</th>
                         <th>@lang('global.action')</th>
                     </tr>
                     </tfoot>
@@ -66,6 +68,7 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{ Carbon\Carbon::parse($user->birthdate)->format('d-m-Y') }}</td>
+                        <td><img class="img-thumbnail" height="70" width="70" src="/storage/avatars/{{ $user->avatar }}" /></td>
                         <td>
                             <form action="{{ route('home.tables.destroy', ['id' => $user->id]) }}" method="POST">
                                     @csrf
@@ -108,13 +111,10 @@
     <script>
         $(document).ready( function () {
         $('#user_datatable').DataTable({
-            "language": {
-                "lengthMenu": "Muestra _MENU_ registros por página",
-                "zeroRecords": "No se han encontrado registros",
-                "info": "Mostrando página _PAGE_ de _PAGES_",
-                "infoEmpty": "No se han encontrado registros",
-                "infoFiltered": "(filtrado de _MAX_ registros totales)"
-            }
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+                },
+
             });
         });
     </script>

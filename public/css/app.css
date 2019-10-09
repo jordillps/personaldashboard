@@ -12283,7 +12283,8 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 body {
-  background-image: url(/images/apple-background-connection-399161.jpg?d41d8cd98f00b204e9800998ecf8427e);
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
 }
 
 .card-signin {
@@ -12416,40 +12417,5 @@ body {
   .form-label-group input:-ms-input-placeholder {
     color: #777;
   }
-}
-
-/* The Modal Events in Calendar (background) */
-
-.modal {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
-  padding-top: 100px;
-  /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-}
-
-/* Modal Content */
-
-.modal-content {
-  background-color: #378006;
-  color: #fff;
-  -webkit-text-size-adjust: 1.5rem;
-     -moz-text-size-adjust: 1.5rem;
-      -ms-text-size-adjust: 1.5rem;
-          text-size-adjust: 1.5rem;
-  margin: auto;
-  padding: 15px;
-  width: 20%;
 }
 

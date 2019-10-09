@@ -37,6 +37,7 @@ return [
     'name'=>'Nombre',
     'email'=>'Email',
     'created'=>'Fecha de alta',
+    'image'=>'Imagen',
     'action'=> 'Acción',
     'No users' =>'No hay usuarios para mostrar',
     'select language'=>'Idioma',
