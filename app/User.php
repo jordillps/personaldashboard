@@ -38,9 +38,13 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
 
-    public function role()
-    {
-        return $this->belongsTo('App\Role'); // apply your namespace accordingly
+    public function role(){
+        return $this->belongsTo(Role::class); // apply your namespace accordingly
+    }
+
+    public function events(){
+        return $this->hasMany(Event::class);
+
     }
 
 
