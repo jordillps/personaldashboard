@@ -11,13 +11,13 @@
           </div>
           <div class="card-body">
             <h5 class="card-title text-center">{{ __('Register') }}</h5>
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('register') }}"novalidate>
                     @csrf
               <div class="form-label-group">
-                    <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror"
-                    name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
-                    <label for="firstname">{{ __('FisrtName') }}</label>
-                    @error('firstname')
+                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                    name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <label for="name">{{ __('Name') }}</label>
+                    @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

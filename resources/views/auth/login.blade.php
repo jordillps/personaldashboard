@@ -7,7 +7,7 @@
             <div class="card card-signin my-5">
               <div class="card-body">
                 <h5 class="card-title text-center">{{ __('Login') }}</h5>
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('login') }}" novalidate>
                         @csrf
                   <div class="form-label-group">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email"
