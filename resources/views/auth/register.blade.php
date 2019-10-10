@@ -55,12 +55,13 @@
               </div>
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">{{ __('Register') }}</button>
-              <a class="d-block text-center mt-2" href="{{ route('login') }}">{{ __('Login') }}</a>
-              <a class="d-block text-center mt-2" href="{{ route('welcome') }}">@lang('global.home')</a>
+            </form>
+              <hr class="my-4">
+              <a class="btn btn-outline-primary btn-block" href="{{ route('login') }}">{{ __('Login') }}</a>
+              <a class="btn btn-outline-primary btn-block" href="{{ route('welcome') }}">@lang('global.home')</a>
               <hr class="my-4">
               <button class="btn btn-lg btn-google btn-block" type="submit"><i class="fab fa-google mr-2"></i>@lang('global.Sign up with Google')</button>
               <button class="btn btn-lg btn-facebook btn-block" type="submit"><i class="fab fa-facebook-f mr-2"></i>@lang('global.Sign up with Facebook')</button>
-            </form>
           </div>
         </div>
       </div>
