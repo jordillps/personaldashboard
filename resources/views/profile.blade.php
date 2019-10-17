@@ -160,9 +160,14 @@
                         <div class="row justify-content-center">
                             <div class="profile-header-container">
                                 <div class="profile-header-img my-3">
-                                    <img class="rounded-circle img-thumbnail" height="200" width="200" src="/storage/avatars/{{ $user->avatar }}" />
+                                    @if(auth()->user()->avatar == 'avatar_nopicture.jpg')
+                                        <img class="rounded-circle img-thumbnail" height="200" width="200" src="/storage/avatars/avatar-icon.png" />
+                                    @else
+                                        <img class="rounded-circle img-thumbnail" height="200" width="200" src="/storage/avatars/{{ $user->avatar }}" />
+                                    @endif
+
                                     <!-- badge -->
-                                    <div class="rank-label-container text-center text-primary font-weight-bold my-3">
+                                    <div class="rank-label-container text-center font-weight-bold my-3">
                                         <span class="label label-default rank-label">{{$user->name}}</span>
                                     </div>
                                 </div>
