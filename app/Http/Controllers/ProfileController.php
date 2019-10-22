@@ -42,8 +42,9 @@ class ProfileController extends Controller
             $user->avatar = $avatarName;
         }
 
-
-        $user->password = bcrypt(request('password'));
+        if($user->password != $request->password ){
+            $user->password = bcrypt(request('password'));
+        }
         $user->phone = $request->phone;
         $user->birthdate = $request->birthdate;
         $user->postalcode = $request->postalcode;
