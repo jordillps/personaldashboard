@@ -38,7 +38,7 @@
                                 <div class="form-group">
                                         <div class="form-label-group">
                                                 <input  id="inputName" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                                name="name" value="{{ old('name') ?: $user->name }}" required autofocus/>
+                                                name="name" value="{{ old('name') ?: $user->name }}" autofocus/>
                                                 @if($errors->has('name'))
                                                     <span class="invalid-feedback">
                                                         <strong>{{ $errors->first('name') }}</strong>
@@ -52,7 +52,7 @@
                                         <div class="col-md-6">
                                             <div class="form-label-group">
                                                     <input  id="inputEmail" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                                    name="email" value="{{ old('email') ?: $user->email }}" required autofocus/>
+                                                    name="email" value="{{ old('email') ?: $user->email }}" autofocus/>
                                                     @if($errors->has('email'))
                                                         <span class="invalid-feedback">
                                                             <strong>{{ $errors->first('email') }}</strong>
@@ -131,7 +131,7 @@
                                         <div class="col-md-6">
                                         <div class="form-label-group">
                                             <input type="password" id="inputPassword" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
-                                            name="password" value="{{ old('password') ?: $user->password }}" required readonly>
+                                            name="password">
                                             @if ($errors->has('password'))
                                                 <span class="invalid-feedback">
                                                     <strong>{{ $errors->first('password') }}</strong>
@@ -143,12 +143,11 @@
                                         <div class="col-md-6">
                                         <div class="form-label-group">
                                             <input type="password" id="confirmPassword" class="form-control"
-                                            name="password_confirmation" value="{{ old('password') ?: $user->password }}" required readonly>
+                                            name="password_confirmation" >
                                             <label for="confirmPassword">@lang('global.confirmpassword')</label>
                                         </div>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn btn-outline-primary btn-sm" id="allowupdatepassword" >@lang('global.updatepassword')</button>
                                 </div>
                                 <hr>
                                 <button type="submit" class="btn btn-primary btn-lg">@lang('global.update')</button>
@@ -192,25 +191,7 @@
     <!-- /.content-wrapper -->
 @endsection
 
-@push('scripts')
- <script>
-     window.addEventListener('DOMContentLoaded', function(){
-        var button = document.querySelector("#allowupdatepassword");
 
-        button.addEventListener('click',function(){
-			document.getElementById("inputPassword").removeAttribute("readonly");
-            document.getElementById("confirmPassword").removeAttribute("readonly");
-            document.getElementById("inputPassword").removeAttribute("value");
-            document.getElementById("confirmPassword").removeAttribute("value");
-		});
-
-
-
-    });
-
- </script>
-
-@endpush
 
 
 

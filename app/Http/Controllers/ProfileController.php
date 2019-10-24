@@ -18,9 +18,6 @@ class ProfileController extends Controller
     }
 
     public function update (Request $request) {
-		$this->validate(request(), [
-			'password' => ['confirmed', new StrengthPassword]
-        ]);
 
         $request->validate([
             'name' => ['required', 'regex:/^[A-ZÀÂÇÉÈÊËÎÏÔÛÙÜŸÑa-zàâçéèêëîïôûùüÿñ. ]+$/','min:4'],
@@ -30,6 +27,14 @@ class ProfileController extends Controller
             'postalcode' => 'nullable|digits:5',
             'city' => ['nullable', 'regex:/^[A-ZÀÂÇÉÈÊËÎÏÔÛÙÜŸÑa-zàâçéèêëîïôûùüÿñ. ]+$/'],
         ]);
+
+        if($request->password != null){
+            $this->validate(request(), [
+                'password' => ['required','confirmed', new StrengthPassword],
+                'password_confirmation' => 'required',
+            ]);
+
+        }
 
         $user = auth()->user();
         $user->name = $request->name;
@@ -53,7 +58,7 @@ class ProfileController extends Controller
             $user->avatar = $avatarName;
         }
 
-        if($user->password != $request->password ){
+        if($request->password != $user->password){
             $user->password = bcrypt(request('password'));
         }
         $user->phone = $request->phone;

@@ -68,7 +68,7 @@ return [
     'postalcode'=> 'Código Postal',
     'city'=>'Ciudad',
     'update' =>'Actualiza Perfil',
-    'updatepassword'=>'Actualiza password',
+    'updatepassword'=>'Activar actualización password',
     'imageprofile' => 'Escoge una imagen de perfil. Max 2Mb',
 
     //Charts

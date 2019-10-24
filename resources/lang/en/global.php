@@ -65,7 +65,7 @@ return [
     'postalcode'=> 'Postal Code',
     'city'=>'City',
     'update' =>'Update Profile',
-    'updatepassword'=>'Update password',
+    'updatepassword'=>'activate password update',
     'birthdate'=> 'Birth date',
     'imageprofile' => 'Choose an image profile. Max 2Mb',
 
