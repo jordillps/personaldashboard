@@ -38,7 +38,18 @@ class ProfileController extends Controller
         //Avatar
         if($request->avatar != null){
             $avatarName = $user->id.'_avatar'.time().'.'.request()->avatar->getClientOriginalExtension();
+
+            //LocalHost
             $request->avatar->storeAs('avatars',$avatarName);
+
+            //Servidor
+            //$path = base_path();
+            //Personaldasboard:nom carpeta projecte
+            //httpdocs: nom carpeta principal al servidor
+			//$path = str_replace("personaldashboard", "httpdocs", $path);
+			//$destinationPath = $path . '/storage/avatars';
+			//$request->avatar->move($destinationPath, $avatarName);
+
             $user->avatar = $avatarName;
         }
 
