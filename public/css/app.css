@@ -12283,8 +12283,8 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 body {
-  background: #007bff;
-  background: linear-gradient(to right, #0062E6, #33AEFF);
+  background: #b9e1fb;
+  background: linear-gradient(to right, #65acfd, #b3e2fd);
 }
 
 .card-signin {
