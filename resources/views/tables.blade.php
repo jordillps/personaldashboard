@@ -68,13 +68,9 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{ Carbon\Carbon::parse($user->birthdate)->format('d-m-Y') }}</td>
-                        <td><img class="img-thumbnail" height="70" width="70" src="/storage/avatars/{{ $user->avatar }}" /></td>
+                        <td><img class="img-thumbnail" height="45" width="45" src="/storage/avatars/{{ $user->avatar }}" /></td>
                         <td>
-                            <form action="{{ route('home.tables.destroy', ['id' => $user->id]) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
-                            </form>
+                            <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUserConfirmation" data-user-id="{{ $user->id }}"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
                     @empty
@@ -89,6 +85,32 @@
 
       </div>
       <!-- /.container-fluid -->
+
+      <!-- Modal-->
+        <form action="" id="deleteUserForm" method="POST">
+            <div class="modal" id="deleteUserConfirmation" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                        @method('DELETE')
+                        @csrf
+                    <div class="modal-content">
+                    <div class="modal-header alert-warning">
+                        <h5 class="modal-title text-uppercase">@lang('global.deleteconfirmationtitle')</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>@lang('global.deleteconfirmationmessage')</p>
+                    </div>
+                    <div class="modal-footer alert-warning">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('global.deleteconfirmationcancel')</button>
+                        <button type="submit" class="btn btn-primary">@lang('global.deleteconfirmationdelete')</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- End Modal-->
 
       <!-- Sticky Footer -->
       <footer class="sticky-footer">
@@ -109,14 +131,39 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
     <script>
-        $(document).ready( function () {
-        $('#user_datatable').DataTable({
-                "language": {
-                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-                },
 
+        $(document).ready( function () {
+            var locale_lang = "{{app()->getLocale()}}";
+            switch(locale_lang) {
+                case 'en':
+                    var language_datatable = "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json";
+                    break;
+                case 'es':
+                    var language_datatable = "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json";
+                    break;
+                default:
+                    var language_datatable = "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json";
+            }
+            $('#user_datatable').DataTable({
+                    "language": {
+                        "url": language_datatable
+                    },
             });
+
+            $('#deleteUserForm').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                const id = 'id';
+                var route = "{{ route('home.tables.destroy', ['id' => 'id' ]) }}";
+                route = route.replace('id',button.data('user-id'));
+                $('#deleteUserForm').attr('action', route);
+            });
+
         });
+
+
+
+
+
     </script>
 @endpush
 

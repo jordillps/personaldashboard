@@ -72,4 +72,9 @@ return [
     //Charts
     'chart' => 'Chart',
 
+    //Tables
+    'deleteconfirmationtitle'=> 'Delete confirmation',
+    'deleteconfirmationmessage' => 'Are you sure to delete the user?',
+    'deleteconfirmationcancel' => 'Cancel',
+    'deleteconfirmationdelete' => 'Delete'
 ];

@@ -74,4 +74,10 @@ return [
     //Charts
     'chart' => 'Gráfico',
 
+    //Tables
+    'deleteconfirmationtitle'=> 'Confirmación de borrado de usuarios',
+    'deleteconfirmationmessage' => '¿Seguro que desea borrar el usuario?',
+    'deleteconfirmationcancel' => 'Cancelar',
+    'deleteconfirmationdelete' => 'Borrar'
+
 ];
