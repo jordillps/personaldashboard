@@ -29,7 +29,7 @@
                             @if ($message = Session::get('success'))
                                 <div class="alert alert-success alert-block">
                                     <button type="button" class="close" data-dismiss="alert">×</button>
-                                    <strong>{{ $message }}</strong>
+                                    <strong>@lang($message)</strong>
                                 </div>
                             @endif
                             <form form method="POST" action="{{ route('home.profile.update') }}" novalidate enctype="multipart/form-data">
@@ -160,7 +160,7 @@
                             <div class="profile-header-container">
                                 <div class="profile-header-img my-3">
                                     @if(auth()->user()->avatar == 'avatar_nopicture.jpg')
-                                        <img class="rounded-circle img-thumbnail" height="200" width="200" src="/storage/avatars/avatar-icon.png" />
+                                        <img class="rounded-circle img-thumbnail" height="200" width="200" src="/storage/avatar-icon.png" />
                                     @else
                                         <img class="rounded-circle img-thumbnail" height="200" width="200" src="/storage/avatars/{{ $user->avatar }}" />
                                     @endif

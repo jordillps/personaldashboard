@@ -25,7 +25,7 @@
         @if ($message = Session::get('success'))
             <div class="alert alert-success alert-block">
                 <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong>{{ $message }}</strong>
+                <strong>@lang($message)</strong>
             </div>
         @endif
         <div class="card mb-3">
@@ -46,7 +46,10 @@
                         <th>@lang('global.email')</th>
                         <th>@lang('global.birthdate')</th>
                         <th>@lang('global.image')</th>
-                        <th>@lang('global.action')</th>
+                        @if(auth()->user()->isAdmin())
+                        {{-- @if(auth()->user()->role->name == 'admin') --}}
+                            <th>@lang('global.action')</th>
+                        @endif
                     </tr>
                     </thead>
                     <tfoot>
@@ -57,7 +60,10 @@
                         <th>@lang('global.email')</th>
                         <th>@lang('global.birthdate')</th>
                         <th>@lang('global.image')</th>
-                        <th>@lang('global.action')</th>
+                        @if(auth()->user()->isAdmin())
+                        {{-- @if(auth()->user()->role->name == 'admin') --}}
+                            <th>@lang('global.action')</th>
+                        @endif
                     </tr>
                     </tfoot>
                     <tbody>
@@ -69,9 +75,14 @@
                         <td>{{$user->email}}</td>
                         <td>{{ Carbon\Carbon::parse($user->birthdate)->format('d-m-Y') }}</td>
                         <td><img class="img-thumbnail" height="45" width="45" src="/storage/avatars/{{ $user->avatar }}" /></td>
-                        <td>
-                            <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUserConfirmation" data-user-id="{{ $user->id }}"><i class="fa fa-trash"></i></a>
-                        </td>
+                        @if(auth()->user()->isAdmin())
+                        {{-- @if(auth()->user()->role->name == 'admin') --}}
+                            <td>
+                            @if(auth()->user()->id != $user->id)
+                                <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUserConfirmation" data-user-id="{{ $user->id }}"><i class="fa fa-trash"></i></a>
+                            @endif
+                            </td>
+                        @endif
                     </tr>
                     @empty
                         <p>@lang('global.No users')</p>

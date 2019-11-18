@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Jordi Llobet',
             'email' => 'admin@mail.com',
             'birthdate' => new DateTime("1972/09/14"),
-	        'password' => bcrypt('secret')
+	        'password' => bcrypt('Secret00')
         ]);
 
         factory(\App\User::class, 1)->create([

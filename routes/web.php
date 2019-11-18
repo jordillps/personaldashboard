@@ -20,6 +20,9 @@ Auth::routes(['verify' => true]);
 Route::get('locale/{locale}', 'LocalizationController@setLocale')->name('setLocale');
 
 Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/emailverification', 'HomeController@emailverification')->name('emailverification');
+
 	Route::group(["prefix" => "home"], function() {
         Route::get('/', 'HomeController@index')->name('home');
 

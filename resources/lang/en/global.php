@@ -68,6 +68,7 @@ return [
     'updatepassword'=>'activate password update',
     'birthdate'=> 'Birth date',
     'imageprofile' => 'Choose an image profile. Max 2Mb',
+    'userupdatedcorrectly'=> 'User updated correctly',
 
     //Charts
     'chart' => 'Chart',
@@ -76,5 +77,18 @@ return [
     'deleteconfirmationtitle'=> 'Delete confirmation',
     'deleteconfirmationmessage' => 'Are you sure to delete the user?',
     'deleteconfirmationcancel' => 'Cancel',
-    'deleteconfirmationdelete' => 'Delete'
+    'deleteconfirmationdelete' => 'Delete',
+    'userremovedcorrectly' => 'User deleted correctly',
+    'errordeletinguser' => 'Error deleting user',
+
+
+    //Email verification
+    'emailverification' => 'Email verification',
+    'checkyouremailbox' => 'Please, check your email box to verify your email',
+
+    //Email New user registered
+    'newuserregisterd' => 'New user registered to Personal Dashboard',
+    'namenewuser' => 'Name',
+    'emailnewuser' => 'Email',
+    'thanks' => 'Thanks',
 ];

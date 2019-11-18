@@ -26,9 +26,9 @@ class TablesController extends Controller
         try {
             $user= User::where('id', '=', $id)->first();
             $user->delete();
-			return back()->with('success', "Usuario eliminado correctamente");
+			return back()->with('success', "global.userremovedcorrectly");
 		} catch (\Exception $exception) {
-			return back()->with('success', "Error al eliminar el usuario");
+			return back()->with('success', "global.errordeletinguser");
 		}
     }
 

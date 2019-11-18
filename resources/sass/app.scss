@@ -171,6 +171,19 @@
   }
 
 
+  /*--------------- Email verification -----------*/
 
+  .jumbotron{
+    width: 70%;
+     /* Firefox */
+    -moz-box-shadow:5px 5px 10px rgba(33,33,33,1.2);
+     /* Safari+Chrome */
+     -webkit-box-shadow: 5px 5px 10px rgba(33,33,33,.8);
+     /* Opera */
+     box-shadow: 5px 5px 10px rgba(33,33,33,.8);
+     border-radius: 3rem;
+     background-color:rgba(194, 170, 66, 0.6);
+     color: blanchedalmond;
+ }
 
 

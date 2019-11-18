@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Mail\NewUserRegistered;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -28,7 +29,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/emailverification';
+
 
     /**
      * Create a new controller instance.
@@ -63,10 +65,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //const ID_USER_ADMIN = 1;
+        $user_admin = User::with(['role' => function($q){
+            $q->where('name', 'admin');
+        }])->firstOrFail();
+
+        \Mail::to($user_admin)->send(new NewUserRegistered($data['name'],$data['email']));
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
     }
+
+
+    //protected function redirectTo(){
+        /* generate URL dynamicaly */
+        //return '/emailverification'; // return dynamicaly generated URL.
+    //}
 }

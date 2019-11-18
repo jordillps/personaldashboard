@@ -26,15 +26,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $users = DB::table('users')
-        // ->join('roles', 'users.id', '=', 'roles.id')
-        // ->select('users.id as id', 'roles.name as role', 'users.name as name', 'users.email as email', 'users.created_at as created_at' )
-        // ->get();
-        // return view('home',compact('users'));
 
-        $users = User::with('role')->get();
-        return view('home',compact('users'));
+        //$users = User::with('role')->get();
+        //return view('home',compact('users'));
+        return view('home');
+    }
 
+
+    public function emailverification(){
+
+        return view('emailverification');
     }
 
 

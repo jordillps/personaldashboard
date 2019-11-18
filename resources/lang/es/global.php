@@ -70,6 +70,7 @@ return [
     'update' =>'Actualiza Perfil',
     'updatepassword'=>'Activar actualización password',
     'imageprofile' => 'Escoge una imagen de perfil. Max 2Mb',
+    'userupdatedcorrectly'=> 'Usuario actuallizado correctamente',
 
     //Charts
     'chart' => 'Gráfico',
@@ -78,6 +79,18 @@ return [
     'deleteconfirmationtitle'=> 'Confirmación de borrado de usuarios',
     'deleteconfirmationmessage' => '¿Seguro que desea borrar el usuario?',
     'deleteconfirmationcancel' => 'Cancelar',
-    'deleteconfirmationdelete' => 'Borrar'
+    'deleteconfirmationdelete' => 'Borrar',
+    'userremovedcorrectly' => 'Usuario eliminado correctamente',
+    'errordeletinguser' => 'Error al eliminar el usuario',
+
+    //Email verification
+    'emailverification' => 'Verificación email',
+    'checkyouremailbox' => 'Hemos enviado a su correo electrónico un enlace de verificación',
+
+    //Email New user registered
+    'newuserregisterd' => 'Nuevo usuario registrado en Personal Dashboard',
+    'namenewuser' => 'Nombre',
+    'emailnewuser' => 'Correo Electrónico',
+    'thanks' => 'Gracias',
 
 ];

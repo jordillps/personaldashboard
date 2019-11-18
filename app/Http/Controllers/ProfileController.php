@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Rules\StrengthPassword;
+use App\Http\Controllers\lang;
 
 class ProfileController extends Controller
 {
@@ -20,12 +21,12 @@ class ProfileController extends Controller
     public function update (Request $request) {
 
         $request->validate([
-            'name' => ['required', 'regex:/^[A-ZÀÁÇÉÈËÏÍÌÓÒÚÙÜÚÑa-zàáçéèëïóòúüñ. ]+$/','min:4'],
+            'name' => ['required', 'regex:/^[A-ZÀÁÇÉÈËÏÍÌÓÒÚÙÜÚÑa-zàáçéèëïíóòúüñ. ]+$/','min:4'],
             'email' =>  'required',
             'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'phone' => 'nullable|digits:9',
             'postalcode' => 'nullable|digits:5',
-            'city' => ['nullable', 'regex:/^[A-ZÀÁÇÉÈËÏÍÌÓÒÚÙÜÚÑa-zàáçéèëïóòúüñ. ]+$/'],
+            'city' => ['nullable', 'regex:/^[A-ZÀÁÇÉÈËÏÍÌÓÒÚÙÜÚÑa-zàáçéèëïíóòúüñ. ]+$/'],
         ]);
 
 
@@ -54,7 +55,7 @@ class ProfileController extends Controller
             //Servidor
             //$path = base_path();
             //Personaldasboard:nom carpeta projecte
-            //httpdocs: nom carpeta principal al servidor
+            //httpdocs: nom carpeta on posem el directori public servidor
 			//$path = str_replace("personaldashboard", "httpdocs", $path);
 			//$destinationPath = $path . '/storage/avatars';
 			//$request->avatar->move($destinationPath, $avatarName);
@@ -68,6 +69,6 @@ class ProfileController extends Controller
         $user->postalcode = $request->postalcode;
         $user->city = $request->city;
 		$user->save();
-        return back()->with('success', "Usuario actualizado correctamente");
+        return back()->with('success', "global.userupdatedcorrectly");
     }
 }
