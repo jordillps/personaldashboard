@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         factory(\App\User::class, 1)->create([
             'role_id' => \App\Role::ADMIN,
             'name' => 'Jordi Llobet',
-            'email' => 'admin@mail.com',
+            'email' => 'jordillps@gmail.com',
             'birthdate' => new DateTime("1972/09/14"),
 	        'password' => bcrypt('Secret00')
         ]);
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         factory(\App\User::class, 1)->create([
             'role_id' => \App\Role::USER,
             'name' => 'Joan Pérez',
-            'email' => 'joanperez@mail.com',
+            'email' => 'joibla.cat@gmail.com',
             'birthdate' => new DateTime("2000/12/14"),
 	        'password' => bcrypt('secret')
         ]);

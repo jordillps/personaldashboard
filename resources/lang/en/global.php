@@ -69,6 +69,8 @@ return [
     'birthdate'=> 'Birth date',
     'imageprofile' => 'Choose an image profile. Max 2Mb',
     'userupdatedcorrectly'=> 'User updated correctly',
+    'googlecalendarid' => 'Google Calendar Id',
+    'googlecalendarapikey' => 'Google Calendar Api Key',
 
     //Charts
     'chart' => 'Chart',

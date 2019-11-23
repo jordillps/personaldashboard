@@ -58,6 +58,7 @@
     <script src="{{ asset('fullcalendar/js/interaction/main.js') }}"></script>
     <script src="{{ asset('fullcalendar/js/timegrid/main.js') }}"></script>
     <script src="{{ asset('fullcalendar/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('fullcalendar/googlecalendar/main.js') }}"></script>
           <script>
                 document.addEventListener('DOMContentLoaded', function() {
 
@@ -67,9 +68,13 @@
                     var SITEURL = "{{url('/home/calendar')}}";
                     var ID = "{{Auth::id()}}";
 
+                    //Google Calendar Parameters
+                    var GOOGLECALENDARID = "{{auth()->user()->googlecalendarid}}";
+                    var GOOGLECALENDARAPIKEY = "{{auth()->user()->googlecalendarapikey}}";
+
 
                     var calendar = new FullCalendar.Calendar(calendarEl, {
-                        plugins: [ 'interaction', 'dayGrid', 'timeGrid','bootstrap' ],
+                        plugins: [ 'interaction', 'dayGrid', 'timeGrid','bootstrap','googleCalendar' ],
                         header: {
                             left: 'prev,next today',
                             center: 'title',
@@ -93,6 +98,14 @@
                                     end: '{{ $event->end }}',
                                 },
                                 @endforeach
+
+                        ],
+                        //EVENTS GOOGLE CALENDAR
+                        googleCalendarApiKey: GOOGLECALENDARAPIKEY,
+                        eventSources: [
+                                {
+                                googleCalendarId: GOOGLECALENDARID
+                                }
 
                         ],
                         eventTimeFormat: { // like '14:30:00'

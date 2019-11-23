@@ -68,6 +68,8 @@ class ProfileController extends Controller
         $user->birthdate = $request->birthdate;
         $user->postalcode = $request->postalcode;
         $user->city = $request->city;
+        $user->googlecalendarid = $request->googlecalendarid;
+        $user->googlecalendarapikey = $request->googlecalendarapikey;
 		$user->save();
         return back()->with('success', "global.userupdatedcorrectly");
     }

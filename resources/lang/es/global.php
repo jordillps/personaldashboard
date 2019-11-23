@@ -71,6 +71,8 @@ return [
     'updatepassword'=>'Activar actualización password',
     'imageprofile' => 'Escoge una imagen de perfil. Max 2Mb',
     'userupdatedcorrectly'=> 'Usuario actuallizado correctamente',
+    'googlecalendarid' => 'Google Calendar Id',
+    'googlecalendarapikey' => 'Google Calendar Api Key',
 
     //Charts
     'chart' => 'Gráfico',

@@ -88,34 +88,33 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                        <div class="form-row">
-                                            <div class="col-md-6">
-                                                <div class="form-label-group">
-                                                        <input  id="inputPostalCode" type="text" class="form-control{{ $errors->has('postalcode') ? ' is-invalid' : '' }}"
-                                                        name="postalcode" value="{{ old('postalcode') ?: $user->postalcode }}" autofocus/>
-                                                        @if($errors->has('postalcode'))
-                                                            <span class="invalid-feedback">
-                                                                <strong>{{ $errors->first('postalcode') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    <label for="inputPostalCode">@lang('global.postalcode')</label>
-                                                </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="form-label-group">
+                                                    <input  id="inputPostalCode" type="text" class="form-control{{ $errors->has('postalcode') ? ' is-invalid' : '' }}"
+                                                    name="postalcode" value="{{ old('postalcode') ?: $user->postalcode }}" autofocus/>
+                                                    @if($errors->has('postalcode'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('postalcode') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                <label for="inputPostalCode">@lang('global.postalcode')</label>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-label-group">
-                                                        <input  id="inputCity" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}"
-                                                        name="city" value="{{ old('city') ?: $user->city }}" autofocus/>
-                                                        @if($errors->has('city'))
-                                                            <span class="invalid-feedback">
-                                                                <strong>{{ $errors->first('city') }}</strong>
-                                                            </span>
-                                                        @endif
-                                                    <label for="inputCity">@lang('global.city')</label>
-                                                </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-label-group">
+                                                    <input  id="inputCity" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}"
+                                                    name="city" value="{{ old('city') ?: $user->city }}" autofocus/>
+                                                    @if($errors->has('city'))
+                                                        <span class="invalid-feedback">
+                                                            <strong>{{ $errors->first('city') }}</strong>
+                                                        </span>
+                                                    @endif
+                                                <label for="inputCity">@lang('global.city')</label>
                                             </div>
                                         </div>
                                     </div>
-
+                                </div>
                                 <div class="form-group">
                                     <div class="form-label-group">
                                         <input type="file" class="custom-file-input{{ $errors->has('picture') ? ' is-invalid' : ''}}"
@@ -125,7 +124,6 @@
                                         </label>
                                     </div>
                                 </div>
-                                <hr>
                                 <div class="form-group">
                                     <div class="form-row">
                                         <div class="col-md-6">
@@ -146,6 +144,36 @@
                                             name="password_confirmation" >
                                             <label for="confirmPassword">@lang('global.confirmpassword')</label>
                                         </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <p>GOOGLE CALENDAR</p>
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <div class="col-md-4">
+                                            <div class="form-label-group">
+                                                <input  id="inputGoogleCalendarId" type="text" class="form-control{{ $errors->has('googlecalendarid') ? ' is-invalid' : '' }}"
+                                                name="googlecalendarid" value="{{ old('googlecalendarid') ?: $user->googlecalendarid }}" autofocus/>
+                                                @if($errors->has('googlecalendarid'))
+                                                    <span class="invalid-feedback">
+                                                        <strong>{{ $errors->first('googlecalendarid') }}</strong>
+                                                    </span>
+                                                @endif
+                                                <label for="inputGoogleCalendarId">@lang('global.googlecalendarid')</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-label-group">
+                                                <input  id="inputGoogleCalendarApiKey" type="text" class="form-control{{ $errors->has('googlecalendarapikey') ? ' is-invalid' : '' }}"
+                                                name="googlecalendarapikey" value="{{ old('googlecalendarapikey') ?: $user->googlecalendarapikey }}" autofocus/>
+                                                @if($errors->has('googlecalendarapikey'))
+                                                    <span class="invalid-feedback">
+                                                        <strong>{{ $errors->first('googlecalendarapikey') }}</strong>
+                                                    </span>
+                                                @endif
+                                                <label for="inputCity">@lang('global.googlecalendarapikey')</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

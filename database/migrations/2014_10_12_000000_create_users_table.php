@@ -33,6 +33,8 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->default('avatar-icon.png')->nullable();
             $table->string('postalcode')->nullable();
             $table->string('city')->nullable();
+            $table->string('googlecalendarid')->nullable();
+            $table->string('googlecalendarapikey')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
