@@ -39,10 +39,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
 
-        // Schema::table('users', function (Blueprint $table) {
-        //     $table->unsignedInteger('role_id')->default(\App\Role::USER);
-        //     $table->foreign('user_id')->references('id')->on('roles')->onDelete('cascade');
-        // });
+
     }
 
     /**

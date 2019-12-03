@@ -11,11 +11,8 @@ class CalendarController extends Controller
 {
     public function index()
     {
-        if(auth()->user()->role_id == 1){
-            $events = Event::all();
-        }else{
-            $events = Event::where('user_id', auth()->user()->id)->get();
-        }
+        $events = Event::where('user_id', auth()->user()->id)->get();
+
         return view('calendar', compact('events'));
     }
 

@@ -25,7 +25,9 @@ class DatabaseSeeder extends Seeder
             'name' => 'Jordi Llobet',
             'email' => 'jordillps@gmail.com',
             'birthdate' => new DateTime("1972/09/14"),
-	        'password' => bcrypt('Secret00')
+            'password' => bcrypt('Secret00'),
+            'googlecalendarid'=>'jordillps@gmail.com',
+            'googlecalendarapikey' => 'AIzaSyA9bjFJ0uPe8RAOgL3Bdb5PuoEQhgeTyPM'
         ]);
 
         factory(\App\User::class, 1)->create([

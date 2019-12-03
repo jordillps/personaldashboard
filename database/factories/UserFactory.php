@@ -17,6 +17,13 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+
+    //Servidor
+    //$path = base_path();
+    //Personaldasboard:nom carpeta projecte
+    //httpdocs: nom carpeta on posem el directori public servidor
+	//$path = str_replace("personaldashboard", "httpdocs", $path);
+
     return [
         'name' => $faker->name,
         'role_id' => \App\Role::USER,
@@ -25,6 +32,9 @@ $factory->define(User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'password' => bcrypt('secret'), // password
         'remember_token' => Str::random(10),
+        //Localhost
         'avatar' => \Faker\Provider\Image::image(storage_path() . '/app/public/avatars', 200, 200, 'people', false),
+        //Servidor
+        //'avatar' => \Faker\Provider\Image::image($path . '/storage/avatars', 200, 200, 'people', false),
     ];
 });
