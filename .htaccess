@@ -1,0 +1,34 @@
+
+
+#Pagina 404
+#Formal Web página de error 404
+ErrorDocument 404 /errors/error404.html
+
+#Error maintenance 503
+#Formal Web página de error 503
+ErrorDocument 404 /errors/error503.html
+
+
+#comprimir archivos de texto, html, javascript, css, xml
+
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+
+ExpiresActive On
+ExpiresByType image/gif A432000
+ExpiresByType image/jpg A432000
+ExpiresByType image/jpeg A432000
+ExpiresByType image/png A432000
+ExpiresByType image/ico A432000
+ExpiresByType image/bmp A432000
+ExpiresByType text/css A432000
+ExpiresByType text/javascript A432000
+ExpiresByType application/javascript A432000
+ExpiresByType application/x-javascript A432000
