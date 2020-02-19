@@ -18,11 +18,13 @@ use Faker\Generator as Faker;
 
 $factory->define(User::class, function (Faker $faker) {
 
-    //Servidor
+    // Imatges pel servidor
     //$path = base_path();
-    //Personaldasboard:nom carpeta projecte
-    //httpdocs: nom carpeta on posem el directori public servidor
-	//$path = str_replace("personaldashboard", "httpdocs", $path);
+    //Personaldasboard:nom carpeta projecte a laragon
+    //Images Server: nom carpeta on posem les imatges a Laragon
+    //Despres caldrà pujar les imatges a la carpeta del servidor
+    //personaldashboard.formalweb.cat/storage/avatars
+	//$path = str_replace("personaldashboard", "ImagesServer", $path);
 
     return [
         'name' => $faker->name,
@@ -35,6 +37,6 @@ $factory->define(User::class, function (Faker $faker) {
         //Localhost
         'avatar' => \Faker\Provider\Image::image(storage_path() . '/app/public/avatars', 200, 200, 'people', false),
         //Servidor
-        //'avatar' => \Faker\Provider\Image::image($path . '/storage/avatars', 200, 200, 'people', false),
+        //'avatar' => \Faker\Provider\Image::image($path, 200, 200, 'people', false),
     ];
 });
