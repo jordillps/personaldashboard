@@ -11,10 +11,13 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+
+        //AQUEST ARXIU NO ES A GITHUB
+        //
         factory(\App\User::class, 1)->create([
             'role_id' => \App\Role::ADMIN,
-            'name' => 'Jordi Llobet',
-            'email' => 'jordillps@gmail.com',
+            'name' => 'Jordi Pérez',
+            'email' => 'jordiperez@mail.com',
             'birthdate' => new DateTime("1972/09/14"),
             'password' => bcrypt('Secret00'),
             'googlecalendarid'=>'jordillps@gmail.com',
@@ -24,7 +27,7 @@ class UsersTableSeeder extends Seeder
         factory(\App\User::class, 1)->create([
             'role_id' => \App\Role::USER,
             'name' => 'Joan Pérez',
-            'email' => 'joibla.cat@gmail.com',
+            'email' => 'joanperez@mail.com',
             'birthdate' => new DateTime("2000/12/14"),
 	        'password' => bcrypt('secret')
         ]);

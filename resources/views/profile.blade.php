@@ -187,8 +187,8 @@
                         <div class="row justify-content-center">
                             <div class="profile-header-container">
                                 <div class="profile-header-img my-3">
-                                    @if(auth()->user()->avatar == 'avatar_nopicture.jpg')
-                                        <img class="rounded-circle img-thumbnail" height="200" width="200" src="/storage/avatar-icon.png" />
+                                    @if(auth()->user()->avatar == 0)
+                                        <img class="rounded-circle img-thumbnail" height="200" width="200" src="/storage/avatars/avatar-icon.png" />
                                     @else
                                         <img class="rounded-circle img-thumbnail" height="200" width="200" src="/storage/avatars/{{ $user->avatar }}" />
                                     @endif

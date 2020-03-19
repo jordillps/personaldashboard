@@ -74,7 +74,12 @@
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{ Carbon\Carbon::parse($user->birthdate)->format('d-m-Y') }}</td>
-                        <td><img class="img-thumbnail" height="45" width="45" src="/storage/avatars/{{ $user->avatar }}" /></td>
+                        @if($user->avatar == 0)
+                            <td><img class="img-thumbnail" height="45" width="45" src="/storage/avatars/avatar-icon.png" /></td>
+                        @else
+                            <td><img class="img-thumbnail" height="45" width="45" src="/storage/avatars/{{ $user->avatar }}" /></td>
+                        @endif
+
                         @if(auth()->user()->isAdmin())
                         {{-- @if(auth()->user()->role->name == 'admin') --}}
                             <td>
@@ -91,7 +96,6 @@
                 </table>
                 </div>
           </div>
-          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
 
       </div>

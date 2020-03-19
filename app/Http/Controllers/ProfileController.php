@@ -34,15 +34,13 @@ class ProfileController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
 
-        if($request->password != null || $request->password_confirmation != null){
+        if($request->filled('password') || $request->filled('password_confirmation')){
             $this->validate(request(), [
+                //corfirmed comprova la confirmació del password
                 'password' => ['required','confirmed', new StrengthPassword],
-                'password_confirmation' => 'required',
             ]);
 
-			if($request->password != $user->password){
-            	$user->password = bcrypt(request('password'));
-        	}
+            $user->password = bcrypt(request('password'));
         }
 
         //Avatar

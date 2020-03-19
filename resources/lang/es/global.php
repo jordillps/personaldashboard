@@ -56,6 +56,7 @@ return [
     'eventdeletedsuccessfully' => 'Evento borrado correctamente',
     'eventdropinfo' =>'se ha modificado al ',
     'eventdroppedconfirm' => 'Seguro que quiere modificar el evento?',
+    'createdeleteeventsinfo' => 'Clic para crear un evento || Arrastrar para modificarlo',
 
     //Profile
     'firstname' => 'Nombre',

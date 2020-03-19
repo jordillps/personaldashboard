@@ -54,6 +54,7 @@ return [
     'eventupdated'=>'Event updated',
     'eventdeleteconfirm' => 'Do you really want to delete?',
     'eventdeletedsuccessfully' => 'Deleted Successfully',
+    'createdeleteeventsinfo' => 'Click to create an event || Drag & Drop to modify',
 
     //Profile
     'firstname' => 'Firstname',

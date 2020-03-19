@@ -21,29 +21,13 @@
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
-      <li class="nav-item dropdown no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2">{{auth()->user()->name}}</span>
-                @if(auth()->user()->avatar == 'avatar_nopicture.jpg')
-                    <i class="fas fa-user-circle fa-fw"></i>
-                @else
-                    <img height="30" width="30" src="/storage/avatars/{{ auth()->user()->avatar }}" />
-                @endif
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="{{ route('home.profile.index') }}">@lang('global.profile')</a>
-          <a class="dropdown-item" href="#">@lang('global.activity')</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                                @lang('global.logout')
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-        </div>
+      <li class="nav-link">
+        <span class="mr-2">{{auth()->user()->name}}</span>
+        @if(auth()->user()->avatar == 0)
+            <i class="fas fa-user-circle fa-fw"></i>
+        @else
+            <img height="30" width="30" src="/storage/avatars/{{ auth()->user()->avatar }}" />
+        @endif
       </li>
     </ul>
 

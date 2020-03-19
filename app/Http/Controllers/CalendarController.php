@@ -35,8 +35,8 @@ class CalendarController extends Controller
         $updateArr = ['user_id' =>$request->user_id,
                         'title' => $request->title,
                         'location' =>$request->location,
-                        'start' => $request->start,
-                        'end' => $request->end
+                        'start' => strtotime($request->start),
+                        'end' => strtotime($request->end)
                     ];
         //   dd($updateArr);
         $event  = Event::where('id', $request->id)->update($updateArr);

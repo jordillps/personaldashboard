@@ -1,40 +1,39 @@
 <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
-      <li class="nav-item active">
+      <li class="nav-item {{ Request::is('home') ? 'active': ''}}">
         <a class="nav-link" href="{{ route('home')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>@lang('global.dashboard')</span>
         </a>
       </li>
-      {{--  <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>@lang('global.pages')</span>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <h6 class="dropdown-header">Login Screens:</h6>
-          <a class="dropdown-item" href="login.html">Login</a>
-          <a class="dropdown-item" href="register.html">Register</a>
-          <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
-          <div class="dropdown-divider"></div>
-          <h6 class="dropdown-header">Other Pages:</h6>
-          <a class="dropdown-item" href="404.html">404 Page</a>
-          <a class="dropdown-item" href="blank.html">Blank Page</a>
-        </div>
-      </li>  --}}
-      <li class="nav-item">
+      <li class="nav-item {{ Request::is('home/charts') ? 'active': ''}}">
         <a class="nav-link" href="{{ route('home.charts')}}">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>@lang('global.charts')</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item {{ Request::is('home/calendar') ? 'active': ''}}">
         <a class="nav-link" href="{{ route('home.calendar')}}">
           <i class="fas fa-fw fa-calendar"></i>
           <span>@lang('global.calendar')</span></a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item {{ Request::is('home/tables') ? 'active': ''}}">
         <a class="nav-link" href="{{ route('home.tables')}}">
           <i class="fas fa-fw fa-table"></i>
           <span>@lang('global.tables')</span></a>
+      </li>
+      <li class="nav-item {{ Request::is('home/profiles') ? 'active': ''}}">
+        <a class="nav-link" href="{{ route('home.profile.index') }}">
+            <i class="fas fa-fw fa-user"></i>
+            <span>@lang('global.profile')</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">
+        <i class="fas fa-fw fa-sign-out-alt"></i>
+        <span>@lang('global.logout')</span></a>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
       </li>
     </ul>

@@ -29,6 +29,7 @@
 
         <!-- Calendar -->
         <div class="container">
+            <div class="alert alert-info">@lang('global.createdeleteeventsinfo')</div>
             <div id="response"></div>
             <div id='calendar'>
             </div>
@@ -41,7 +42,7 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © FormalWeb 2019</span>
+            <span>Copyright © FormalWeb 2020</span>
           </div>
         </div>
       </footer>
@@ -178,8 +179,9 @@
 
                         //Update an event
                         eventDrop: function (info) {
-                            var start = moment(info.event.start).format('YYYY-MM-DD HH:mm:ss');
-                            var end = moment(info.event.end).format('YYYY-MM-DD HH:mm:ss');
+                            //Restar una hora per la UTC local
+                            var start = moment(info.event.start).subtract(1, "hours").format('YYYY-MM-DD HH:mm:ss');
+                            var end = moment(info.event.end).subtract(1, "hours").format('YYYY-MM-DD HH:mm:ss');
                             //alert(info.event.title + "@lang('global.eventdropinfo')" + start);
                             var dropMsg = confirm("@lang('global.eventdroppedconfirm')");
                             if (dropMsg) {
