@@ -75,7 +75,7 @@
                         <td>{{$user->email}}</td>
                         <td>{{ Carbon\Carbon::parse($user->birthdate)->format('d-m-Y') }}</td>
                         @if($user->avatar == 0)
-                            <td><img class="img-thumbnail" height="45" width="45" src="/storage/avatars/avatar-icon.png" /></td>
+                            <td><img class="img-thumbnail" height="45" width="45" src="/images/avatar-icon.png" /></td>
                         @else
                             <td><img class="img-thumbnail" height="45" width="45" src="/storage/avatars/{{ $user->avatar }}" /></td>
                         @endif
