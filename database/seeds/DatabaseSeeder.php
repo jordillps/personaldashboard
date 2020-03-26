@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         factory(\App\Role::class, 1)->create(['name' => 'admin','description' =>'administrador']);
         factory(\App\Role::class, 1)->create(['name' => 'user','description' =>'usuario de la aplicación']);
 
-        $this->call(UsersTableSeeder::class);
+        //$this->call(UsersTableSeeder::class);
 
         factory(\App\User::class, 20)->create();
     }

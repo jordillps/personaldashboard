@@ -23,7 +23,7 @@ class ProfileController extends Controller
         $request->validate([
             'name' => ['required', 'regex:/^[A-ZÀÁÇÉÈËÏÍÌÓÒÚÙÜÚÑa-zàáçéèëïíóòúüñ. ]+$/','min:4'],
             'email' =>  'required',
-            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'avatar' => 'image|mimes:jpeg,png,jpg,gif|max:2048|dimensions:max_width=300,max_height=300',
             'phone' => 'nullable|digits:9',
             'postalcode' => 'nullable|digits:5',
             'city' => ['nullable', 'regex:/^[A-ZÀÁÇÉÈËÏÍÌÓÒÚÙÜÚÑa-zàáçéèëïíóòúüñ. ]+$/'],

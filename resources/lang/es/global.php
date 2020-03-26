@@ -70,8 +70,9 @@ return [
     'city'=>'Ciudad',
     'update' =>'Actualiza Perfil',
     'updatepassword'=>'Activar actualización password',
-    'imageprofile' => 'Escoge una imagen de perfil. Max 2Mb',
-    'userupdatedcorrectly'=> 'Usuario actuallizado correctamente',
+    'imageprofile' => 'Imagen de usuario',
+    'imagevalidation' => 'Escoge una imagen de perfil. max 2Mb, max altura 300, max ancho 300',
+    'userupdatedcorrectly'=> 'Usuario actualizado correctamemante',
     'googlecalendarid' => 'Google Calendar Id',
     'googlecalendarapikey' => 'Google Calendar Api Key',
 

@@ -35,7 +35,7 @@ $factory->define(User::class, function (Faker $faker) {
         'password' => bcrypt('secret'), // password
         'remember_token' => Str::random(10),
         //Localhost
-        'avatar' => \Faker\Provider\Image::image(storage_path() . '/app/public/avatars', 200, 200, 'people', false),
+        //'avatar' => \Faker\Provider\Image::image(storage_path() . '/app/public/avatars', 200, 200, 'people', false),
         //Servidor
         //'avatar' => \Faker\Provider\Image::image($path, 200, 200, 'people', false),
     ];

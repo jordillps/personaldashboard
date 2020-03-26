@@ -36,52 +36,56 @@
                                     @csrf
                                     @method('PUT')
                                 <div class="form-group">
-                                        <div class="form-label-group">
+                                    <div class="form-row">
+                                        <div class="col-lg-12">
+                                            <div class="form-label-group">
                                                 <input  id="inputName" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
                                                 name="name" value="{{ old('name') ?: $user->name }}" autofocus/>
-                                                @if($errors->has('name'))
-                                                    <span class="invalid-feedback">
-                                                        <strong>{{ $errors->first('name') }}</strong>
+                                                @error('name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
                                                     </span>
-                                                @endif
-                                            <label for="inputName">@lang('global.firstname')</label>
+                                                @enderror
+                                                <label for="inputName">@lang('global.firstname')</label>
+                                            </div>
                                         </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-row">
-                                        <div class="col-md-6">
+                                        <div class="col-lg-6">
                                             <div class="form-label-group">
                                                     <input  id="inputEmail" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
                                                     name="email" value="{{ old('email') ?: $user->email }}" autofocus/>
-                                                    @if($errors->has('email'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('email') }}</strong>
+                                                    @error('email')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
                                                         </span>
-                                                    @endif
+                                                    @enderror
                                                 <label for="inputEmail">@lang('global.emailaddress')</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-lg-3">
                                             <div class="form-label-group">
                                                     <input  id="inputPhone" type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}"
                                                     name="phone" value="{{ old('phone') ?: $user->phone }}" autofocus/>
-                                                    @if($errors->has('phone'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('phone') }}</strong>
+                                                    @error('phone')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
                                                         </span>
-                                                    @endif
+                                                    @enderror
                                                 <label for="inputPhone">@lang('global.telephone')</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
+                                        <div class="col-lg-3">
                                             <div class="form-label-group">
                                                     <input  id="inputBirthDate" type="date" class="form-control{{ $errors->has('birthdate') ? ' is-invalid' : '' }}"
                                                     name="birthdate" value="{{ old('birthdate') ?: $user->birthdate }}" autofocus/>
-                                                    @if($errors->has('birthdate'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('birthdate') }}</strong>
+                                                    @error('birthdate')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
                                                         </span>
-                                                    @endif
+                                                    @enderror
                                                 <label for="inputBirthDate">@lang('global.birthdate')</label>
                                             </div>
                                         </div>
@@ -89,44 +93,57 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="form-row">
-                                        <div class="col-md-6">
+                                        <div class="col-lg-6">
                                             <div class="form-label-group">
                                                     <input  id="inputPostalCode" type="text" class="form-control{{ $errors->has('postalcode') ? ' is-invalid' : '' }}"
                                                     name="postalcode" value="{{ old('postalcode') ?: $user->postalcode }}" autofocus/>
-                                                    @if($errors->has('postalcode'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('postalcode') }}</strong>
+                                                    @error('postalcode')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
                                                         </span>
-                                                    @endif
+                                                    @enderror
                                                 <label for="inputPostalCode">@lang('global.postalcode')</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-lg-6">
                                             <div class="form-label-group">
                                                     <input  id="inputCity" type="text" class="form-control{{ $errors->has('city') ? ' is-invalid' : '' }}"
                                                     name="city" value="{{ old('city') ?: $user->city }}" autofocus/>
-                                                    @if($errors->has('city'))
-                                                        <span class="invalid-feedback">
-                                                            <strong>{{ $errors->first('city') }}</strong>
+                                                    @error('city')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
                                                         </span>
-                                                    @endif
+                                                    @enderror
                                                 <label for="inputCity">@lang('global.city')</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="form-label-group">
-                                        <input type="file" class="custom-file-input{{ $errors->has('picture') ? ' is-invalid' : ''}}"
-                                            id="avatar" name="avatar"/>
-                                        <label class="custom-file-label" for="picture">
-                                                @lang('global.imageprofile')
-                                        </label>
+                                    <div class="form-row">
+                                        <div class="col-lg-12">
+                                            <div class="form-label-group">
+                                                <input type="file" class="form-control{{ $errors->has('avatar') ? ' is-invalid' : ''}}"
+                                                    id="avatar" name="avatar" lang="es"/>
+                                                @if($errors->has('avatar'))
+                                                    <span class="invalid-feedback">
+                                                        <strong>{{ $errors->first('avatar') }}</strong>
+                                                    </span>
+                                                @else
+                                                    <span> 
+                                                        @lang('global.imagevalidation')
+                                                    </span> 
+                                                @endif                                                    
+                                                <label for="avatar">
+                                                    @lang('global.imageprofile')
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form-row">
-                                        <div class="col-md-6">
+                                        <div class="col-lg-6">
                                         <div class="form-label-group">
                                             <input type="password" id="inputPassword" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"
                                             name="password">
@@ -138,7 +155,7 @@
                                             <label for="inputPassword">@lang('global.password')</label>
                                         </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-lg-6">
                                         <div class="form-label-group">
                                             <input type="password" id="confirmPassword" class="form-control"
                                             name="password_confirmation" >
@@ -151,7 +168,7 @@
                                 <p>GOOGLE CALENDAR</p>
                                 <div class="form-group">
                                     <div class="form-row">
-                                        <div class="col-md-4">
+                                        <div class="col-lg-4">
                                             <div class="form-label-group">
                                                 <input  id="inputGoogleCalendarId" type="text" class="form-control{{ $errors->has('googlecalendarid') ? ' is-invalid' : '' }}"
                                                 name="googlecalendarid" value="{{ old('googlecalendarid') ?: $user->googlecalendarid }}" autofocus/>
@@ -163,7 +180,7 @@
                                                 <label for="inputGoogleCalendarId">@lang('global.googlecalendarid')</label>
                                             </div>
                                         </div>
-                                        <div class="col-md-8">
+                                        <div class="col-lg-8">
                                             <div class="form-label-group">
                                                 <input  id="inputGoogleCalendarApiKey" type="text" class="form-control{{ $errors->has('googlecalendarapikey') ? ' is-invalid' : '' }}"
                                                 name="googlecalendarapikey" value="{{ old('googlecalendarapikey') ?: $user->googlecalendarapikey }}" autofocus/>
@@ -203,21 +220,22 @@
                     </div>
                 </div>
             </div>
-
-
-
-      <!-- Sticky Footer -->
-      <footer class="sticky-footer">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright © FormalWeb 2019</span>
-          </div>
-        </div>
-      </footer>
-
+       
+        @include('partials.footer')
+     
     </div>
     <!-- /.content-wrapper -->
 @endsection
+
+@push('scripts')
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <script>
+
+        
+@endpush
 
 
 

@@ -145,6 +145,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => 'name',
+        'email'=> 'email',
+        'avatar' => 'profile image',
+        'phone' => 'phone',
+        'postalcode' => 'postal code',
+        'city' => 'city',
+    ],
 
 ];

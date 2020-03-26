@@ -68,7 +68,7 @@ return [
     'update' =>'Update Profile',
     'updatepassword'=>'activate password update',
     'birthdate'=> 'Birth date',
-    'imageprofile' => 'Choose an image profile. Max 2Mb',
+    'imagevalidation' => 'Choose an image profile. max 2Mb, max height 300, max width 300',
     'userupdatedcorrectly'=> 'User updated correctly',
     'googlecalendarid' => 'Google Calendar Id',
     'googlecalendarapikey' => 'Google Calendar Api Key',
