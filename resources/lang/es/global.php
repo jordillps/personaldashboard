@@ -97,4 +97,12 @@ return [
     'emailnewuser' => 'Correo Electrónico',
     'thanks' => 'Gracias',
 
+    //Import
+    'import' => 'Importar datos',
+    'importFromExcel' => 'Importar datos desde Excel',
+    'dataimport' => 'Datos importados',
+    'nopartners' => 'Aún no hay socios registrados',
+    'partners' => 'Listado de Socios',
+    'importedcorrectly' => 'Las datos se han importado correctamente',
+
 ];

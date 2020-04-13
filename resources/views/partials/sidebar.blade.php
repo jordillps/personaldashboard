@@ -21,6 +21,11 @@
           <i class="fas fa-fw fa-table"></i>
           <span>@lang('global.tables')</span></a>
       </li>
+      <li class="nav-item {{ Request::is('home/importView') ? 'active': ''}}">
+        <a class="nav-link" href="{{ route('home.importView')}}">
+          <i class="fas fa-file-import"></i>
+          <span>@lang('global.import')</span></a>
+      </li>
       <li class="nav-item {{ Request::is('home/profiles') ? 'active': ''}}">
         <a class="nav-link" href="{{ route('home.profile.index') }}">
             <i class="fas fa-fw fa-user"></i>

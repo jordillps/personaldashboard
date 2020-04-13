@@ -44,6 +44,9 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/delete','CalendarController@destroy')->name('home.calendar.destroy');
         });
 
+        Route::get('/importView', 'ImportController@index')->name('home.importView');
+        Route::post('/import', 'ImportController@import')->name('home.import');
+
     });
 });
 

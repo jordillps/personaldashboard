@@ -94,4 +94,12 @@ return [
     'namenewuser' => 'Name',
     'emailnewuser' => 'Email',
     'thanks' => 'Thanks',
+
+    //Import
+    'import' => 'Import data',
+    'importFromExcel' => 'Import data from Excel',
+    'dataimport' => 'Imported data',
+    'nopartners' => 'There is no partners yet',
+    'partners' => 'List of Partners',
+    'importedcorrectly' => 'Data has been imported correctly',
 ];
