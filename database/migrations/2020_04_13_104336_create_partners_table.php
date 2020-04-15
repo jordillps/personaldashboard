@@ -14,10 +14,15 @@ class CreatePartnersTable extends Migration
     public function up()
     {
         Schema::create('partners', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('nif')->unique()->nullable();
             $table->date('birthdate')->default(null)->nullable();
-            $table->bigIncrements('id');
+            $table->string('address')->nullable();
+            $table->string('postalcode')->nullable();
+            $table->string('city')->nullable();
+            $table->decimal('donation', 8, 2);
             $table->timestamps();
         });
     }

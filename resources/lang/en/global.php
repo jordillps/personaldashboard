@@ -102,4 +102,5 @@ return [
     'nopartners' => 'There is no partners yet',
     'partners' => 'List of Partners',
     'importedcorrectly' => 'Data has been imported correctly',
+    'printpdf' => 'Generate PDF',
 ];

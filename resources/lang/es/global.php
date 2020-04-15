@@ -104,5 +104,6 @@ return [
     'nopartners' => 'Aún no hay socios registrados',
     'partners' => 'Listado de Socios',
     'importedcorrectly' => 'Las datos se han importado correctamente',
+    'printpdf' => 'Generar PDF',
 
 ];

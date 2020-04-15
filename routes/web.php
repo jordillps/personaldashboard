@@ -47,6 +47,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/importView', 'ImportController@index')->name('home.importView');
         Route::post('/import', 'ImportController@import')->name('home.import');
 
+        Route::get('/import/{partner}', 'ImportController@printpdf')->name('home.import.printpdf');
+
     });
 });
 

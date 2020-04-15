@@ -55,6 +55,7 @@
                                 <th>@lang('global.name')</th>
                                 <th>@lang('global.email')</th>
                                 <th>@lang('global.birthdate')</th>
+                                <th>@lang('global.printpdf')</th>
                             </tr>
                             </thead>
                             <tfoot>
@@ -63,6 +64,7 @@
                                 <th>@lang('global.name')</th>
                                 <th>@lang('global.email')</th>
                                 <th>@lang('global.birthdate')</th>
+                                <th>@lang('global.printpdf')</th>
                             </tr>
                             </tfoot>
                             <tbody>
@@ -72,6 +74,7 @@
                                         <td>{{$partner->name}}</td>
                                         <td>{{$partner->email}}</td>
                                         <td>{{ Carbon\Carbon::parse($partner->birthdate)->format('d-m-Y') }}</td>
+                                        <td align="center"><a href="{{route('home.import.printpdf', $partner)}}"><i class="fas fa-file-pdf"></i></a></td>
                                     </tr>
                                 @empty
                                         <h3>@lang('global.nopartners')</h3>
