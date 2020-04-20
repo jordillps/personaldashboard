@@ -63,7 +63,7 @@ class ImportController extends Controller
         
         $pdf = PDF::loadView('pdfview', $data);
         //Sending email to the partner
-        \Mail::to($partner->email)->send(new DonationCertificate($data['name'],$data['email']));  
+        \Mail::to($data['receiver_email'])->send(new DonationCertificate($data['receriver_name'],$data['receiver_email']));  
         return $pdf->download('certificat.pdf');
     }
 }

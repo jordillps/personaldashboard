@@ -165,6 +165,7 @@ return [
         PragmaRX\Health\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        qoraiche\mailEclipse\mailEclipseServiceProvider::class,
 
         /*
          * Package Service Providers...

@@ -11,14 +11,19 @@ class DonationCertificate extends Mailable
 {
     use Queueable, SerializesModels;
 
+    private $receiver_name;
+    private $receiver_email;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($receiver_name,$receiver_email)
     {
         //
+        $this->receiver_name = $receiver_name;
+        $this->receiver_email = $receiver_email;
     }
 
     /**
@@ -33,8 +38,8 @@ class DonationCertificate extends Mailable
             ->markdown('mail.DonationCertificate') //template que utilitzara
             ->attachFromStorage('/path/to/file')
 	        ->with([
-                'partner_name' => $this->partner_name,
-                'partner_email' => $this->partnet_email,
+                'receiver_name' => $this->receiver_name,
+                'receiver_email' => $this->receiver_email,
             ]);
     }
 }

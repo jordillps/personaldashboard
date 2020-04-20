@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+
 use App\Http\Controllers\Controller;
 use App\Mail\NewUserRegistered;
 use Illuminate\Support\Facades\Hash;
@@ -66,8 +67,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         //const ID_USER_ADMIN = 1;
-        $user_admin = User::with(['role' => function($q){
-            $q->where('name', 'admin');
+        $user_admin = User::with(['role' => function($query){
+            $query->where('name', 'admin');
         }])->firstOrFail();
 
         \Mail::to($user_admin)->send(new NewUserRegistered($data['name'],$data['email']));
