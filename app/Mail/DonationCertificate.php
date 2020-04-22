@@ -11,8 +11,8 @@ class DonationCertificate extends Mailable
 {
     use Queueable, SerializesModels;
 
-    private $receiver_name;
-    private $receiver_email;
+    public $receiver_name;
+    public $receiver_email;
 
     /**
      * Create a new message instance.
@@ -35,7 +35,7 @@ class DonationCertificate extends Mailable
     {
         //return $this->view('view.name');
         return $this->subject(__("Certificat de Donacions Angel Olaran"))
-            ->markdown('mail.DonationCertificate') //template que utilitzara
+            ->view('maileclipse::templates.emailConfirmation') //template que utilitzara
             ->attachFromStorage('/path/to/file')
 	        ->with([
                 'receiver_name' => $this->receiver_name,
@@ -43,3 +43,7 @@ class DonationCertificate extends Mailable
             ]);
     }
 }
+
+
+
+

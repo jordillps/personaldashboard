@@ -7,6 +7,7 @@ use App\Partner;
 use App\Imports\PartnersImport;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
+use App\Mail\DonationCertificate;
 
 class ImportController extends Controller
 {
@@ -63,7 +64,7 @@ class ImportController extends Controller
         
         $pdf = PDF::loadView('pdfview', $data);
         //Sending email to the partner
-        \Mail::to($data['receiver_email'])->send(new DonationCertificate($data['receriver_name'],$data['receiver_email']));  
+        \Mail::to($partner->email)->send(new DonationCertificate($partner->name,$partner->email));
         return $pdf->download('certificat.pdf');
     }
 }
