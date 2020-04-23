@@ -8,6 +8,7 @@ use App\Imports\PartnersImport;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 use App\Mail\DonationCertificate;
+use Illuminate\Support\Facades\Storage;
 
 class ImportController extends Controller
 {
@@ -63,8 +64,11 @@ class ImportController extends Controller
             ];
         
         $pdf = PDF::loadView('pdfview', $data);
+        $fileName = str_replace(' ', '', $partner->name).'.'.'pdf'; 
+        //Storage the file
+        Storage::put('/pdfs/'.$fileName, $pdf->output());
         //Sending email to the partner
         \Mail::to($partner->email)->send(new DonationCertificate($partner->name,$partner->email));
-        return $pdf->download('certificat.pdf');
+        return $pdf->download($fileName);
     }
 }

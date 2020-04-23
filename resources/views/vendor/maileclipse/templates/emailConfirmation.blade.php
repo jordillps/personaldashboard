@@ -416,7 +416,7 @@
 <table class="soapbox">
 <tbody>
 <tr>
-<td class="soapbox-title">Bienvenido a PersonalDashboard!</td>
+<td class="soapbox-title">&nbsp;</td>
 </tr>
 </tbody>
 </table>
@@ -432,35 +432,29 @@
 <table class="body">
 <tbody>
 <tr>
-<td class="body-padding">&nbsp;</td>
-<td class="body-padded">
-<div class="body-title">Hola, { first_name }, gracias por registrarse</div>
+<td class="body-padding" style="width: 41px;">&nbsp;</td>
+<td class="body-padded" style="width: 423px;">
+<div class="body-title">Hola, {{ $receiver_name }},</div>
 <table class="body-text">
 <tbody>
 <tr>
-<td class="body-text-cell">We're really excited for you to join our community! You're just one click away from activate your account.</td>
+<td class="body-text-cell">Li adjuntem el seu certificat de donacions corresponent al 2019</td>
 </tr>
 </tbody>
 </table>
-<div style="text-align: left;"><!-- [if mso]>
-                          <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#" style="height:38px;v-text-anchor:middle;width:190px;" arcsize="11%" strokecolor="#407429" fill="t">
-                            <v:fill type="tile" src="https://www.filepicker.io/api/file/N8GiNGsmT6mK6ORk00S7" color="#41CC00" />
-                            <w:anchorlock/>
-                            <center style="color:#ffffff;font-family:sans-serif;font-size:17px;font-weight:bold;">Come on back</center>
-                          </v:roundrect>
-                        <![endif]--><a style="background-color: #41cc00; background-image: url('https://www.filepicker.io/api/file/N8GiNGsmT6mK6ORk00S7'); border: 1px solid #407429; border-radius: 4px; color: #ffffff; display: inline-block; font-family: sans-serif; font-size: 17px; font-weight: bold; text-shadow: -1px -1px #47A54B; line-height: 38px; text-align: center; text-decoration: none; width: 190px; -webkit-text-size-adjust: none; mso-hide: all;" href="#">Activate Account!</a></div>
+<div style="text-align: left;">&nbsp;</div>
 <table class="body-signature-block">
 <tbody>
 <tr>
 <td class="body-signature-cell">
-<p>Thanks so much,</p>
-<p class="body-signature"><img src="https://www.filepicker.io/api/file/2R9HpqboTPaB4NyF35xt" alt="Company Name" /></p>
+<p>Moltes gr&agrave;cies,</p>
+<p class="body-signature">Cis Angel Olaran&nbsp;</p>
 </td>
 </tr>
 </tbody>
 </table>
 </td>
-<td class="body-padding">&nbsp;</td>
+<td class="body-padding" style="width: 41px;">&nbsp;</td>
 </tr>
 </tbody>
 </table>

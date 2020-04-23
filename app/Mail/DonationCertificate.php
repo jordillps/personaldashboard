@@ -13,6 +13,7 @@ class DonationCertificate extends Mailable
 
     public $receiver_name;
     public $receiver_email;
+    
 
     /**
      * Create a new message instance.
@@ -33,10 +34,11 @@ class DonationCertificate extends Mailable
      */
     public function build()
     {
+        $fileName = str_replace(' ', '', $this->receiver_name).'.'.'pdf';
         //return $this->view('view.name');
         return $this->subject(__("Certificat de Donacions Angel Olaran"))
             ->view('maileclipse::templates.emailConfirmation') //template que utilitzara
-            ->attachFromStorage('/path/to/file')
+            ->attachFromStorage('/pdfs/'.$fileName)
 	        ->with([
                 'receiver_name' => $this->receiver_name,
                 'receiver_email' => $this->receiver_email,
