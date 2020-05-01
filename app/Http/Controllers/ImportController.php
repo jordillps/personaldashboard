@@ -27,7 +27,7 @@ class ImportController extends Controller
     * @return \Illuminate\Support\Collection
     *
     */
-    public function import(Request $request) 
+    public function import(Request $request)
     {
         $validatedData = $request->validate([
             'file' => 'required',
@@ -35,7 +35,7 @@ class ImportController extends Controller
 
         Partner::truncate();
         Excel::import(new PartnersImport,request()->file('file'));
-           
+
         return back()->with('success', "global.importedcorrectly");;
     }
 
@@ -53,18 +53,19 @@ class ImportController extends Controller
           'receiver_city' => $partner->city,
           'subject' => 'Certificado de donaciones 2019',
           'salutation' => 'Sehr geehrte Frau Graf,',
-          'content' => 'Lorem Ipsum is simply dummy text of the 
-          printing and typesetting industry. Lorem Ipsum has been 
-          the industry\'s standard dummy text ever since the 1500s, 
-          when an unknown printer took a galley of type and scrambled 
-          it to make a type specimen book. It has survived not only 
-          five centuries, but also the leap into electronic typesetting, 
+          'content' => 'Lorem Ipsum is simply dummy text of the
+          printing and typesetting industry. Lorem Ipsum has been
+          the industry\'s standard dummy text ever since the 1500s,
+          when an unknown printer took a galley of type and scrambled
+          it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
           remaining essentially unchanged.',
-          'date' => '30 d\'abril de 2020'        
+          'date' => '30 d\'abril de 2020'
             ];
-        
+
         $pdf = PDF::loadView('pdfview', $data);
-        $fileName = str_replace(' ', '', $partner->name).'.'.'pdf'; 
+        $name_noaccents = removeAccents($partner->name);
+        $fileName = str_replace(' ', '', $name_noaccents).'.'.'pdf';
         //Storage the file
         Storage::put('/pdfs/'.$fileName, $pdf->output());
         //Sending email to the partner
