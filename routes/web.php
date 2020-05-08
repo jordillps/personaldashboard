@@ -11,14 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', function () { return view('welcome');})->name('welcome');
+
+Route::get('/reservationform', function () { return view('reservations.reservationform');})->name('reservationform');
 
 Auth::routes(['verify' => true]);
 
 Route::get('locale/{locale}', 'LocalizationController@setLocale')->name('setLocale');
 
+//Reservations
+Route::put('confirmed/{reservation}', 'ReservationController@update')->name('reservation.update');
+
+Route::post('reservation', 'ReservationController@store')->name('reservation.store');
+
+//Admin
 Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/emailverification', 'HomeController@emailverification')->name('emailverification');
@@ -31,6 +37,8 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/export', 'TablesController@export')->name('home.tables.export');
             Route::delete('/{id}', 'TablesController@destroy')->name('home.tables.destroy');
         });
+
+        Route::get('/reservations', 'ReservationController@index')->name('home.reservations');
 
         Route::get('/charts', 'ChartsController@index')->name('home.charts');
 

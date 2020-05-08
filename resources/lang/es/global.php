@@ -13,6 +13,7 @@ return [
     'login' => 'Acceso',
     'register' => 'Registrarse',
     'home' => 'Inicio',
+    'reserve' => 'Reservar',
     'dashboard' => 'Panel de gestión personal',
     'logged' => 'Sesión iniciada',
     'logout' => 'Cerrar sesión',

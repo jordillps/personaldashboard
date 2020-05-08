@@ -21,6 +21,11 @@
           <i class="fas fa-fw fa-table"></i>
           <span>@lang('global.tables')</span></a>
       </li>
+      <li class="nav-item {{ Request::is('home/reservations') ? 'active': ''}}">
+        <a class="nav-link" href="{{ route('home.reservations')}}">
+          <i class="fas fa-fw fa-table"></i>
+          <span>@lang('global.reservations')</span></a>
+      </li>
       <li class="nav-item {{ Request::is('home/importView') ? 'active': ''}}">
         <a class="nav-link" href="{{ route('home.importView')}}">
           <i class="fas fa-file-import"></i>

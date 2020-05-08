@@ -25,6 +25,9 @@
                                 @endauth
                         @endif
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('reservationform') }}">@lang('global.reserve')</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#">@lang('global.contact')</a>
                         </li>
                         <li class="nav-item dropdown">

@@ -1,0 +1,119 @@
+
+.reservation-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:rgb(224, 251, 242);
+
+}
+
+
+
+.card-elegant {
+    -webkit-box-shadow: 2px 14px 27px -12px rgba(0,0,0,0.23);
+    -moz-box-shadow: 2px 14px 27px -12px rgba(0,0,0,0.23);
+    box-shadow: 2px 14px 27px -12px rgba(0,0,0,0.23);
+    width: 80%;
+    max-width: 800px;
+    /* margin: 0.1em auto 0.1em auto; */
+    max-height: 90vh;
+
+  }
+
+  .card-elegant .card-block {
+    padding: 2rem;
+    text-align: left;
+    background-color: rgb(241, 241, 241);
+    -webkit-box-shadow: 2px 14px 27px -12px rgba(0,0,0,0.23);
+    -moz-box-shadow: 2px 14px 27px -12px rgba(0,0,0,0.23);
+    box-shadow: 2px 14px 27px -12px rgba(0,0,0,0.23);
+  }
+
+  .card-elegant .card-title {
+    font-weight: normal;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    color: rgb(80, 80, 80);
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+  }
+
+
+
+  .card-elegant .card-text {
+    border-bottom: .15rem solid #C7C7C5;
+    color:rgb(80, 80, 80);
+    font-size: 1rem;
+    padding-bottom: 1.5rem;
+    margin: 0 auto 2.4rem;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .alert{
+    box-shadow: 0px 3px 10px -2px rgba(161, 170, 166, 0.5);
+  }
+
+
+  .input__button {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin:1em;
+  }
+
+  .input__button > div {
+    /* flex: 1; */
+    padding: 0.5rem;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+  input[type="radio"]:not(:disabled) ~ label {
+    cursor: pointer;
+  }
+  input[type="radio"]:disabled ~ label {
+    color: #bcc2bf;
+    border-color: #bcc2bf;
+  }
+
+  .slots{
+    display: block;
+    background: #d7f3e3;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 1rem 2.5em;
+    text-align: center;
+    box-shadow: 0px 3px 10px -2px rgba(161, 170, 166, 0.5);
+  }
+
+  .slots .unavailable{
+    opacity: 0.4;
+  }
+
+  input[type="radio"]:checked + label {
+    background: #38c172;
+    color: white;
+  }
+
+  .slots p {
+    font-weight: 900;
+    margin:0;
+  }
+
+  @media only screen and (max-width: 700px) {
+    .input__button  {
+      flex-direction: column;
+    }
+
+    .card-elegant .card-title {
+        margin: 0 0 1em 0;
+        font-size: 1.3rem;
+
+      }
+
+    }
+
+
+
