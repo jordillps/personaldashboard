@@ -17,6 +17,8 @@ class Reservation extends Model
     protected $dates = ['reservation_date'];
 
 
+
+
     //Mutador para calcular reservation_date
     public function setReservationDateAttribute($reservation_date)
     {
@@ -40,8 +42,6 @@ class Reservation extends Model
         '19:00-19:30',
         '19:30-20:00'
     ];
-
-
 
 
 

@@ -38,7 +38,11 @@ Route::group(['middleware' => ['auth']], function () {
             Route::delete('/{id}', 'TablesController@destroy')->name('home.tables.destroy');
         });
 
-        Route::get('/reservations', 'ReservationController@index')->name('home.reservations');
+        Route::group(["prefix" => "reservations"], function() {
+            Route::get('/', 'ReservationController@index')->name('home.reservations');
+            Route::delete('/{reservation}', 'ReservationController@destroy')->name('home.reservations.destroy');
+            Route::get('/calendar', 'ReservationCalendarController@index')->name('home.reservations.calendar');
+        });
 
         Route::get('/charts', 'ChartsController@index')->name('home.charts');
 

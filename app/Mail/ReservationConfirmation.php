@@ -33,9 +33,12 @@ class ReservationConfirmation extends Mailable
     public function build()
     {
         return $this->markdown('emails.reservationconfirmation')
+        ->subject(trans('global.emailconfirmation'))
         ->with([
+            'name' => $this->reservation->name,
             'reservation_date' => $this->reservation->reservation_date,
             'slot' => $this->reservation->slot,
+
         ]);
     }
 }

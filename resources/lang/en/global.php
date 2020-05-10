@@ -104,4 +104,21 @@ return [
     'partners' => 'List of Partners',
     'importedcorrectly' => 'Data has been imported correctly',
     'printpdf' => 'Generate PDF',
+
+    //Reservations
+    'reservations' => 'Reserves',
+    'phone' => 'Phone',
+    'reservation_date' => 'Date',
+    'slot' => 'Hour',
+    'confirmdelete' => 'Delete confirmation',
+    'sure' => 'Are you sure',
+    'cancel' => 'Cancel',
+    'delete' => 'Delete',
+    'reservationdeleted' => 'Reserve deleted correctly',
+    'reservationscalendar' => 'Reserves Calendar',
+
+    //emails
+    'emailconfirmation' => 'Reservation Confirmed',
+
+
 ];

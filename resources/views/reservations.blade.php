@@ -45,6 +45,7 @@
                         <th>@lang('global.email')</th>
                         <th>@lang('global.phone')</th>
                         <th>@lang('global.reservation_date')</th>
+                        <th>@lang('global.slot')</th>
                         @if(auth()->user()->isAdmin())
                             <th>@lang('global.action')</th>
                         @endif
@@ -57,6 +58,7 @@
                         <th>@lang('global.email')</th>
                         <th>@lang('global.phone')</th>
                         <th>@lang('global.reservation_date')</th>
+                        <th>@lang('global.slot')</th>
                         @if(auth()->user()->isAdmin())
                             <th>@lang('global.action')</th>
                         @endif
@@ -70,9 +72,10 @@
                         <td>{{$reservation->email}}</td>
                         <td>{{$reservation->phone}}</td>
                         <td>{{ Carbon\Carbon::parse($reservation->reservation_date)->format('d-m-Y') }}</td>
+                        <td>{{$reservation->slot}}</td>
                         @if(auth()->user()->isAdmin())
                             <td>
-                                <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteReservationConfirmation" data-reservation-id="{{ $reservation->id }}"><i class="fa fa-trash"></i></a>
+                                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-times"></i></button>
                             </td>
                         @endif
                     </tr>
@@ -88,31 +91,30 @@
       </div>
       <!-- /.container-fluid -->
 
-      <!-- Modal-->
-        <form action="" id="deleteReservationForm" method="POST">
-            <div class="modal" id="deleteReservationConfirmation" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                        @method('DELETE')
-                        @csrf
-                    <div class="modal-content">
-                    <div class="modal-header alert-warning">
-                        <h5 class="modal-title text-uppercase">@lang('global.deleteconfirmationtitle')</h5>
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <form action="{{ route('home.reservations.destroy', $reservation)}}" method="POST">
+            {{ csrf_field() }}
+            {{ method_field('DELETE')}}
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">@lang('global.confirmdelete')</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                            <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>@lang('global.deleteconfirmationmessage')</p>
+                        <p>@lang('global.sure')</p>
                     </div>
-                    <div class="modal-footer alert-warning">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('global.deleteconfirmationcancel')</button>
-                        <button type="submit" class="btn btn-primary">@lang('global.deleteconfirmationdelete')</button>
-                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('global.cancel')</button>
+                    <button class="btn btn-primary">@lang('global.delete')</button>
                     </div>
                 </div>
             </div>
         </form>
-        <!-- End Modal-->
+    </div>
 
       <!-- Sticky Footer -->
       <footer class="sticky-footer">

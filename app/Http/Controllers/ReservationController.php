@@ -21,7 +21,9 @@ class ReservationController extends Controller
     public function index()
     {
         //
-        $reservations = Reservation::all();
+        $reservations = Reservation::orderBy('reservation_date', 'ASC')
+        ->orderBy('slot', 'ASC')
+        ->get();
         return view('reservations',compact('reservations'));
     }
 
@@ -147,5 +149,9 @@ class ReservationController extends Controller
     public function destroy(Reservation $reservation)
     {
         //
+        $reservation->delete();
+
+        return back()->with('success', "global.reservationdeleted");
+
     }
 }

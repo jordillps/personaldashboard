@@ -107,4 +107,18 @@ return [
     'importedcorrectly' => 'Las datos se han importado correctamente',
     'printpdf' => 'Generar PDF',
 
+    //Reservations
+    'reservations' => 'Reservas',
+    'phone' => 'Teléfono',
+    'reservation_date' => 'Fecha',
+    'slot' => 'Hora',
+    'confirmdelete' => 'Confirmación del borrado',
+    'sure' => '¿Estás seguro?',
+    'cancel' => 'Cancelar',
+    'delete' => 'Borrar',
+    'reservationdeleted' => 'Reserva borrada correctamente',
+    'reservationscalendar' => 'Calendario de reservas',
+
+    //emails
+    'emailconfirmation' => 'Confirmación de reserva',
 ];
