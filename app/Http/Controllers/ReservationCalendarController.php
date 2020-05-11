@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Reservation;
+use Redirect,Response;
 
 class ReservationCalendarController extends Controller
 {
@@ -18,24 +19,7 @@ class ReservationCalendarController extends Controller
         return view('calendarreservation', compact('reservations'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
-    {
-        //
-        dd($request);
-        $insertArr = [ 'name' =>$request->name,
-                       'email' => $request->email,
-                       'phone' =>$request->phone,
-                       'start' => $request->start,
-                       'end' => $request->end
-                    ];
-        $reservation = Reservation::insert($insertArr);
-        return Response::json($reservation);
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -45,7 +29,21 @@ class ReservationCalendarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $insertArr = [ 'name' =>$request->title,
+                       'email' => $request->email,
+                       'phone' =>$request->phone,
+                       'reservation_date' => $request->reservation_date,
+                       'start' => $request->start,
+                       'end' => $request->end
+                    ];
+        $reservation = Reservation::insert($insertArr);
+
+        $reservation = Reservation::all()->last();
+        $reservation->slot = substr($reservation->start, 11, 5)."-".substr($reservation->end, 11, 5);
+        $reservation->save();
+
+        return Response::json($reservation);
     }
 
     /**

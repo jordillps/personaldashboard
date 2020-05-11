@@ -19,6 +19,7 @@ class CalendarController extends Controller
 
     public function store(Request $request)
     {
+        //return $request;
         $insertArr = [ 'user_id' =>$request->user_id,
                        'title' => $request->title,
                        'location' =>$request->location,
@@ -38,7 +39,6 @@ class CalendarController extends Controller
                         'start' => strtotime($request->start),
                         'end' => strtotime($request->end)
                     ];
-        //   dd($updateArr);
         $event  = Event::where('id', $request->id)->update($updateArr);
 
         return Response::json($event);

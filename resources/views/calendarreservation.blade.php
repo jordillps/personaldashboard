@@ -67,7 +67,7 @@
                         header: {
                             left: 'prev,next today',
                             center: 'title',
-                            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                            right: 'timeGridWeek,timeGridDay,dayGridMonth'
                         },
                         locale: locale_lang,
                         timeZone: 'Europe/Madrid',
@@ -116,27 +116,30 @@
                             var phone =prompt("@lang('global.phonereservation')");
 
                             if (title && email && phone) {
-                                calendar.addEvent({
+                                var newevent = calendar.addEvent({
                                     title: title,
                                     email:email,
                                     phone:phone,
+                                    reservation_date:arg.startStr,
                                     start: arg.start,
-                                    end: arg.end,
-                                    allDay: arg.allDay
-                                })
+                                    end: arg.endS,
+                                    //allDay: arg.allDay
+                                });
 
-                                $.ajax({
+                                var request = $.ajax({
                                     headers: {
                                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                     },
                                     url: SITEURL + "/create",
-                                    data:{name:title, email:email,phone:phone,start:arg.startStr,end:arg.endStr},
+                                    data:{title:title, email:email,phone:phone,reservation_date:arg.startStr,start:arg.startStr,end:arg.endStr},
                                     type: "POST",
                                     success: function (data) {
                                         displayMessage("@lang('global.eventadded')");
                                     }
                                 });
+
                             }
+                            console.log(newevent);
                             calendar.unselect()
                         },
                         editable: true,

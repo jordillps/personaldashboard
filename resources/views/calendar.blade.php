@@ -126,7 +126,7 @@
                             var location =prompt("@lang('global.locationevent')");
 
                             if (title) {
-                                calendar.addEvent({
+                                var newevent = calendar.addEvent({
                                     user_id:ID,
                                     title: title,
                                     location:location,
@@ -147,6 +147,7 @@
                                     }
                                 });
                             }
+                            console.log(newevent);
                             calendar.unselect()
                         },
                         editable: true,

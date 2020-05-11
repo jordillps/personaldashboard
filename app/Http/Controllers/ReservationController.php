@@ -133,12 +133,12 @@ class ReservationController extends Controller
         $reservation->save();
 
         //Send an email confirmation to the customer
-        Mail::to($reservation->email)->send(new ReservationConfirmation($reservation));
+        //Mail::to($reservation->email)->send(new ReservationConfirmation($reservation));
 
         $user_admin = User::find(1);
 
         //Send an email confirmation to the administrator
-        Mail::to($user_admin->email)->send(new ReservationConfirmationAdmin($reservation));
+        //Mail::to($user_admin->email)->send(new ReservationConfirmationAdmin($reservation));
 
         return view('reservations.confirmedreservation',compact('reservation'))->with('flash',trans('global.reservationconfirmed'));
 
