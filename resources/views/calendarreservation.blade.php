@@ -60,11 +60,6 @@
                     var response = document.getElementById('response');
                     var locale_lang = "{{app()->getLocale()}}";
                     var SITEURL = "{{url('/home/reservations/calendar')}}";
-                    var ID = "{{Auth::id()}}";
-
-                    //Google Calendar Parameters
-                    //var GOOGLECALENDARID = "{{auth()->user()->googlecalendarid}}";
-                    //var GOOGLECALENDARAPIKEY = "{{auth()->user()->googlecalendarapikey}}";
 
 
                     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -85,21 +80,15 @@
                                 @foreach($reservations as $reservation)
                                 {
                                     id: '{{ $reservation->id }}',
-                                    user_id:'{{ $reservation->name }}',
-                                    email : '{{ $reservation->email }}',
-                                    phone : '{{ $reservation->phone }}',
-                                    start : '{{ reservation->start }}',
+                                    title:'{{ $reservation->name }}',
+                                    extendedProps: {
+                                        email : '{{ $reservation->email }}',
+                                        phone : '{{ $reservation->phone }}',
+                                      },
+                                    start : '{{ $reservation->start }}',
                                     end: '{{ $reservation->end }}',
                                 },
                                 @endforeach
-
-                        ],
-                        //EVENTS GOOGLE CALENDAR
-                        googleCalendarApiKey: GOOGLECALENDARAPIKEY,
-                        eventSources: [
-                                {
-                                googleCalendarId: GOOGLECALENDARID
-                                }
 
                         ],
                         eventTimeFormat: { // like '14:30:00'
@@ -109,12 +98,12 @@
                         },
                         //eventRender: function(info) {
                             //var tooltip = new Tooltip(info.el, {
-                              //title: info.event.extendedProps.description,
+                              //title: info.event.extendedProps,
                               //placement: 'top',
                               //trigger: 'hover',
                               //container: 'body'
                             //});
-                          //},
+                        //},
                         defaultDate: new Date(),
                         navLinks: true, // can click day/week names to navigate views
                         selectable: true,
@@ -122,14 +111,15 @@
                         selectHelper: true,
                         //Add an event
                         select: function(arg) {
-                            var title = prompt("@lang('global.titleevent')");
-                            var location =prompt("@lang('global.locationevent')");
+                            var title = prompt("@lang('global.namereservation')");
+                            var email =prompt("@lang('global.emailreservation')");
+                            var phone =prompt("@lang('global.phonereservation')");
 
-                            if (title) {
+                            if (title && email && phone) {
                                 calendar.addEvent({
-                                    user_id:ID,
                                     title: title,
-                                    location:location,
+                                    email:email,
+                                    phone:phone,
                                     start: arg.start,
                                     end: arg.end,
                                     allDay: arg.allDay
@@ -140,7 +130,7 @@
                                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                     },
                                     url: SITEURL + "/create",
-                                    data:{user_id:ID, title:title, location:location,start:arg.startStr,end:arg.endStr},
+                                    data:{name:title, email:email,phone:phone,start:arg.startStr,end:arg.endStr},
                                     type: "POST",
                                     success: function (data) {
                                         displayMessage("@lang('global.eventadded')");

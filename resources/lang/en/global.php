@@ -116,6 +116,11 @@ return [
     'delete' => 'Delete',
     'reservationdeleted' => 'Reserve deleted correctly',
     'reservationscalendar' => 'Reserves Calendar',
+    'namereservation' => 'Name',
+    'emailreservation' => 'Email',
+    'phonereservation' => 'Telephone',
+
+
 
     //emails
     'emailconfirmation' => 'Reservation Confirmed',

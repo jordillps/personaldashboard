@@ -10,6 +10,7 @@ use App\Mail\ReservationConfirmation;
 use App\Mail\ReservationConfirmationAdmin;
 use App\User;
 use Illuminate\Support\Facades\Mail;
+use DateTime;
 
 class ReservationController extends Controller
 {
@@ -125,6 +126,10 @@ class ReservationController extends Controller
 
 
         $reservation->slot = $request->get('slot');
+        $date = $reservation->reservation_date->format('Y-m-d');
+        $reservation->start = $date." ".substr($reservation->slot, 0, 5).":00";
+        $reservation->end = $date." ".substr($reservation->slot, 6, 5).":00";
+        //$reservation->end = DateTime::createFromFormat("Y-m-d H:i", "{{ $reservation->date_reservation }} "." "." substr({{$reservation->slot}}, 6, 5)");
         $reservation->save();
 
         //Send an email confirmation to the customer

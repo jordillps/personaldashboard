@@ -20,6 +20,8 @@ class CreateReservationsTable extends Migration
             $table->string('phone');
             $table->date('reservation_date');
             $table->string('slot')->nullable();
+            $table->timestamp('start')->nullable();
+            $table->timestamp('end')->nullable();
             $table->timestamps();
         });
     }

@@ -118,6 +118,10 @@ return [
     'delete' => 'Borrar',
     'reservationdeleted' => 'Reserva borrada correctamente',
     'reservationscalendar' => 'Calendario de reservas',
+    'namereservation' => 'Nombre',
+    'emailreservation' => 'Correo electrónico',
+    'phonereservation' => 'Teléfono',
+
 
     //emails
     'emailconfirmation' => 'Confirmación de reserva',

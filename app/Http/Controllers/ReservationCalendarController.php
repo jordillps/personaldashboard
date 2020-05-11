@@ -23,9 +23,18 @@ class ReservationCalendarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        dd($request);
+        $insertArr = [ 'name' =>$request->name,
+                       'email' => $request->email,
+                       'phone' =>$request->phone,
+                       'start' => $request->start,
+                       'end' => $request->end
+                    ];
+        $reservation = Reservation::insert($insertArr);
+        return Response::json($reservation);
     }
 
     /**
