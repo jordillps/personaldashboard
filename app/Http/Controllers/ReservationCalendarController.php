@@ -75,9 +75,20 @@ class ReservationCalendarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        $updateArr = [  'name' =>$request->title,
+                        'email' => $request->email,
+                        'phone' =>$request->phone,
+                        'reservation_date' => $request->start,
+                        'start' => $request->start,
+                        'end' => $request->end,
+                        'slot' => substr($request->start, 11, 5)."-".substr($request->end, 11, 5),
+                    ];
+        $reservation  = Reservation::where('id', $request->id)->update($updateArr);
+
+        return Response::json($reservation);
     }
 
     /**

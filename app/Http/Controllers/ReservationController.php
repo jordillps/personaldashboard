@@ -22,7 +22,8 @@ class ReservationController extends Controller
     public function index()
     {
         //
-        $reservations = Reservation::orderBy('reservation_date', 'ASC')
+        $reservations = Reservation::where('reservation_date', '>', today())
+        ->orderBy('reservation_date', 'ASC')
         ->orderBy('slot', 'ASC')
         ->get();
         return view('reservations',compact('reservations'));
@@ -151,10 +152,10 @@ class ReservationController extends Controller
      * @param  \App\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Reservation $reservation)
     {
         //
-        Reservation::where('id',$id)->delete();
+        $reservation->delete();
 
         return back()->with('success', "global.reservationdeleted");
 

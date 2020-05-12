@@ -75,7 +75,7 @@
                         <td>{{$reservation->slot}}</td>
                         @if(auth()->user()->isAdmin())
                             <td>
-                                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-times"></i></button>
+                                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></button>
                             </td>
                         @endif
                     </tr>
@@ -94,7 +94,7 @@
     <!-- Modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         @if ($reservations->count() > 0)
-            <form action="{{ route('home.reservations.destroy', ['id' => $reservation->id])}}" method="POST">
+            <form action="{{ route('home.reservations.destroy', $reservation)}}" method="POST">
                 {{ csrf_field() }}
                 {{ method_field('DELETE')}}
                 <div class="modal-dialog" role="document">

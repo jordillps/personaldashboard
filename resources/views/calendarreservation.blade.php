@@ -96,14 +96,24 @@
                             minute: '2-digit',
                             hour12: false,
                         },
+                        minTime:'10:00',
+                        maxTime:'20:00',
                         businessHours: [ // specify an array instead
                             {
                                 daysOfWeek: [ 1, 2, 3, 4, 5, 6 ], // Monday, Tuesday, Wednesday
-                                startTime: '10:00', // 8am
-                                endTime: '20:00' // 6pm
+                                startTime: '10:00', // 10am
+                                endTime: '14:00' // 2pm
                             },
-                                    
+                            {
+                                daysOfWeek: [ 1, 2, 3, 4, 5, 6 ], // Monday, Tuesday, Wednesday
+                                startTime: '17:00', // 5am
+                                endTime: '20:00' // 8pm
+                            },
                         ],
+                        eventConstraint:"businessHours",
+                        allDaySlot: false,
+                        showNonCurrentDates: false,
+                        nowIndicator: true,
                         //eventRender: function(info) {
                             //var tooltip = new Tooltip(info.el, {
                               //title: info.event.extendedProps,
@@ -124,13 +134,13 @@
                             var phone =prompt("@lang('global.phonereservation')");
 
                             if (title && email && phone) {
-                                var newevent = calendar.addEvent({
+                                calendar.addEvent({
                                     title: title,
                                     email:email,
                                     phone:phone,
                                     reservation_date:arg.startStr,
                                     start: arg.start,
-                                    end: arg.endS,
+                                    end: arg.end,
                                     //allDay: arg.allDay
                                 });
 
@@ -147,7 +157,6 @@
                                 });
 
                             }
-                            console.log(newevent);
                             calendar.unselect()
                         },
                         editable: true,
@@ -174,8 +183,10 @@
                         //Update an event
                         eventDrop: function (info) {
                             //Restar una hora per la UTC local
-                            var start = moment(info.event.start).subtract(1, "hours").format('YYYY-MM-DD HH:mm:ss');
-                            var end = moment(info.event.end).subtract(1, "hours").format('YYYY-MM-DD HH:mm:ss');
+                            //var reservation_date = moment(info.event.start).format('YYYY-MM-DD');
+                            var start = moment(info.event.start).subtract(2, "hours").format('YYYY-MM-DD HH:mm:ss');
+                            var end = moment(info.event.end).subtract(2, "hours").format('YYYY-MM-DD HH:mm:ss');
+                            console.log(start);
                             //alert(info.event.title + "@lang('global.eventdropinfo')" + start);
                             var dropMsg = confirm("@lang('global.eventdroppedconfirm')");
                             if (dropMsg) {
@@ -184,7 +195,8 @@
                                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                     },
                                     url: SITEURL + '/update',
-                                    data:{id:info.event.id,user_id:info.event.extendedProps.user_id, title:info.event.title, location:info.event.extendedProps.location,start:start,end:end},
+                                    data:{id:info.event.id,title:info.event.title, email:info.event.extendedProps.email,
+                                          phone:info.event.extendedProps.phone,start:start,end:end},
                                     type: "POST",
                                     success: function (response) {
                                         displayMessage("@lang('global.eventupdated')");
@@ -194,6 +206,10 @@
                                 info.revert();
                             }
 
+                        },
+                        //Show event info
+                        eventMouseEnter: function (info) {
+                                style.border = '5px dotted orange';
                         },
 
                     });
