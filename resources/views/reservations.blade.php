@@ -93,27 +93,29 @@
 
     <!-- Modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <form action="{{ route('home.reservations.destroy', $reservation)}}" method="POST">
-            {{ csrf_field() }}
-            {{ method_field('DELETE')}}
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">@lang('global.confirmdelete')</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>@lang('global.sure')</p>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('global.cancel')</button>
-                    <button class="btn btn-primary">@lang('global.delete')</button>
+        @if ($reservations->count() > 0)
+            <form action="{{ route('home.reservations.destroy', ['id' => $reservation->id])}}" method="POST">
+                {{ csrf_field() }}
+                {{ method_field('DELETE')}}
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">@lang('global.confirmdelete')</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>@lang('global.sure')</p>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('global.cancel')</button>
+                        <button class="btn btn-primary">@lang('global.delete')</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        @endif
     </div>
 
       <!-- Sticky Footer -->

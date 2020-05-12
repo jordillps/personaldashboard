@@ -151,10 +151,10 @@ class ReservationController extends Controller
      * @param  \App\Reservation  $reservation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reservation $reservation)
+    public function destroy($id)
     {
         //
-        $reservation->delete();
+        Reservation::where('id',$id)->delete();
 
         return back()->with('success', "global.reservationdeleted");
 

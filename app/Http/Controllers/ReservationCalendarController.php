@@ -86,8 +86,10 @@ class ReservationCalendarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //
+        $reservation = Reservation::where('id',$request->id)->delete();
+        return Response::json($reservation);
     }
 }

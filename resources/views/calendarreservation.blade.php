@@ -96,6 +96,14 @@
                             minute: '2-digit',
                             hour12: false,
                         },
+                        businessHours: [ // specify an array instead
+                            {
+                                daysOfWeek: [ 1, 2, 3, 4, 5, 6 ], // Monday, Tuesday, Wednesday
+                                startTime: '10:00', // 8am
+                                endTime: '20:00' // 6pm
+                            },
+                                    
+                        ],
                         //eventRender: function(info) {
                             //var tooltip = new Tooltip(info.el, {
                               //title: info.event.extendedProps,
