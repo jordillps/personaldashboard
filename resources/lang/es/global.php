@@ -57,7 +57,9 @@ return [
     'eventdeletedsuccessfully' => 'Evento borrado correctamente',
     'eventdropinfo' =>'se ha modificado al ',
     'eventdroppedconfirm' => 'Seguro que quiere modificar el evento?',
-    'createdeleteeventsinfo' => 'Clic para crear un evento || Arrastrar para modificarlo',
+    'createeventsinfo' => 'Clic para crear un evento',
+    'updateeventsinfo' => 'Arratrar y Soltar para  modificar un evento',
+    'deleteeventsinfo' => 'Clic sobre un evento para borrar',
 
     //Profile
     'firstname' => 'Nombre',
@@ -121,6 +123,9 @@ return [
     'namereservation' => 'Nombre',
     'emailreservation' => 'Correo electrónico',
     'phonereservation' => 'Teléfono',
+    'createreservationsinfo' => 'Clic para crear una reserva',
+    'updatereservationsinfo' => 'Arratrar y Soltar para  modificar una reserva',
+    'deletereservationsinfo' => 'Clic sobre un reserva para borrar',
 
 
     //emails

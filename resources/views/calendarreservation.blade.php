@@ -13,6 +13,11 @@
     <link href="{{asset('fullcalendar/css/daygrid/main.css')}}" rel='stylesheet' />
     <link href="{{asset('fullcalendar/bootstrap/main.css')}}" rel='stylesheet' />
     <link href="{{asset('fullcalendar/css/timegrid/main.css')}}" rel='stylesheet' />
+    <style>
+        .tooltip-inner {
+            white-space:pre-wrap;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -29,7 +34,12 @@
 
         <!-- Calendar -->
         <div class="container">
-            <div class="alert alert-info">@lang('global.createdeleteeventsinfo')</div>
+            <div class="row d-flex justify-content-center mx-5">
+                <div class="alert alert-info"><strong>@lang('global.createreservationsinfo')</strong></div>
+                <div class="alert alert-info"><strong>@lang('global.updatereservationsinfo')</strong></div>
+                <div class="alert alert-info"><strong>@lang('global.deletereservationsinfo')</strong></div>
+            </div>
+            
             <div id="response"></div>
             <div id='calendar'>
             </div>
@@ -65,9 +75,14 @@
                     var calendar = new FullCalendar.Calendar(calendarEl, {
                         plugins: [ 'interaction', 'dayGrid', 'timeGrid','bootstrap','googleCalendar' ],
                         header: {
-                            left: 'prev,next today',
+                            left: 'prev,next',
                             center: 'title',
                             right: 'timeGridWeek,timeGridDay,dayGridMonth'
+                        },
+                        titleFormat:{ 
+                            year: 'numeric', 
+                            month: 'short', 
+                            day: 'numeric' 
                         },
                         locale: locale_lang,
                         timeZone: 'Europe/Madrid',
@@ -114,14 +129,15 @@
                         allDaySlot: false,
                         showNonCurrentDates: false,
                         nowIndicator: true,
-                        //eventRender: function(info) {
-                            //var tooltip = new Tooltip(info.el, {
-                              //title: info.event.extendedProps,
-                              //placement: 'top',
-                              //trigger: 'hover',
-                              //container: 'body'
-                            //});
-                        //},
+                        displayEventEnd: true,
+                        eventRender: function (info) {
+                            $(info.el).tooltip({ 
+                                title: info.event.title+'  Tel: '+info.event.extendedProps.phone,
+                                placement: 'top',
+                                trigger: 'hover',
+                                container: 'body' 
+                            });     
+                        },
                         defaultDate: new Date(),
                         navLinks: true, // can click day/week names to navigate views
                         selectable: true,
@@ -141,7 +157,6 @@
                                     reservation_date:arg.startStr,
                                     start: arg.start,
                                     end: arg.end,
-                                    //allDay: arg.allDay
                                 });
 
                                 var request = $.ajax({
@@ -186,7 +201,6 @@
                             //var reservation_date = moment(info.event.start).format('YYYY-MM-DD');
                             var start = moment(info.event.start).subtract(2, "hours").format('YYYY-MM-DD HH:mm:ss');
                             var end = moment(info.event.end).subtract(2, "hours").format('YYYY-MM-DD HH:mm:ss');
-                            console.log(start);
                             //alert(info.event.title + "@lang('global.eventdropinfo')" + start);
                             var dropMsg = confirm("@lang('global.eventdroppedconfirm')");
                             if (dropMsg) {
@@ -207,11 +221,6 @@
                             }
 
                         },
-                        //Show event info
-                        eventMouseEnter: function (info) {
-                                style.border = '5px dotted orange';
-                        },
-
                     });
                     calendar.render();
 

@@ -55,7 +55,9 @@ return [
     'eventupdated'=>'Event updated',
     'eventdeleteconfirm' => 'Do you really want to delete?',
     'eventdeletedsuccessfully' => 'Deleted Successfully',
-    'createdeleteeventsinfo' => 'Click to create an event || Drag & Drop to modify',
+    'createeventsinfo' => 'Click to create a new event',
+    'updateeventsinfo' => 'Drag & Drop to modify',
+    'deleteeventsinfo' => 'Click on an event to delete',
 
     //Profile
     'firstname' => 'Firstname',
@@ -119,6 +121,9 @@ return [
     'namereservation' => 'Name',
     'emailreservation' => 'Email',
     'phonereservation' => 'Telephone',
+    'createreservationsinfo' => 'Click to create a new reserve',
+    'updatereservationsinfo' => 'Drag & Drop to modify',
+    'deletereservationsinfo' => 'Click on a reserve to delete',
 
 
 
