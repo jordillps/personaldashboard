@@ -124,6 +124,7 @@ return [
     'createreservationsinfo' => 'Click to create a new reserve',
     'updatereservationsinfo' => 'Drag & Drop to modify',
     'deletereservationsinfo' => 'Click on a reserve to delete',
+    'eventdroppednoslot' => 'Slot duration no more than 30 min',
 
 
 

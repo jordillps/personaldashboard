@@ -126,6 +126,7 @@ return [
     'createreservationsinfo' => 'Clic para crear una reserva',
     'updatereservationsinfo' => 'Arratrar y Soltar para  modificar una reserva',
     'deletereservationsinfo' => 'Clic sobre un reserva para borrar',
+    'eventdroppednoslot' => 'La durada de la reserva no pot ser superior a 30 min',
 
 
     //emails

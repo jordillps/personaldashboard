@@ -34,12 +34,12 @@
 
         <!-- Calendar -->
         <div class="container">
-            <div class="row d-flex justify-content-center mx-5">
-                <div class="alert alert-info"><strong>@lang('global.createreservationsinfo')</strong></div>
-                <div class="alert alert-info"><strong>@lang('global.updatereservationsinfo')</strong></div>
-                <div class="alert alert-info"><strong>@lang('global.deletereservationsinfo')</strong></div>
+            <div class="row d-flex justify-content-between">
+                <div class="alert alert-info"><i class="fas fa-fw fa-info-circle"></i><strong>@lang('global.createreservationsinfo')</strong></div>
+                <div class="alert alert-info"><i class="fas fa-fw fa-info-circle"></i><strong>@lang('global.updatereservationsinfo')</strong></div>
+                <div class="alert alert-info"><i class="fas fa-fw fa-info-circle"></i><strong>@lang('global.deletereservationsinfo')</strong></div>
             </div>
-            
+
             <div id="response"></div>
             <div id='calendar'>
             </div>
@@ -79,10 +79,10 @@
                             center: 'title',
                             right: 'timeGridWeek,timeGridDay,dayGridMonth'
                         },
-                        titleFormat:{ 
-                            year: 'numeric', 
-                            month: 'short', 
-                            day: 'numeric' 
+                        titleFormat:{
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
                         },
                         locale: locale_lang,
                         timeZone: 'Europe/Madrid',
@@ -131,12 +131,29 @@
                         nowIndicator: true,
                         displayEventEnd: true,
                         eventRender: function (info) {
-                            $(info.el).tooltip({ 
-                                title: info.event.title+'  Tel: '+info.event.extendedProps.phone,
-                                placement: 'top',
-                                trigger: 'hover',
-                                container: 'body' 
-                            });     
+                            if(info.view.type == 'timeGridDay'){
+                                displayEventTime : true;
+                            }else{
+                                $(info.el).tooltip({
+                                    title: function(){
+                                        // var title = document.createElement("DIV");
+                                        // var pname = document.createElement("P");
+                                        // var name = document.createTextNode(info.event.title);
+                                        // pname.appendChild(name);
+                                        // var pphone = document.createTextNode(info.event.extendedProps.phone);
+                                        // pname.appendChild(pphone);
+                                        // title.appendChild(pname);
+                                        // console.log(title);
+                                        // return  title;
+                                        return  info.event.title+'   Tel:'+info.event.extendedProps.phone;
+                                    },
+                                    placement: 'top',
+                                    trigger: 'hover',
+                                    container: 'body',
+                                    delay: { "show": 500, "hide": 100 }
+                                });
+                            }
+
                         },
                         defaultDate: new Date(),
                         navLinks: true, // can click day/week names to navigate views
@@ -198,27 +215,38 @@
                         //Update an event
                         eventDrop: function (info) {
                             //Restar una hora per la UTC local
-                            //var reservation_date = moment(info.event.start).format('YYYY-MM-DD');
                             var start = moment(info.event.start).subtract(2, "hours").format('YYYY-MM-DD HH:mm:ss');
                             var end = moment(info.event.end).subtract(2, "hours").format('YYYY-MM-DD HH:mm:ss');
-                            //alert(info.event.title + "@lang('global.eventdropinfo')" + start);
-                            var dropMsg = confirm("@lang('global.eventdroppedconfirm')");
-                            if (dropMsg) {
-                                $.ajax({
-                                    headers: {
-                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                    },
-                                    url: SITEURL + '/update',
-                                    data:{id:info.event.id,title:info.event.title, email:info.event.extendedProps.email,
-                                          phone:info.event.extendedProps.phone,start:start,end:end},
-                                    type: "POST",
-                                    success: function (response) {
-                                        displayMessage("@lang('global.eventupdated')");
-                                    }
-                                });
+                            var start_duration = moment(info.event.start).subtract(2, "hours");
+                            var end_duration = moment(info.event.end).subtract(2, "hours");
+                            var duration = moment.duration(end_duration.diff(start_duration));
+                            var hours = duration.asHours();
+                            if (hours == 0.5){
+                                var dropMsg = confirm("@lang('global.eventdroppedconfirm')");
+                                if (dropMsg) {
+                                    $.ajax({
+                                        headers: {
+                                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                        },
+                                        url: SITEURL + '/update',
+                                        data:{id:info.event.id,title:info.event.title, email:info.event.extendedProps.email,
+                                            phone:info.event.extendedProps.phone,start:start,end:end},
+                                        type: "POST",
+                                        success: function (response) {
+                                            displayMessage("@lang('global.eventupdated')");
+                                        }
+
+                                    });
+
+                                }else{
+                                    info.revert();
+
+                                }
                             }else{
+                                var ErrorDroppingMsg = alert("@lang('global.eventdroppednoslot')");
                                 info.revert();
                             }
+
 
                         },
                     });
@@ -233,8 +261,6 @@
                     }
 
                 });
-
-
 
           </script>
 
