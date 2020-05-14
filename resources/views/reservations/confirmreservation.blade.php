@@ -1,5 +1,8 @@
 @extends('layouts.layout')
 
+@push('styles')
+    <link rel="stylesheet" href="/css/styles.css">
+@endpush
 
 @section('content')
 
@@ -9,27 +12,27 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="alert alert-success text-center" role="alert">
-                        <strong>Nom: </strong> {{$reservation->name}}
+                        <strong>@lang('global.name'): </strong> {{$reservation->name}}
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="alert alert-success text-center" role="alert">
-                        <strong>Email: </strong> {{$reservation->email}}
+                        <strong>@lang('global.email'): </strong> {{$reservation->email}}
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="alert alert-success text-center" role="alert">
-                        <strong>Telèfon: </strong> {{$reservation->phone}}
+                        <strong>@lang('global.phone'): </strong> {{$reservation->phone}}
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="alert alert-success text-center" role="alert">
-                        <strong>Data: </strong> {{$reservation->reservation_date->format('d-m-Y')}}
+                        <strong>@lang('global.date'): </strong> {{$reservation->reservation_date->format('d-m-Y')}}
                     </div>
                 </div>
             </div>
 
-            <h6 class="card-title"><small>Hores disponibles</small></h6>
+            <h6 class="card-title"><small>@lang('global.availablehours')</small></h6>
             <form name="reservationForm" id="reservationForm" action="{{route('reservation.update', $reservation)}}" method="POST">
                 @method('put')
                 @csrf
@@ -52,7 +55,7 @@
                                     </div>
 
                                 @endif
-                            @endforeach       
+                            @endforeach
                     </div>
                     {!! $errors->first('slot', '<span class="help-block" style="color:red;">:message</span>')!!}
                 </div>
@@ -60,13 +63,13 @@
                     <div class="form-check">
                         <input class="form-check-input" name="accept_politics" type="checkbox" id="accept_politics">
                         <label class="form-check-label" for="gridCheck">
-                           <p>Accepto la política de privacitat</p>  
+                           <p>@lang('global.acceptprivacy')</p>
                         </label>
                     </div>
                     {!! $errors->first('accept_politics', '<span class="help-block" style="color:red;">:message</span>')!!}
                 </div>
-                <button type="submit" class="btn btn-primary" id="btncheck" disabled>Reservar</button>
-                <a href="{{url('/')}}" class="btn btn-primary">Tornar</a>
+                <button type="submit" class="btn btn-primary" id="btncheck" disabled>@lang('global.book')</button>
+                <a href="{{url('/')}}" class="btn btn-primary">@lang('global.back')</a>
             </form>
         </div>
     </div>

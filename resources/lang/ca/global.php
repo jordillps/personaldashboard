@@ -16,7 +16,7 @@ return [
     'reserve' => 'Reservar',
     'dashboard' => 'Tauler de gestió personal',
     'logged' => 'Sessió iniciada',
-    'logout' => 'Tancar sesió',
+    'logout' => 'Tancar sessió',
     'back' => 'Tornar',
     'Sign in with Google' => 'Accedir amb Google',
     'Sign in with Facebook' => 'Accedir amb Facebook',
@@ -44,6 +44,7 @@ return [
     'select language'=>'Idioma',
     'spanish' =>'Espanyol',
     'english'=>'Anglès',
+    'catalan' => 'Català',
     'search' => 'Cercar...',
     'exportToExcel' => 'Exportar a Excel',
 
@@ -127,6 +128,15 @@ return [
     'updatereservationsinfo' => 'Arrossegar i deixar anar per a modificar una reserva',
     'deletereservationsinfo' => 'Clic sobre un reserva per a esborrar',
     'eventdroppednoslot' => 'La durada de la reserva no pot ser superior a 30 min',
+    'perviousappointment' => 'Reserva de cita prèvia',
+    'date' => 'Data',
+    'next' => 'Següent',
+    'availablehours' => 'Hores disponibles',
+    'acceptprivacy' => 'Accepto la política de privacitat',
+    'confirmedreservation' => 'Reserva confirmada',
+    'book' => 'Reservar',
+    'back' => 'Tornar',
+    'hour' => 'Hora',
 
 
     //emails

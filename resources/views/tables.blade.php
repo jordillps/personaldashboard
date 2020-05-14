@@ -131,7 +131,7 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © FormalWeb 2019</span>
+            <span>Copyright © FormalWeb 2020</span>
           </div>
         </div>
       </footer>
@@ -155,6 +155,9 @@
                     break;
                 case 'es':
                     var language_datatable = "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json";
+                    break;
+                case 'ca':
+                    var language_datatable = "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Catalan.json";
                     break;
                 default:
                     var language_datatable = "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json";

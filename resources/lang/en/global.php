@@ -44,6 +44,7 @@ return [
     'select language'=>'Language',
     'spanish' =>'Spanish',
     'english'=>'English',
+    'catalan' => 'Catalan',
     'exportToExcel' => 'Export to Excel',
 
     //Calendar
@@ -125,6 +126,15 @@ return [
     'updatereservationsinfo' => 'Drag & Drop to modify',
     'deletereservationsinfo' => 'Click on a reserve to delete',
     'eventdroppednoslot' => 'Slot duration no more than 30 min',
+    'perviousappointment' => 'Booking an appointment',
+    'date' => 'Date',
+    'next' => 'Next',
+    'availablehours' => 'Available Slots',
+    'acceptprivacy' => 'Accept the private policy',
+    'confirmedreservation' => 'Confirmed reservation',
+    'book' => 'Book',
+    'back' => 'Back',
+    'hour' => 'Hour',
 
 
 

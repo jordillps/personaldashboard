@@ -44,6 +44,7 @@ return [
     'select language'=>'Idioma',
     'spanish' =>'Español',
     'english'=>'Inglés',
+    'catalan' => 'Catalán',
     'search' => 'Buscar...',
     'exportToExcel' => 'Exportar a Excel',
 
@@ -127,6 +128,15 @@ return [
     'updatereservationsinfo' => 'Arratrar y Soltar para  modificar una reserva',
     'deletereservationsinfo' => 'Clic sobre un reserva para borrar',
     'eventdroppednoslot' => 'La durada de la reserva no pot ser superior a 30 min',
+    'perviousappointment' => 'Reserva de cita previa',
+    'date' => 'Fecha',
+    'next' => 'Siguiente',
+    'availablehours' => 'Horas disponibles',
+    'acceptprivacy' => 'Acepto la política de privacidad',
+    'confirmedreservation' => 'Reserva confirmada',
+    'book' => 'Reservar',
+    'back' => 'Volver',
+    'hour' => 'Hora',
 
 
     //emails

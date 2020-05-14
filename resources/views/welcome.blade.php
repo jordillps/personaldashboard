@@ -40,6 +40,7 @@
                                 aria-expanded="false"
                             >@lang('global.select language')</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="{{ route('setLocale', ['ca']) }}">@lang('global.catalan')</a>
                                 <a class="dropdown-item" href="{{ route('setLocale', ['es']) }}">@lang('global.spanish')</a>
                                 <a class="dropdown-item" href="{{ route('setLocale', ['en']) }}">@lang('global.english')</a>
                             </div>
