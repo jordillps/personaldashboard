@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Reservation;
 use Redirect,Response;
+use App\Customer;
 
 class ReservationCalendarController extends Controller
 {
@@ -38,6 +39,17 @@ class ReservationCalendarController extends Controller
                        'end' => $request->end
                     ];
         $reservation = Reservation::insert($insertArr);
+
+        //Create a new customer if doesn't exist
+        if (!Customer::where('email', '=', $request->get('email'))->exists()) {
+            // user not found
+            Customer::create([
+                'name' => $request->get('title'),
+                'email' => $request->get('email'),
+                'phone' => $request->get('phone'),
+             ]);
+
+         }
 
         $reservation = Reservation::all()->last();
         $reservation->slot = substr($reservation->start, 11, 5)."-".substr($reservation->end, 11, 5);

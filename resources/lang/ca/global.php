@@ -141,4 +141,15 @@ return [
 
     //emails
     'emailconfirmation' => 'Confirmació de reserva',
+
+    //Customers
+    'customers' => 'Clients',
+    'customerremovedcorrectly' => 'Client esborrat correctament',
+    'errordeletingcustomer' => 'Error al esborrar el client',
+
+
+    //Footer
+    'allrightsreserved' => 'Tots els drets reservats',
+    'designed' => 'Dissenyat',
+    'by' => 'per',
 ];

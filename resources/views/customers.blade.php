@@ -16,7 +16,7 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="#">@lang('global.tables')</a>
+            <a href="#">@lang('global.customers')</a>
           </li>
           {{-- <li class="breadcrumb-item active">@lang('global.tables')</li> --}}
         </ol>
@@ -31,21 +31,19 @@
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            @lang('global.users')</div>
+            @lang('global.customers')</div>
           <div class="card-body">
               <div class="mb-3 text-right">
-                    <a href="{{ route('home.tables.export') }}" class="btn btn-primary btn-sm">@lang('global.exportToExcel')</a>
+                    <a href="{{ route('home.customers.export') }}" class="btn btn-primary btn-sm">@lang('global.exportToExcel')</a>
               </div>
                 <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="user_datatable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
                         <th>@lang('global.id')</th>
-                        <th>@lang('global.role')</th>
                         <th>@lang('global.name')</th>
                         <th>@lang('global.email')</th>
-                        <th>@lang('global.birthdate')</th>
-                        <th>@lang('global.image')</th>
+                        <th>@lang('global.phone')</th>
                         @if(auth()->user()->isAdmin())
                         {{-- @if(auth()->user()->role->name == 'admin') --}}
                             <th>@lang('global.action')</th>
@@ -55,11 +53,9 @@
                     <tfoot>
                     <tr>
                         <th>@lang('global.id')</th>
-                        <th>@lang('global.role')</th>
                         <th>@lang('global.name')</th>
                         <th>@lang('global.email')</th>
-                        <th>@lang('global.birthdate')</th>
-                        <th>@lang('global.image')</th>
+                        <th>@lang('global.phone')</th>
                         @if(auth()->user()->isAdmin())
                         {{-- @if(auth()->user()->role->name == 'admin') --}}
                             <th>@lang('global.action')</th>
@@ -67,30 +63,22 @@
                     </tr>
                     </tfoot>
                     <tbody>
-                    @forelse ($users as $user)
+                    @forelse ($customers as $customer)
                     <tr>
-                        <td>{{$user->id}}</td>
-                        <td>{{$user->role->name}}</td>
-                        <td>{{$user->name}}</td>
-                        <td>{{$user->email}}</td>
-                        <td>{{ Carbon\Carbon::parse($user->birthdate)->format('d-m-Y') }}</td>
-                        @if($user->avatar == 0)
-                            <td><img class="img-thumbnail" height="45" width="45" src="/images/avatar-icon.png" /></td>
-                        @else
-                            <td><img class="img-thumbnail" height="45" width="45" src="/storage/avatars/{{ $user->avatar }}" /></td>
-                        @endif
+                        <td>{{$customer->id}}</td>
+                        <td>{{$customer->name}}</td>
+                        <td>{{$customer->email}}</td>
+                        <td>{{$customer->phone}}</td>
 
                         @if(auth()->user()->isAdmin())
                         {{-- @if(auth()->user()->role->name == 'admin') --}}
                             <td>
-                            @if(auth()->user()->id != $user->id)
-                                <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUserConfirmation" data-user-id="{{ $user->id }}"><i class="fa fa-trash"></i></a>
-                            @endif
+                                <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCustomerConfirmation" data-customer-id="{{ $customer->id }}"><i class="fa fa-trash"></i></a>
                             </td>
                         @endif
                     </tr>
                     @empty
-                        <p>@lang('global.No users')</p>
+                        <p>@lang('global.No customers')</p>
                     @endforelse
                     </tbody>
                 </table>
@@ -102,8 +90,8 @@
       <!-- /.container-fluid -->
 
       <!-- Modal-->
-        <form action="" id="deleteUserForm" method="POST">
-            <div class="modal" id="deleteUserConfirmation" tabindex="-1" role="dialog">
+        <form action="" id="deleteCustomerForm" method="POST">
+            <div class="modal" id="deleteCustomerConfirmation" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                         @method('DELETE')
                         @csrf
@@ -162,12 +150,12 @@
                     },
             });
 
-            $('#deleteUserForm').on('show.bs.modal', function (event) {
+            $('#deleteCustomerForm').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget);
                 const id = 'id';
-                var route = "{{ route('home.tables.destroy', ['id' => 'id' ]) }}";
-                route = route.replace('id',button.data('user-id'));
-                $('#deleteUserForm').attr('action', route);
+                var route = "{{ route('home.customers.destroy', ['id' => 'id' ]) }}";
+                route = route.replace('id',button.data('customer-id'));
+                $('#deleteCustomerForm').attr('action', route);
             });
 
         });

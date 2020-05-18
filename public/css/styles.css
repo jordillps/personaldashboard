@@ -2,8 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background-color:rgb(224, 251, 242);
+    /* height: 100vh; */
+    min-height: 100vh;
+    /* mobile viewport bug fix */
+    min-height: -webkit-fill-available;
 
 }
 
@@ -16,7 +19,7 @@
     width: 80%;
     max-width: 800px;
     /* margin: 0.1em auto 0.1em auto; */
-    max-height: 90vh;
+    /* max-height: 90vh; */
 
   }
 

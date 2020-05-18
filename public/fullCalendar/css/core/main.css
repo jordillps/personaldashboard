@@ -258,7 +258,7 @@ temporary rendered events).
   display: block;
   /* make the <a> tag block */
   font-size: 0.85em;
-  line-height: 1.4;
+  line-height: 2;
   border-radius: 3px;
   border: 1px solid #3788d8;
 }
@@ -814,6 +814,15 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media only screen and (max-width: 700px){
+    .fc-toolbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
 }
 
 .fc-toolbar.fc-header-toolbar {

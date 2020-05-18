@@ -31,6 +31,11 @@
           <i class="fas fa-fw fa-calendar"></i>
           <span>@lang('global.reservationscalendar')</span></a>
       </li>
+      <li class="nav-item {{ Request::is('home/customers') ? 'active': ''}}">
+        <a class="nav-link" href="{{ route('home.customers')}}">
+          <i class="fas fa-fw fa-user-circle"></i>
+          <span>@lang('global.customers')</span></a>
+      </li>
       <li class="nav-item {{ Request::is('home/importView') ? 'active': ''}}">
         <a class="nav-link" href="{{ route('home.importView')}}">
           <i class="fas fa-file-import"></i>

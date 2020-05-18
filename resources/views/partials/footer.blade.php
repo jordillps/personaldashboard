@@ -4,9 +4,9 @@
       <div class="copyright text-center my-auto">
         {{-- <p><span>Copyright &copy;<script>document.write(new Date().getFullYear());</script>  --}}
         <p><span>Copyright &copy;2020
-            Todos los derechos reservados
+            @lang('global.allrightsreserved')
         </span></p>
-          <p><span>Dissenyat <i class="fas fa-heart"></i> per Formal Web</span></p>
+          <p><span>@lang('global.designed') <i class="fas fa-heart"></i>@lang('global.by') Formal Web</span></p>
       </div>
     </div>
   </footer>

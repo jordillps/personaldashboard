@@ -90,6 +90,7 @@
                         height: 'auto',
                         eventColor: '#378006',
                         eventBorderColor: '#000',
+                        firstDay: 1,
                         events: [
 
                                 @foreach($reservations as $reservation)

@@ -140,6 +140,16 @@ return [
 
     //emails
     'emailconfirmation' => 'Reservation Confirmed',
+    'customerremovedcorrectly' => 'Customer deleted correctly',
+    'errordeletingcustomer' => 'Error deleting the customer',
+
+    //Customers
+    'customers' => 'Customers',
+
+    //Footer
+    'allrightsreserved' => 'All rights reserved',
+    'designed' => 'Designed',
+    'by' => 'by',
 
 
 ];

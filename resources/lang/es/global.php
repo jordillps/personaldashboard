@@ -141,4 +141,16 @@ return [
 
     //emails
     'emailconfirmation' => 'Confirmación de reserva',
+
+    //Customers
+    'customers' => 'Clientes',
+    'customerremovedcorrectly' => 'Cliente borrado correctamente',
+    'errordeletingcustomer' => 'Error al borrar el usuario',
+
+    //Footer
+    'allrightsreserved' => 'Todos los derechos reservados',
+    'designed' => 'Diseñado',
+    'by' => 'por',
+
+
 ];
