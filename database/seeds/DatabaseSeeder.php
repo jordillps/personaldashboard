@@ -33,6 +33,19 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
+        DB::table('users')->insert([
+            'name' => 'Administrador',
+            'role_id' => \App\Role::ADMIN,
+            'email' => 'admin@mail.com',
+            'password' => bcrypt('Secret00'),
+            'remember_token' => Str::random(10),
+
+        ]);
+
+        //Users
         factory(\App\User::class, 20)->create();
+
+        //Reservations
+        factory(App\Reservation::class, 10)->create();
     }
 }

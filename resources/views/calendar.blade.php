@@ -29,7 +29,11 @@
 
         <!-- Calendar -->
         <div class="container">
-            <div class="alert alert-info">@lang('global.createdeleteeventsinfo')</div>
+            <div class="row d-flex justify-content-between">
+                <div class="alert alert-info"><i class="fas fa-fw fa-info-circle"></i><strong>@lang('global.createreservationsinfo')</strong></div>
+                <div class="alert alert-info"><i class="fas fa-fw fa-info-circle"></i><strong>@lang('global.updatereservationsinfo')</strong></div>
+                <div class="alert alert-info"><i class="fas fa-fw fa-info-circle"></i><strong>@lang('global.deletereservationsinfo')</strong></div>
+            </div>
             <div id="response"></div>
             <div id='calendar'>
             </div>
@@ -70,9 +74,14 @@
                     var calendar = new FullCalendar.Calendar(calendarEl, {
                         plugins: [ 'interaction', 'dayGrid', 'timeGrid','bootstrap','googleCalendar' ],
                         header: {
-                            left: 'prev,next today',
+                            left: 'prev,next',
                             center: 'title',
-                            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                            right: 'timeGridWeek,timeGridDay,dayGridMonth'
+                        },
+                        titleFormat:{
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
                         },
                         locale: locale_lang,
                         timeZone: 'Europe/Madrid',
@@ -80,6 +89,7 @@
                         height: 'auto',
                         eventColor: '#378006',
                         eventBorderColor: '#000',
+                        firstDay: 1,
                         events: [
 
                                 @foreach($events as $event)
@@ -107,14 +117,25 @@
                             minute: '2-digit',
                             hour12: false,
                         },
-                        //eventRender: function(info) {
-                            //var tooltip = new Tooltip(info.el, {
-                              //title: info.event.extendedProps.description,
-                              //placement: 'top',
-                              //trigger: 'hover',
-                              //container: 'body'
-                            //});
-                          //},
+                        minTime:'08:00',
+                        maxTime:'20:00',
+                        businessHours: [ // specify an array instead
+                            {
+                                daysOfWeek: [ 1, 2, 3, 4, 5], // Monday, Tuesday, Wednesday
+                                startTime: '08:00', // 8am
+                                endTime: '14:00' // 2pm]
+                            },
+                            {
+                                daysOfWeek: [ 1, 2, 3, 4, 5], // Monday, Tuesday, Wednesday
+                                startTime: '16:00', // 4am
+                                endTime: '20:00' // 8pm
+                            },
+                        ],
+                        eventConstraint:"businessHours",
+                        allDaySlot: false,
+                        showNonCurrentDates: false,
+                        nowIndicator: true,
+                        displayEventEnd: true,
                         defaultDate: new Date(),
                         navLinks: true, // can click day/week names to navigate views
                         selectable: true,

@@ -118,10 +118,10 @@
                             {
                                 daysOfWeek: [ 1, 2, 3, 4, 5, 6 ], // Monday, Tuesday, Wednesday
                                 startTime: '10:00', // 10am
-                                endTime: '14:00' // 2pm
+                                endTime: '14:00' // 2pm]
                             },
                             {
-                                daysOfWeek: [ 1, 2, 3, 4, 5, 6 ], // Monday, Tuesday, Wednesday
+                                daysOfWeek: [ 1, 2, 3, 4, 5, 6], // Monday, Tuesday, Wednesday
                                 startTime: '17:00', // 5am
                                 endTime: '20:00' // 8pm
                             },
@@ -137,15 +137,6 @@
                             }else{
                                 $(info.el).tooltip({
                                     title: function(){
-                                        // var title = document.createElement("DIV");
-                                        // var pname = document.createElement("P");
-                                        // var name = document.createTextNode(info.event.title);
-                                        // pname.appendChild(name);
-                                        // var pphone = document.createTextNode(info.event.extendedProps.phone);
-                                        // pname.appendChild(pphone);
-                                        // title.appendChild(pname);
-                                        // console.log(title);
-                                        // return  title;
                                         return  info.event.title+'   Tel:'+info.event.extendedProps.phone;
                                     },
                                     placement: 'top',
