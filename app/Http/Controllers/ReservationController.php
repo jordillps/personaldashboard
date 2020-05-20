@@ -11,6 +11,8 @@ use App\Mail\ReservationConfirmationAdmin;
 use App\User;
 use Illuminate\Support\Facades\Mail;
 use DateTime;
+use App\Exports\ReservationsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReservationController extends Controller
 {
@@ -159,5 +161,10 @@ class ReservationController extends Controller
 
         return back()->with('success', "global.reservationdeleted");
 
+    }
+
+    public function export()
+    {
+        return Excel::download(new ReservationsExport, 'reservations.xlsx');
     }
 }

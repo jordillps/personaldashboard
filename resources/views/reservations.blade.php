@@ -34,7 +34,7 @@
             @lang('global.reservations')</div>
           <div class="card-body">
               <div class="mb-3 text-right">
-                    <a href="{{ route('home.tables.export') }}" class="btn btn-primary btn-sm">@lang('global.exportToExcel')</a>
+                    <a href="{{ route('home.reservations.export') }}" class="btn btn-primary btn-sm">@lang('global.exportToExcel')</a>
               </div>
                 <div class="table-responsive">
                 <table class="table table-bordered table-hover" id="reservation_datatable" width="100%" cellspacing="0">

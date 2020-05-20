@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
 
         Route::group(["prefix" => "reservations"], function() {
             Route::get('/', 'ReservationController@index')->name('home.reservations');
+            Route::get('/export', 'ReservationController@export')->name('home.reservations.export');
             Route::delete('/{reservation}', 'ReservationController@destroy')->name('home.reservations.destroy');
             Route::get('/calendar', 'ReservationCalendarController@index')->name('home.reservations.calendar');
             Route::post('/calendar/create', 'ReservationCalendarController@store')->name('home.reservations.calendar.store');
