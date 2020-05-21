@@ -48,6 +48,49 @@
       </div>
       <!-- /.container-fluid -->
 
+      <!-- Delete Modal-->
+        <div class="modal" id="ReservationConfirmationDelete" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header alert-warning">
+                        <h5 class="modal-title text-uppercase">@lang('global.confirmdelete')</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>@lang('global.sure')</p>
+                    </div>
+                    <div class="modal-footer alert-warning">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('global.cancel')</button>
+                        <button type="submit" id="deleteReservationfromModal" class="btn btn-primary">@lang('global.delete')</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- End Modal-->
+    <!-- Update Modal-->
+    <div class="modal" id="ReservationConfirmationUpdate" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header alert-warning">
+                    <h5 class="modal-title text-uppercase">@lang('global.confirmupdate')</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>@lang('global.sure')</p>
+                </div>
+                <div class="modal-footer alert-warning">
+                    <button type="button" id="CancelReservationfromModal" class="btn btn-secondary" data-dismiss="modal">@lang('global.cancel')</button>
+                    <button type="submit" id="UpdateReservationfromModal" class="btn btn-primary">@lang('global.update')</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- End Modal-->
+
       @include('partials.footer')
 
     </div>
@@ -187,21 +230,24 @@
                         eventLimit: true,
                         //Delete event
                         eventClick: function(info) {
-                            var deleteMsg = confirm("@lang('global.eventdeleteconfirm')");
-                            if (deleteMsg) {
-                                $.ajax({
-                                    headers: {
-                                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                    },
-                                    type: "POST",
-                                    url: SITEURL + '/delete',
-                                    data: {id:info.event.id},
-                                    success: function (response) {
-                                            displayMessage("@lang('global.eventdeletedsuccessfully')");
-                                    }
-                                });
+                            $('#ReservationConfirmationDelete').modal('show');
+
+                            $("#deleteReservationfromModal").click(function () {
+                                    $.ajax({
+                                        headers: {
+                                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                        },
+                                        type: "POST",
+                                        url: SITEURL + '/delete',
+                                        data: {id:info.event.id},
+                                        success: function (response) {
+                                                displayMessage("@lang('global.reservationdeletedsuccessfully')");
+                                        }
+                                    });
                                 info.event.remove();
-                            }
+                                $('#ReservationConfirmationDelete').modal('hide');
+                            });
+
                         },
 
                         //Update an event
@@ -213,9 +259,11 @@
                             var end_duration = moment(info.event.end).subtract(2, "hours");
                             var duration = moment.duration(end_duration.diff(start_duration));
                             var hours = duration.asHours();
+
                             if (hours == 0.5){
-                                var dropMsg = confirm("@lang('global.eventdroppedconfirm')");
-                                if (dropMsg) {
+                                $('#ReservationConfirmationUpdate').modal('show');
+
+                                $("#UpdateReservationfromModal").click(function () {
                                     $.ajax({
                                         headers: {
                                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -225,20 +273,21 @@
                                             phone:info.event.extendedProps.phone,start:start,end:end},
                                         type: "POST",
                                         success: function (response) {
-                                            displayMessage("@lang('global.eventupdated')");
+                                            displayMessage("@lang('global.reservationupdatedsuccessfully')");
                                         }
 
                                     });
+                                    $('#ReservationConfirmationUpdate').modal('hide');
+                                });
 
-                                }else{
+                                $("#CancelReservationfromModal").click(function () {
                                     info.revert();
+                                });
 
-                                }
                             }else{
                                 var ErrorDroppingMsg = alert("@lang('global.eventdroppednoslot')");
                                 info.revert();
                             }
-
 
                         },
                     });

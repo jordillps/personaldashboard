@@ -84,7 +84,7 @@ return [
     'chart' => 'Gràfic',
 
     //Tables
-    'deleteconfirmationtitle'=> 'Confirmació d\esborrat d\'usuaris',
+    'deleteconfirmationtitle'=> 'Confirmació d\'esborrat d\'usuaris',
     'deleteconfirmationmessage' => 'Segur que vol esborrar l\'usuari?',
     'deleteconfirmationcancel' => 'Cancel·lar',
     'deleteconfirmationdelete' => 'Esborrar',
@@ -116,9 +116,11 @@ return [
     'reservation_date' => 'Data',
     'slot' => 'Hora',
     'confirmdelete' => 'Confirmació de l\'esborrat',
-    'sure' => 'Estás segur?',
+    'confirmupdate' => 'Confirmació de l\'actualització',
+    'sure' => 'Estàs segur?',
     'cancel' => 'Cancel·lar',
     'delete' => 'Esborrar',
+    'update' => 'Actualitzar',
     'reservationdeleted' => 'Reserva esborrada correctament',
     'reservationscalendar' => 'Calendari de reserves',
     'namereservation' => 'Nom',
@@ -137,6 +139,8 @@ return [
     'book' => 'Reservar',
     'back' => 'Tornar',
     'hour' => 'Hora',
+    'reservationdeletedsuccessfully' => 'Reserva esborrada correctament',
+    'reservationupdatedsuccessfully' => 'Reserva actualitzada correctament',
 
 
     //emails
@@ -146,6 +150,7 @@ return [
     'customers' => 'Clients',
     'customerremovedcorrectly' => 'Client esborrat correctament',
     'errordeletingcustomer' => 'Error al esborrar el client',
+    'No customers' => 'No hi ha clients per a mostrar',
 
 
     //Footer

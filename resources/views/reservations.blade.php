@@ -75,7 +75,8 @@
                         <td>{{$reservation->slot}}</td>
                         @if(auth()->user()->isAdmin())
                             <td>
-                                <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></button>
+                                {{-- <button class="btn btn-xs btn-danger" data-toggle="modal" data-target="#deleteModal" data-reservation-id="{{ $reservation->id }}"><i class="fa fa-trash"></i></button> --}}
+                                <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteModal" data-reservation-id="{{ $reservation->id }}"><i class="fa fa-trash"></i></a>
                             </td>
                         @endif
                     </tr>
@@ -91,32 +92,33 @@
       </div>
       <!-- /.container-fluid -->
 
-    <!-- Modal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         @if ($reservations->count() > 0)
-            <form action="{{ route('home.reservations.destroy', $reservation)}}" method="POST">
-                {{ csrf_field() }}
-                {{ method_field('DELETE')}}
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">@lang('global.confirmdelete')</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>@lang('global.sure')</p>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('global.cancel')</button>
-                        <button class="btn btn-primary">@lang('global.delete')</button>
+            <form action="" id="deleteReservationForm" method="POST" >
+                <!-- Modal -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    {{ csrf_field() }}
+                    {{ method_field('DELETE')}}
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header alert-warning">
+                                <h5 class="modal-title text-uppercase" id="exampleModalLabel">@lang('global.confirmdelete')</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>@lang('global.sure')</p>
+                            </div>
+                            <div class="modal-footer alert-warning">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('global.cancel')</button>
+                            <button class="btn btn-primary">@lang('global.delete')</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </form>
         @endif
-    </div>
+        <!-- Modal -->
 
       <!-- Sticky Footer -->
       <footer class="sticky-footer">
@@ -162,7 +164,7 @@
             $('#deleteReservationForm').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget);
                 const id = 'id';
-                var route = "{{ route('home.tables.destroy', ['id' => 'id' ]) }}";
+                var route = "{{ route('home.reservations.destroy', ['id' => 'id' ]) }}";
                 route = route.replace('id',button.data('reservation-id'));
                 $('#deleteReservationForm').attr('action', route);
             });

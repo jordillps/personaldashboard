@@ -3,23 +3,23 @@
     justify-content: center;
     align-items: center;
     background-color:rgb(224, 251, 242);
-    /* height: 100vh; */
-    min-height: 100vh;
+    height: 100vh;
+    /* min-height: 100vh; */
     /* mobile viewport bug fix */
-    min-height: -webkit-fill-available;
+    /* min-height: -webkit-fill-available; */
 
 }
 
 
 
 .card-elegant {
-    -webkit-box-shadow: 2px 14px 27px -12px rgba(0,0,0,0.23);
-    -moz-box-shadow: 2px 14px 27px -12px rgba(0,0,0,0.23);
-    box-shadow: 2px 14px 27px -12px rgba(0,0,0,0.23);
+    -webkit-box-shadow: 2px 14px 27px -12px rgba(0,0,0,0.6);
+    -moz-box-shadow: 2px 14px 27px -12px rgba(0,0,0,0.6);
+    box-shadow: 2px 14px 27px -12px rgba(0,0,0,0.6);
     width: 80%;
     max-width: 800px;
     /* margin: 0.1em auto 0.1em auto; */
-    /* max-height: 90vh; */
+    max-height: 90vh;
 
   }
 

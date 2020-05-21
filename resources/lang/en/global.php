@@ -114,9 +114,11 @@ return [
     'reservation_date' => 'Date',
     'slot' => 'Hour',
     'confirmdelete' => 'Delete confirmation',
-    'sure' => 'Are you sure',
+    'confirmupdate' => 'Update confirmation',
+    'sure' => 'Are you sure?',
     'cancel' => 'Cancel',
     'delete' => 'Delete',
+    'update' => 'Update',
     'reservationdeleted' => 'Reserve deleted correctly',
     'reservationscalendar' => 'Reserves Calendar',
     'namereservation' => 'Name',
@@ -135,6 +137,8 @@ return [
     'book' => 'Book',
     'back' => 'Back',
     'hour' => 'Hour',
+    'reservationdeletedsuccessfully' => 'Reserva borrada correctamente',
+    'reservationupdatedsuccessfully' => 'Reserva actualizada correctamente',
 
 
 
@@ -145,6 +149,9 @@ return [
 
     //Customers
     'customers' => 'Customers',
+    'customerremovedcorrectly' => 'Customer deleted correctly',
+    'errordeletingcustomer' => 'Error deleting the customer',
+    'No customers' => 'There is no customers to show',
 
     //Footer
     'allrightsreserved' => 'All rights reserved',

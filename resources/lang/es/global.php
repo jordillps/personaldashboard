@@ -116,9 +116,11 @@ return [
     'reservation_date' => 'Fecha',
     'slot' => 'Hora',
     'confirmdelete' => 'Confirmación del borrado',
+    'confirmupdate' => 'Confirmación de actualización de la reserva',
     'sure' => '¿Estás seguro?',
     'cancel' => 'Cancelar',
     'delete' => 'Borrar',
+    'update' => 'Actualizar',
     'reservationdeleted' => 'Reserva borrada correctamente',
     'reservationscalendar' => 'Calendario de reservas',
     'namereservation' => 'Nombre',
@@ -137,6 +139,8 @@ return [
     'book' => 'Reservar',
     'back' => 'Volver',
     'hour' => 'Hora',
+    'reservationdeletedsuccessfully' => 'Reservation deleted correctly',
+    'reservationupdatedsuccessfully' => 'Resservation updated correctly',
 
 
     //emails
@@ -145,7 +149,8 @@ return [
     //Customers
     'customers' => 'Clientes',
     'customerremovedcorrectly' => 'Cliente borrado correctamente',
-    'errordeletingcustomer' => 'Error al borrar el usuario',
+    'errordeletingcustomer' => 'Error al borrar el cliente',
+    'No customers' => 'No hay clientes para mostrar',
 
     //Footer
     'allrightsreserved' => 'Todos los derechos reservados',

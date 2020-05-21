@@ -40,6 +40,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">@lang('global.next')</button>
+                <a href="{{url('/')}}" class="btn btn-primary">@lang('global.back')</a>
             </form>
         </div>
     </div>
