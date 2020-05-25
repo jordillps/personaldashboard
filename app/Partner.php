@@ -13,7 +13,7 @@ class Partner extends Model
      * @var array
      */
      protected $fillable = [
-        'name', 'email', 'birthdate'
+        'name', 'email','nif','birthdate','address','postalcolde','city','donation'
     ];
 
 }

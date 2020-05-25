@@ -100,13 +100,15 @@ return [
     'thanks' => 'Thanks',
 
     //Import
-    'import' => 'Import data',
+    'import' => 'Generate letters',
     'importFromExcel' => 'Import data from Excel',
-    'dataimport' => 'Imported data',
-    'nopartners' => 'There is no partners yet',
-    'partners' => 'List of Partners',
+    'dataimport' => 'Data importation',
+    'nopartners' => 'There is no receivers yet',
+    'partners' => 'List of Receivers',
     'importedcorrectly' => 'Data has been imported correctly',
     'printpdf' => 'Generate PDF',
+    'donation' => 'Donation',
+    'donationcertificate' => 'Donations Certificate',
 
     //Reservations
     'reservations' => 'Reserves',

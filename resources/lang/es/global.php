@@ -102,13 +102,15 @@ return [
     'thanks' => 'Gracias',
 
     //Import
-    'import' => 'Importar datos',
+    'import' => 'Generar cartas',
     'importFromExcel' => 'Importar datos desde Excel',
-    'dataimport' => 'Datos importados',
-    'nopartners' => 'Aún no hay socios registrados',
+    'dataimport' => 'Importación de destinatarios',
+    'nopartners' => 'Aún no hay destinatarios registrados',
     'partners' => 'Listado de Socios',
     'importedcorrectly' => 'Las datos se han importado correctamente',
     'printpdf' => 'Generar PDF',
+    'donation' => 'Donación',
+    'donationcertificate' => 'Certificado de donaciones',
 
     //Reservations
     'reservations' => 'Reservas',

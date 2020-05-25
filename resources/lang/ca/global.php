@@ -102,13 +102,15 @@ return [
     'thanks' => 'Gràcies',
 
     //Import
-    'import' => 'Importar dades',
+    'import' => 'Generar cartes',
     'importFromExcel' => 'Importar dades des de Excel',
-    'dataimport' => 'Dades importades',
-    'nopartners' => 'Encara no hi ha socis registrats',
-    'partners' => 'Llistat de Socis',
+    'dataimport' => 'Importació de destinataris',
+    'nopartners' => 'Encara no hi ha destinataris registrats',
+    'partners' => 'Llistat de destinataris',
     'importedcorrectly' => 'Les dades s\'han importat correctament',
     'printpdf' => 'Generar PDF',
+    'donation' => 'Donació',
+    'donationcertificate' => 'Certificat de donacions',
 
     //Reservations
     'reservations' => 'Reserves',
