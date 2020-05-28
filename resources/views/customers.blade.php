@@ -37,52 +37,56 @@
                     <a href="{{ route('home.customers.export') }}" class="btn btn-primary btn-sm">@lang('global.exportToExcel')</a>
               </div>
                 <div class="table-responsive">
-                <table class="table table-bordered table-hover" id="user_datatable" width="100%" cellspacing="0">
-                    <thead>
-                    <tr>
-                        <th>@lang('global.id')</th>
-                        <th>@lang('global.name')</th>
-                        <th>@lang('global.email')</th>
-                        <th>@lang('global.phone')</th>
-                        @if(auth()->user()->isAdmin())
-                        {{-- @if(auth()->user()->role->name == 'admin') --}}
-                            <th>@lang('global.action')</th>
-                        @endif
-                    </tr>
-                    </thead>
-                    <tfoot>
-                    <tr>
-                        <th>@lang('global.id')</th>
-                        <th>@lang('global.name')</th>
-                        <th>@lang('global.email')</th>
-                        <th>@lang('global.phone')</th>
-                        @if(auth()->user()->isAdmin())
-                        {{-- @if(auth()->user()->role->name == 'admin') --}}
-                            <th>@lang('global.action')</th>
-                        @endif
-                    </tr>
-                    </tfoot>
-                    <tbody>
-                    @forelse ($customers as $customer)
-                    <tr>
-                        <td>{{$customer->id}}</td>
-                        <td>{{$customer->name}}</td>
-                        <td>{{$customer->email}}</td>
-                        <td>{{$customer->phone}}</td>
+                @if(count($customers) > 0)
+                    <table class="table table-bordered table-hover" id="user_datatable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>@lang('global.id')</th>
+                            <th>@lang('global.name')</th>
+                            <th>@lang('global.email')</th>
+                            <th>@lang('global.phone')</th>
+                            @if(auth()->user()->isAdmin())
+                            {{-- @if(auth()->user()->role->name == 'admin') --}}
+                                <th>@lang('global.action')</th>
+                            @endif
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>@lang('global.id')</th>
+                            <th>@lang('global.name')</th>
+                            <th>@lang('global.email')</th>
+                            <th>@lang('global.phone')</th>
+                            @if(auth()->user()->isAdmin())
+                            {{-- @if(auth()->user()->role->name == 'admin') --}}
+                                <th>@lang('global.action')</th>
+                            @endif
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        @forelse ($customers as $customer)
+                        <tr>
+                            <td>{{$customer->id}}</td>
+                            <td>{{$customer->name}}</td>
+                            <td>{{$customer->email}}</td>
+                            <td>{{$customer->phone}}</td>
 
-                        @if(auth()->user()->isAdmin())
-                        {{-- @if(auth()->user()->role->name == 'admin') --}}
-                            <td>
-                                <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCustomerConfirmation" data-customer-id="{{ $customer->id }}"><i class="fa fa-trash"></i></a>
-                            </td>
-                        @endif
-                    </tr>
-                    @empty
-                        <p>@lang('global.No customers')</p>
-                    @endforelse
-                    </tbody>
-                </table>
-                </div>
+                            @if(auth()->user()->isAdmin())
+                            {{-- @if(auth()->user()->role->name == 'admin') --}}
+                                <td>
+                                    <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteCustomerConfirmation" data-customer-id="{{ $customer->id }}"><i class="fa fa-trash"></i></a>
+                                </td>
+                            @endif
+                        </tr>
+                        @empty
+                            <p>@lang('global.No customers')</p>
+                        @endforelse
+                        </tbody>
+                    </table>
+                @else
+                <h3>@lang('global.No customers')</h3>
+                @endif
+            </div>
           </div>
         </div>
 

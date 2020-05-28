@@ -59,7 +59,8 @@
 
         $(function () {
             var locale_lang = "{{app()->getLocale()}}";
-
+            //Festius anuals
+            var disableDates = ["1-1", "6-1","1-5","24-6","15-8","11-9","12-10","1-11","6-12","8-12","25-12","26-12"];
             //Date picker
             $('#reservation_date').datepicker({
                 startDate: '+1d',
@@ -68,7 +69,14 @@
                 todayHighlight:true,
                 language: locale_lang,
                 daysOfWeekDisabled: [0],
-
+                beforeShowDay: function(date){
+                    dmy = date.getDate() + "-" + (date.getMonth() + 1);
+                    if(disableDates.indexOf(dmy) != -1){
+                        return false;
+                    }else{
+                        return true;
+                    }
+                }
             })
 
         });
