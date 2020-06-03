@@ -18,7 +18,7 @@ Auth::routes(['verify' => true]);
 Route::get('locale/{locale}', 'LocalizationController@setLocale')->name('setLocale');
 
 //Reservations
-Route::get('/reservationform', function () { return view('reservations.reservationform');})->name('reservationform');
+Route::get('/reservationform', 'ReservationController@reservationForm')->name('reservationform');
 
 Route::put('confirmed/{reservation}', 'ReservationController@update')->name('reservation.update');
 Route::post('reservation', 'ReservationController@store')->name('reservation.store');
@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/calendar/delete', 'ReservationCalendarController@destroy')->name('home.reservations.calendar.destroy');
         });
 
-        Route::get('/charts', 'ChartsController@index')->name('home.charts');
+        //Route::get('/charts', 'ChartsController@index')->name('home.charts');
 
         Route::get('/profile', 'ProfileController@index')->name('home.profile.index');
         Route::put('/profile', 'ProfileController@update')->name('home.profile.update');

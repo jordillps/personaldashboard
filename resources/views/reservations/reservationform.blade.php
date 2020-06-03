@@ -53,14 +53,25 @@
     <script src="/js/app_reservation.js"></script>
     <script src="/datepicker/datepicker.min.js"></script>
     <script src="/datepicker/datepicker.ca.min.js"></script>
+    <script src="{{ asset('fullcalendar/moment/moment.min.js') }}"></script>
 
     <script>
 
 
         $(function () {
             var locale_lang = "{{app()->getLocale()}}";
-            //Festius anuals
+            //Anual holidays
             var disableDates = ["1-1", "6-1","1-5","24-6","15-8","11-9","12-10","1-11","6-12","8-12","25-12","26-12"];
+
+            //Unavailable days
+            var unavailabledays = [
+                @foreach($unavailabledays as $unavailableday)
+                    moment('{{ $unavailableday->reservation_date}}').format('D-M'),
+                @endforeach
+            ];
+
+            console.log(unavailabledays);
+
             //Date picker
             $('#reservation_date').datepicker({
                 startDate: '+1d',
@@ -71,7 +82,7 @@
                 daysOfWeekDisabled: [0],
                 beforeShowDay: function(date){
                     dmy = date.getDate() + "-" + (date.getMonth() + 1);
-                    if(disableDates.indexOf(dmy) != -1){
+                    if(disableDates.indexOf(dmy) != -1 || unavailabledays.indexOf(dmy) != -1){
                         return false;
                     }else{
                         return true;

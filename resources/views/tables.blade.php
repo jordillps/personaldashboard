@@ -81,7 +81,6 @@
                         @endif
 
                         @if(auth()->user()->isAdmin())
-                        {{-- @if(auth()->user()->role->name == 'admin') --}}
                             <td>
                             @if(auth()->user()->id != $user->id)
                                 <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteUserConfirmation" data-user-id="{{ $user->id }}"><i class="fa fa-trash"></i></a>

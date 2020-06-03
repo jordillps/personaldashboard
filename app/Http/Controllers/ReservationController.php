@@ -13,9 +13,30 @@ use Illuminate\Support\Facades\Mail;
 use DateTime;
 use App\Exports\ReservationsExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\DB;
 
 class ReservationController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function reservationForm()
+    {
+        //Calculate unavailable days
+        $NewReservation = New Reservation();
+        $numberslots = count($NewReservation->getEnumSlots());
+        $unavailabledays = Reservation::select('reservation_date', DB::raw('COUNT(*) as slots_count'))
+        ->where('reservation_date', '>', today())
+        ->groupBy('reservation_date')
+        ->having('slots_count', '=' , $numberslots)
+        ->get();
+
+        return view('reservations.reservationform', compact('unavailabledays'));
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -25,8 +46,8 @@ class ReservationController extends Controller
     {
         //
         $reservations = Reservation::where('reservation_date', '>', today())
-        ->orderBy('reservation_date', 'ASC')
-        ->orderBy('slot', 'ASC')
+        ->orderBy('start')
+        ->orderBy('slot')
         ->get();
         return view('reservations',compact('reservations'));
     }
@@ -82,11 +103,11 @@ class ReservationController extends Controller
 
        //Check the available slots
        $NewReservation = New Reservation();
-       $slots = [];
+       $slots = $NewReservation->getEnumSlots();
 
-       foreach ($NewReservation->enumSlots as $item ){
-            array_push($slots, $item );
-        }
+    //    foreach ($NewReservation->enumSlots as $item ){
+    //         array_push($slots, $item );
+    //     }
 
         $reservation_date_compare = Carbon::parse($request->get('reservation_date'));
         $slotsunavaliable = Reservation::whereDate('reservation_date','=',$reservation_date_compare)->pluck('slot')->toArray();
@@ -136,12 +157,12 @@ class ReservationController extends Controller
         $reservation->save();
 
         //Send an email confirmation to the customer
-        Mail::to($reservation->email)->send(new ReservationConfirmation($reservation));
+        //Mail::to($reservation->email)->send(new ReservationConfirmation($reservation));
 
         $user_admin = User::find(1);
 
         //Send an email confirmation to the administrator
-        Mail::to($user_admin->email)->send(new ReservationConfirmationAdmin($reservation));
+        //Mail::to($user_admin->email)->send(new ReservationConfirmationAdmin($reservation));
 
         return view('reservations.confirmedreservation',compact('reservation'))->with('flash',trans('global.reservationconfirmed'));
 

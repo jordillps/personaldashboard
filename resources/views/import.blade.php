@@ -127,6 +127,9 @@
                 case 'es':
                     var language_datatable = "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json";
                     break;
+                case 'ca':
+                    var language_datatable = "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Catalan.json";
+                    break;
                 default:
                     var language_datatable = "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json";
             }

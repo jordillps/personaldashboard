@@ -159,6 +159,7 @@
                     "language": {
                         "url": language_datatable
                     },
+                    "ordering":false,
             });
 
             $('#deleteReservationForm').on('show.bs.modal', function (event) {

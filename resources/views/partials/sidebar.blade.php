@@ -6,11 +6,6 @@
           <span>@lang('global.dashboard')</span>
         </a>
       </li>
-      <li class="nav-item {{ Request::is('home/charts') ? 'active': ''}}">
-        <a class="nav-link" href="{{ route('home.charts')}}">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>@lang('global.charts')</span></a>
-      </li>
       <li class="nav-item {{ Request::is('home/calendar') ? 'active': ''}}">
         <a class="nav-link" href="{{ route('home.calendar')}}">
           <i class="fas fa-fw fa-calendar"></i>
