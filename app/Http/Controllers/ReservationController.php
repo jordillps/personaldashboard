@@ -105,10 +105,6 @@ class ReservationController extends Controller
        $NewReservation = New Reservation();
        $slots = $NewReservation->getEnumSlots();
 
-    //    foreach ($NewReservation->enumSlots as $item ){
-    //         array_push($slots, $item );
-    //     }
-
         $reservation_date_compare = Carbon::parse($request->get('reservation_date'));
         $slotsunavaliable = Reservation::whereDate('reservation_date','=',$reservation_date_compare)->pluck('slot')->toArray();
 
@@ -163,6 +159,17 @@ class ReservationController extends Controller
 
         //Send an email confirmation to the administrator
         //Mail::to($user_admin->email)->send(new ReservationConfirmationAdmin($reservation));
+
+        //Send a SMS message
+        $basic  = new \Nexmo\Client\Credentials\Basic(env("NEXMO_KEY"), env("NEXMO_SECRET"));
+        $client = new \Nexmo\Client($basic);
+
+        $message = $client->message()->send([
+            //'to' => '34610464690',
+            'to' => '34'. $reservation->phone,
+            'from' => 'FomalWeb',
+            'text' => 'Nova reserva realitzada'
+        ]);
 
         return view('reservations.confirmedreservation',compact('reservation'))->with('flash',trans('global.reservationconfirmed'));
 
