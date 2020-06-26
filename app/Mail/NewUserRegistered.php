@@ -33,7 +33,9 @@ class NewUserRegistered extends Mailable
      */
     public function build()
     {
+        //To see the email in the browser
         //return $this->view('mail.NewUserRegistered');
+
         return $this->subject(__("Nuevo usuario registrado en la aplicación"))
 	        ->markdown('mail.NewUserRegistered') //template que utilitzara
 	        ->with([

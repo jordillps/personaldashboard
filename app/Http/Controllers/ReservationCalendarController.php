@@ -31,7 +31,7 @@ class ReservationCalendarController extends Controller
     public function store(Request $request)
     {
 
-        $insertArr = [ 'name' =>$request->title,
+        $insertArr = [ 'name' =>$request->name,
                        'email' => $request->email,
                        'phone' =>$request->phone,
                        'reservation_date' => $request->reservation_date,
@@ -44,13 +44,14 @@ class ReservationCalendarController extends Controller
         if (!Customer::where('email', '=', $request->get('email'))->exists()) {
             // user not found
             Customer::create([
-                'name' => $request->get('title'),
+                'name' => $request->get('name'),
                 'email' => $request->get('email'),
                 'phone' => $request->get('phone'),
              ]);
 
          }
 
+        //Fill the reservation slot 
         $reservation = Reservation::all()->last();
         $reservation->slot = substr($reservation->start, 11, 5)."-".substr($reservation->end, 11, 5);
         $reservation->save();

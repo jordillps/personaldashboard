@@ -139,8 +139,9 @@ return [
     'book' => 'Book',
     'back' => 'Back',
     'hour' => 'Hour',
-    'reservationdeletedsuccessfully' => 'Reserva borrada correctamente',
-    'reservationupdatedsuccessfully' => 'Reserva actualizada correctamente',
+    'reservationaddedsuccessfully' => 'Reservation added correctly',
+    'reservationdeletedsuccessfully' => 'Reserva deleted correctly',
+    'reservationupdatedsuccessfully' => 'Reserva updated correctly',
 
 
 

@@ -149,7 +149,6 @@ class ReservationController extends Controller
         $date = $reservation->reservation_date->format('Y-m-d');
         $reservation->start = $date." ".substr($reservation->slot, 0, 5).":00";
         $reservation->end = $date." ".substr($reservation->slot, 6, 5).":00";
-        //$reservation->end = DateTime::createFromFormat("Y-m-d H:i", "{{ $reservation->date_reservation }} "." "." substr({{$reservation->slot}}, 6, 5)");
         $reservation->save();
 
         //Send an email confirmation to the customer
@@ -161,15 +160,15 @@ class ReservationController extends Controller
         //Mail::to($user_admin->email)->send(new ReservationConfirmationAdmin($reservation));
 
         //Send a SMS message
-        $basic  = new \Nexmo\Client\Credentials\Basic(env("NEXMO_KEY"), env("NEXMO_SECRET"));
-        $client = new \Nexmo\Client($basic);
+        //$basic  = new \Nexmo\Client\Credentials\Basic(env("NEXMO_KEY"), env("NEXMO_SECRET"));
+        //$client = new \Nexmo\Client($basic);
 
-        $message = $client->message()->send([
+        //$message = $client->message()->send([
             //'to' => '34610464690',
-            'to' => '34'. $reservation->phone,
-            'from' => 'FomalWeb',
-            'text' => 'Nova reserva realitzada'
-        ]);
+            //'to' => '34'. $reservation->phone,
+            //'from' => 'FomalWeb',
+            //'text' => 'Nova reserva realitzada'
+        //]);
 
         return view('reservations.confirmedreservation',compact('reservation'))->with('flash',trans('global.reservationconfirmed'));
 

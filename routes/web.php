@@ -13,6 +13,8 @@
 
 Route::get('/', function () { return view('welcome');})->name('welcome');
 
+//Information about
+// /vendor/laravel/ui/src/AuthRouteMethods.php
 Auth::routes(['verify' => true]);
 
 Route::get('locale/{locale}', 'LocalizationController@setLocale')->name('setLocale');

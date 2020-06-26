@@ -124,6 +124,7 @@ return [
     'delete' => 'Esborrar',
     'update' => 'Actualitzar',
     'reservationdeleted' => 'Reserva esborrada correctament',
+
     'reservationscalendar' => 'Calendari de reserves',
     'namereservation' => 'Nom',
     'emailreservation' => 'Correu electrònic',
@@ -141,6 +142,7 @@ return [
     'book' => 'Reservar',
     'back' => 'Tornar',
     'hour' => 'Hora',
+    'reservationaddedsuccessfully' => 'Reserva creada correctament',
     'reservationdeletedsuccessfully' => 'Reserva esborrada correctament',
     'reservationupdatedsuccessfully' => 'Reserva actualitzada correctament',
 

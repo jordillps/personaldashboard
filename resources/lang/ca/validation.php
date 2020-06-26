@@ -40,6 +40,7 @@ return [
     'dimensions'           => 'El camp :attribute té dimensions d\'imatge invàlides.',
     'distinct'             => 'El camp :attribute té un valor duplicat.',
     'email'                => 'El camp :attribute ha de ser una adreça de correu vàlida.',
+    'phone'                => 'El camp :attribute ha de ser un número de telèfon vàlid.',
     'ends_with'            => 'El camp :attribute ha de finalitzar amb algun dels següents valors: :values',
     'exists'               => 'El camp :attribute seleccionat no existeix.',
     'file'                 => 'El camp :attribute ha de ser un arxiu.',

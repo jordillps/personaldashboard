@@ -197,13 +197,13 @@
                         selectHelper: true,
                         //Add an event
                         select: function(arg) {
-                            var title = prompt("@lang('global.namereservation')");
+                            var name = prompt("@lang('global.namereservation')");
                             var email =prompt("@lang('global.emailreservation')");
                             var phone =prompt("@lang('global.phonereservation')");
 
-                            if (title && email && phone) {
+                            if (name && email && phone && ValidateEmail(email) && ValidatePhone(phone)) {
                                 calendar.addEvent({
-                                    title: title,
+                                    name: name,
                                     email:email,
                                     phone:phone,
                                     reservation_date:arg.startStr,
@@ -216,10 +216,10 @@
                                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                     },
                                     url: SITEURL + "/create",
-                                    data:{title:title, email:email,phone:phone,reservation_date:arg.startStr,start:arg.startStr,end:arg.endStr},
+                                    data:{name:name, email:email,phone:phone,reservation_date:arg.startStr,start:arg.startStr,end:arg.endStr},
                                     type: "POST",
                                     success: function (data) {
-                                        displayMessage("@lang('global.eventadded')");
+                                        displayMessage("@lang('global.reservationaddedsuccessfully')");
                                     }
                                 });
 
@@ -300,6 +300,28 @@
                         }, 2000);
 
                     }
+
+                    function ValidateEmail(email){
+                        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                        if(email.match(mailformat)){
+                            return true;
+                        }else{
+                             alert("@lang('validation.email')");
+                            return false;
+                        }
+                    }
+
+                    function ValidatePhone(phone){
+                        var phoneformat = /^\d{9}$/;
+                        if(phone.match(phoneformat)){
+                                return true;
+                        }else{
+                            alert("@lang('validation.phone')");
+                            return false;
+                        }
+                    }
+
+
 
                 });
 
