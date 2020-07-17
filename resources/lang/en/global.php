@@ -161,5 +161,18 @@ return [
     'designed' => 'Designed',
     'by' => 'by',
 
+     //Menu
+     'menu' => 'Menu',
+     'ourmenu' => 'Our Menu',
+     'restaurant-tables' => 'Tables schema',
+     'ordersendedcorrectly' => 'We have received your order correctly',
+     'orderdetail' => 'Order details',
+     'updateorder' => 'Update order',
+     'order' => 'Order',
+     'addproducts' => 'Add products to the order',
+     'addproduct' => 'Add',
+
+
+
 
 ];

@@ -10,6 +10,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('menu') }}">@lang('global.menu')</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('reservationform') }}">@lang('global.reserve')</a>
+                        </li>
                         @if (Route::has('login'))
                                 @auth
                                     <li class="nav-item">
@@ -24,9 +30,6 @@
                                     </li>
                                 @endauth
                         @endif
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('reservationform') }}">@lang('global.reserve')</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">@lang('global.contact')</a>
                         </li>

@@ -3,7 +3,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Reservar Cita</title>
+        @if ( Request::is('menu') || Request::is('menu/*'))
+            <title>Demanar Menú</title>
+        @elseif( Request::is('reservationform') || Request::is('reservationform/*'))
+          <title>Reservar cita</title>
+        @else
+          <title>PersonalDashboard</title>
+        @endif
+
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">

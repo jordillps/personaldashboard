@@ -160,5 +160,17 @@ return [
     'designed' => 'Diseñado',
     'by' => 'por',
 
+     //Menu
+     'menu' => 'Menú',
+     'ourmenu' => 'Nuestro menú',
+     'restaurant-tables' => 'Esquema de mesas',
+     'ordersendedcorrectly' => 'Hemos recibido su pedido correctamente',
+     'orderdetail' => 'Detalle de la comanda',
+     'updateorder' => 'Actualizar comanda',
+     'order' => 'Pedir',
+     'addproducts' => 'Añadir productos a esta comanda',
+     'addproduct' => 'Añadir',
+
+
 
 ];

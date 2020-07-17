@@ -1,5 +1,5 @@
 <?php
-
+use \App\Menu;
 
 function removeAccents($name){
     $unwanted_array = array(    'Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',
@@ -13,4 +13,17 @@ function removeAccents($name){
 
     return $name_noaccents;
 
+}
+
+function setMenuSchedule(){
+    $currentTime = date('G');
+    if($currentTime >= 0 && $currentTime < 11){
+        $menu_time = Menu::BREAKFAST;
+    }elseif ($currentTime >= 11 && $currentTime < 17){
+        $menu_time = Menu::LUNCH;
+    }elseif ($currentTime >= 17 && $currentTime < 23){
+        $menu_time = Menu::DINNER;
+    }
+
+    return $menu_time;
 }

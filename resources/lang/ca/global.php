@@ -161,4 +161,16 @@ return [
     'allrightsreserved' => 'Tots els drets reservats',
     'designed' => 'Dissenyat',
     'by' => 'per',
+
+    //Menu
+    'menu' => 'Menú',
+    'ourmenu' => 'El nostre menú',
+    'restaurant-tables' => 'Esquema de taules',
+    'ordersendedcorrectly' => 'Hem rebut la seva comanda correctament',
+    'orderdetail' => 'Detall de comanda',
+    'updateorder' => 'Actualitzar comanda',
+    'order' => 'Demanar',
+    'addproducts' => 'Afegir productes a la comanda',
+    'addproduct' => 'Afegir',
+
 ];

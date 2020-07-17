@@ -47,5 +47,51 @@ class DatabaseSeeder extends Seeder
 
         //Reservations
         factory(App\Reservation::class, 10)->create();
+
+        //Menus
+        factory(\App\Menu::class, 1)->create(['name' => 'breakfast','description' =>'Esmorzar']);
+        factory(\App\Menu::class, 1)->create(['name' => 'lunch','description' =>'Dinar']);
+        factory(\App\Menu::class, 1)->create(['name' => 'dinner','description' =>'Sopar']);
+
+        //Categories
+        factory(\App\Category::class, 1)->create(['name' => 'dish','description' =>'Plat']);
+        factory(\App\Category::class, 1)->create(['name' => 'drink','description' =>'Beguda']);
+        factory(\App\Category::class, 1)->create(['name' => 'dessert','description' =>'Postre']);
+
+        //Dishes
+        factory(App\Dish::class, 20)->create();
+
+
+
+        $dishes=App\Dish::where('category_id', 1)->pluck('id')->toArray();
+        $drinks=App\Dish::where('category_id', 2)->pluck('id')->toArray();
+        $num_drinks = count($drinks);
+        $num_menus=App\Menu::count();
+
+        //Insert some dishes in Menus_dishes table
+        for ($i = 0; $i < 30; $i++) {
+            $k = array_rand($dishes);
+            DB::table('dish_menu')->insert([
+                'dish_id' => $dishes[$k],
+                'menu_id' => rand(1,$num_menus)
+            ]);
+        }
+
+
+        //Insert all drinks in Menu_dishes table
+        $menu_loop = 1;
+
+        foreach ($drinks as $drink) {
+            for ($i = 1; $i <= 3; $i++) {
+                DB::table('dish_menu')->insert([
+                    'dish_id' => $drink,
+                    'menu_id' => $i
+                ]);
+            }
+        }
+
+        //Tables in the restaurant
+        factory(App\TableRestaurant::class, 10)->create();
+
     }
 }

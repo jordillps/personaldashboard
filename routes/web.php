@@ -19,11 +19,17 @@ Auth::routes(['verify' => true]);
 
 Route::get('locale/{locale}', 'LocalizationController@setLocale')->name('setLocale');
 
+//Menu
+Route::get('/menu', 'MenuController@index')->name('menu');
+Route::post('/order', 'OrderController@store')->name('order.store');
+
 //Reservations
 Route::get('/reservationform', 'ReservationController@reservationForm')->name('reservationform');
 
 Route::put('confirmed/{reservation}', 'ReservationController@update')->name('reservation.update');
 Route::post('reservation', 'ReservationController@store')->name('reservation.store');
+
+
 
 //Admin
 Route::group(['middleware' => ['auth']], function () {
@@ -71,6 +77,14 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/import', 'ImportController@import')->name('home.import');
 
         Route::get('/import/{partner}', 'ImportController@printpdf')->name('home.import.printpdf');
+
+        Route::group(["prefix" => "restaurant"], function() {
+            Route::get('/','RestaurantController@index')->name('home.restaurant-tables');
+            Route::get('/{table}/edit-order','OrderController@edit')->name('home.restaurant.order.edit');
+            Route::put('/table/{order}/update','OrderController@update')->name('home.restaurant.order.update');
+            Route::put('/table/{order}/addproducts','LineOrderController@store')->name('home.restaurant.order.addproducts');
+
+        });
 
     });
 });
