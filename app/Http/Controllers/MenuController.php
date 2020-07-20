@@ -24,11 +24,15 @@ class MenuController extends Controller
                 $query->where('menu_id', $menu_time);
         })
         ->orderBy('category_id')
+        //->withCount('category')
         ->get(['id','category_id','title', 'price', 'description', 'photo']);
 
         $menus = Menu::where('id', $menu_time)->get();
         $tables = TableRestaurant::all(['id']);
-        return view('menus.menu', compact('dishes', 'menus', 'tables'));
+
+        $num_dishes = $dishes->where('category_id', 1)->count();
+
+        return view('menus.menu', compact('dishes', 'menus', 'tables', 'num_dishes'));
     }
 
     /**

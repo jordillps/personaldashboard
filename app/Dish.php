@@ -13,4 +13,8 @@ class Dish extends Model
     public function menus () {
     	return $this->belongsToMany(Menu::class);
     }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }

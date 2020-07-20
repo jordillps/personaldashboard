@@ -34,27 +34,31 @@
         @csrf
         <div class="section-center">
             @foreach ($dishes as $dish)
-                    <article class="menu-item">
+                <article class="menu-item">
                         <input type="checkbox" class="checkbox-item" name="dishes_ids[]" value="{{$dish->id}}" id="dish-{{$loop->index}}">
-                        @if ($dish->category_id == 1)
-                            <label for="dish-{{$loop->index}}"><img src="/images/{{$dish->photo}}" alt="menu item" class="photo" />
-                        @else
-                            <label for="dish-{{$loop->index}}"><img src="/images/{{$dish->photo}}" alt="menu item" class="photo photo-drink" />
-                        @endif
-                        </label>
-                            <div class="item-info">
-                                <header>
-                                    <h4>{{$dish->title}}</h4>
-                                    <h4 class="price">{{$dish->price}}€</h4>
-                                </header>
-                                <p class="item-text">
-                                    {{$dish->description}}
-                                </p>
-                                <div class="item-text nice-number show-hide">
-                                    <input type="number" name="quantity[{{$dish->id}}]" min="1" max="10">
-                                </div>
+                    @if ($dish->category_id == 1)
+                        <label for="dish-{{$loop->index}}"><img src="/images/{{$dish->photo}}" alt="menu item" class="photo" />
+                    @else
+                        <label for="dish-{{$loop->index}}"><img src="/images/{{$dish->photo}}" alt="menu item" class="photo photo-drink" />
+                    @endif
+                    </label>
+                        <div class="item-info">
+                            <header>
+                                <h4>{{$dish->title}}</h4>
+                                <h4 class="price">{{$dish->price}}€</h4>
+                            </header>
+                            <p class="item-text">
+                                {{$dish->description}}
+                            </p>
+                            <div class="item-text nice-number show-hide">
+                                <input type="number" name="quantity[{{$dish->id}}]" min="1" max="10">
                             </div>
-                    </article>
+                        </div>
+                </article>
+                @if ($loop->index == $num_dishes-1)
+                    <article class="last-dish"></article>
+                    <article class="last-dish"></article>
+                @endif
             @endforeach
         </div>
         <div class="container">
