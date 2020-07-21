@@ -54,10 +54,9 @@ class OrderController extends Controller
             'menu_id' => $request->get('menu'),
         ]);
 
-        $order->save();
+        $id_created_order = $order->id;
 
-        //Retrieve the new order
-        $order = Order::all()->last();
+        $order->save();
 
         //Create LineOrder dishes
         $ids = $request->input('dishes_ids');
@@ -65,7 +64,7 @@ class OrderController extends Controller
             $price = Dish::find($id)->price;
 
             $lineOrder = LineOrder::create([
-                'order_id' => $order->id,
+                'order_id' => $id_created_order,
                 'dish_id' => $id,
                 'quantity' => round($request->input('quantity.'.$id),2),
                 'subtotal' => $price * $request->input('quantity.'.$id)

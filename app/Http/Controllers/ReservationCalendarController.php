@@ -38,9 +38,9 @@ class ReservationCalendarController extends Controller
                        'start' => $request->start,
                        'end' => $request->end
                     ];
-        $reservation = Reservation::insert($insertArr);
+        $id_NewReservation = Reservation::insertGetId($insertArr);
 
-        //Create a new customer if doesn't exist
+        //Create a new customer if  it doesn't exist
         if (!Customer::where('email', '=', $request->get('email'))->exists()) {
             // user not found
             Customer::create([
@@ -51,8 +51,10 @@ class ReservationCalendarController extends Controller
 
          }
 
-        //Fill the reservation slot 
-        $reservation = Reservation::all()->last();
+        //Retrieve the reservation created
+        $reservation = Reservation::find($id_NewReservation);
+
+        //Fill the reservation slot
         $reservation->slot = substr($reservation->start, 11, 5)."-".substr($reservation->end, 11, 5);
         $reservation->save();
 

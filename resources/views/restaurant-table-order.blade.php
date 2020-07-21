@@ -135,6 +135,9 @@
 
         </div>
 
+        <!-- Sticky Footer -->
+      @include('partials.footer')
+
     </div>
 
 @endsection
