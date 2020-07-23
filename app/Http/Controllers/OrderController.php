@@ -137,12 +137,19 @@ class OrderController extends Controller
             $query->where('menu_id', $menu_time);
         })
         ->whereNotIn('id', $included_dishes)
-        ->orderBy('category_id')
-        ->get(['id','category_id','title', 'photo']);
+        ->where('category_id', 1)
+        ->get(['id','title', 'photo']);
+
+        $drinks = Dish::whereHas('menus', function($query) use ($menu_time) {
+            $query->where('menu_id', $menu_time);
+        })
+        ->whereNotIn('id', $included_dishes)
+        ->where('category_id', 2)
+        ->get(['id','title', 'photo']);
 
 
 
-        return view('restaurant-table-order', compact('table', 'order', 'menu', 'dishes'));
+        return view('restaurant-table-order', compact('table', 'order', 'menu', 'dishes','drinks'));
     }
 
     /**

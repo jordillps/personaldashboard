@@ -19,12 +19,26 @@
         <div class="row mb-1">
             <div class="col-12 text-center">
                 <div class="btn-container">
-                    @foreach ($menus as $menu)
-                    <button type="button" class="filter-btn mb-3" data-id="{{$menu->description}}">
-                        {{$menu->description}}
+                    <button type="button" class="filter-btn mb-3" data-id="{{$current_menu->description}}">
+                        {{$current_menu->description}}
                     </button>
-                    @endforeach
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>@lang($message)</strong>
+            </div>
+        @endif
+        <div class="row mt-1 mb-3">
+            <div class="col-6 text-center">
+                {!! $errors->first('dishes_ids', '<span class="alert alert-danger" style="display:block;">:message</span>')!!}
+            </div>
+            <div class="col-6 text-center">
+                {!! $errors->first('table', '<span class="alert alert-danger" style="display:block;">:message</span>')!!}
             </div>
         </div>
     </div>
@@ -33,6 +47,8 @@
     <form name="dishesForm" id="dishesForm" action="{{route('order.store')}}" method="POST">
         @csrf
         <div class="section-center">
+            <div class="last-dish"></div>
+            <div class="last-dish"></div>
             @foreach ($dishes as $dish)
                 <article class="menu-item">
                         <input type="checkbox" class="checkbox-item" name="dishes_ids[]" value="{{$dish->id}}" id="dish-{{$loop->index}}">
@@ -56,18 +72,26 @@
                         </div>
                 </article>
                 @if ($loop->index == $num_dishes-1)
-                    <article class="last-dish"></article>
-                    <article class="last-dish"></article>
+                    @if ($num_dishes % 2 == 0)
+                        <div class="last-dish"></div>
+                        <div class="last-dish"></div>
+                    @else
+                        <article class="menu-item"></article>
+                       <div class="last-dish"></div>
+                       <div class="last-dish"></div>
+                    @endif
                 @endif
             @endforeach
+            @if ($num_drinks % 2 == 0)
+                <div class="last-dish"></div>
+                <div class="last-dish"></div>
+            @else
+                <article class="menu-item"></article>
+                <div class="last-dish"></div>
+                <div class="last-dish"></div>
+            @endif
         </div>
-        <div class="container">
-            <div class="row mt-1 mb-3">
-                <div class="col-12 text-center">
-                    {!! $errors->first('dishes_ids', '<span class="alert alert-danger" style="display:block;">:message</span>')!!}
-                </div>
-            </div>
-        </div>
+
         <div class="container">
             <div class="row mt-2 mb-1">
                 <div class="col-12 text-center">
@@ -80,25 +104,27 @@
                 <div class="col-12 text-center">
                     <ul class="restaurant-tables">
                         @foreach ($tables as $table)
-                        <li>
-                            <input type="radio" name="table" value="{{$table->id}}" id="table-{{$loop->index}}">
-                            <label for="table-{{$loop->index}}">
-                                <img src="/images/table-restaurant_menu.png" alt="table-restaurant" class="photo-table" />
-                                <p class="table-position">{{$table->id}}</p>
-                            </label>
-                        </li>
+                            @if(in_array($table->id, $unavailable_tables))
+                                <li>
+                                    <label for="table-{{$loop->index}}">
+                                        <img src="/images/table-restaurant_menu.png" alt="table-restaurant" class="photo-table disabled" />
+                                        <p class="table-position">{{$table->id}}</p>
+                                    </label>
+                                </li>
+                            @else
+                                <li>
+                                    <input type="radio" name="table" value="{{$table->id}}" id="table-{{$loop->index}}">
+                                    <label for="table-{{$loop->index}}">
+                                        <img src="/images/table-restaurant_menu.png" alt="table-restaurant" class="photo-table" />
+                                        <p class="table-position">{{$table->id}}</p>
+                                    </label>
+                                </li>
+                            @endif
                         @endforeach
                     </ul>
-                    {!! $errors->first('table', '<span class="alert alert-danger" style="display:block;">:message</span>')!!}
                 </div>
             </div>
-            <input type="hidden" name="menu" value="{{$menu->id}}">
-            @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-block">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>@lang($message)</strong>
-                </div>
-            @endif
+            <input type="hidden" name="menu" value="{{$current_menu->id}}">
             <div class="row mt-3 mb-1">
                 <div class="col-12 d-flex justify-content-between">
                     <a href="{{url('/')}}"><button type="button" class="filter-btn mb-3">@lang('global.back')</button></a>

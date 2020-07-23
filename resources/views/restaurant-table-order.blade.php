@@ -96,14 +96,15 @@
 
             <button type="button" class="btn btn-primary mb-3" id="buttonAddProducts">@lang('global.addproducts')</button>
 
-                <div class="col-lg-6 card mb-3" id="tableNewProducts">
-                    <div class="card-header">
-                        @lang('global.addproducts')
-                    </div>
-                    <div class="table-responsive mb-3">
-                        <form role="form" method="POST" action="{{route('home.restaurant.order.addproducts', $order)}}">
-                            {{ csrf_field() }}
-                            {{ method_field('PUT')}}
+            <form role="form" method="POST" action="{{route('home.restaurant.order.addproducts', $order)}}">
+                {{ csrf_field() }}
+                {{ method_field('PUT')}}
+                <div class="row justify-content-around">
+                    <div class="col-lg-5 card mb-3" id="tableNewDishes">
+                        <div class="card-header">
+                            @lang('global.addproducts')
+                        </div>
+                        <div class="table-responsive mb-3">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -114,24 +115,44 @@
                                     <tbody>
                                         @foreach ($dishes as $dish)
                                             <tr>
-                                                @if ($dish->category_id == 1)
-                                                    <td><img  class="photo" id="img-order" src="/images/{{$dish->photo}}" alt="{{$dish->description}}"></td>
-                                                @else
-                                                    <td><img  class="photo photo-drink" id="img-order" src="/images/{{$dish->photo}}" alt="{{$dish->description}}"></td>
-                                                @endif
+                                                <td><img  class="photo" id="img-order" src="/images/{{$dish->photo}}" alt="{{$dish->description}}"></td>
                                                 <td style="vertical-align: middle">{{$dish->title}}</td>
                                                 <td class="text-right" style="vertical-align: middle"><input type="number" name="quantity[{{$dish->id}}]" min="1" max="10"></td>
                                             </tr>
                                         @endforeach
                                     </tbody>
                             </table>
-                            <div class="d-flex justify-content-around">
-                                <button type="submit" class="btn btn-primary">@lang('global.addproduct')</button>
-                            </div>
-                        </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 card mb-3" id="tableNewDrinks">
+                        <div class="card-header">
+                            @lang('global.addproductsss')
+                        </div>
+                        <div class="table-responsive mb-3">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th colspan="2" class="text-center">Producte</th>
+                                        <th class="text-right">Quantitat</th>
+                                    </tr>
+                                </thead>
+                                    <tbody>
+                                        @foreach ($drinks as $drink)
+                                            <tr>
+                                                <td><img  class="photo photo-drink" id="img-order" src="/images/{{$drink->photo}}" alt="{{$drink->description}}"></td>
+                                                <td style="vertical-align: middle">{{$drink->title}}</td>
+                                                <td class="text-right" style="vertical-align: middle"><input type="number" name="quantity[{{$drink->id}}]" min="1" max="10"></td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-
+                <div class="row justify-content-center" id="button-add">
+                    <button type="submit" class="btn btn-primary">@lang('global.addproduct')</button>
+                </div>
+            </form>
 
         </div>
 
@@ -147,10 +168,14 @@
 
     <script>
         $(document).ready(function(){
-            $("#tableNewProducts").hide();
+            $("#tableNewDishes").hide();
+            $("#tableNewDrinks").hide();
+            $("#button-add").hide();
 
             $("#buttonAddProducts").click(function(){
-                $("#tableNewProducts").show();
+                $("#tableNewDishes").show();
+                $("#tableNewDrinks").show();
+                $("#button-add").show();
             });
         });
 
