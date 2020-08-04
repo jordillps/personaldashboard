@@ -31,7 +31,7 @@
                         <div class="card-body">
                                 {!! $userschartbar->container() !!}
                         </div>
-                         <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                         <div class="card-footer small text-muted"></div>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -43,7 +43,7 @@
                         <div class="card-body">
                                 {!! $userschartdoughnut->container() !!}
                         </div>
-                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                        <div class="card-footer small text-muted"></div>
                     </div>
                 </div>
             </div>

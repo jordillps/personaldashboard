@@ -37,7 +37,7 @@ class NewUserRegistered extends Mailable
         //return $this->view('mail.NewUserRegistered');
 
         return $this->subject(__("Nuevo usuario registrado en la aplicación"))
-	        ->markdown('mail.NewUserRegistered') //template que utilitzara
+	        ->markdown('emails.NewUserRegistered') //template que utilitzara
 	        ->with([
                 'user_name' => $this->user_name,
                 'user_email' => $this->user_email,

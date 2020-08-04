@@ -218,7 +218,6 @@
                         },
 
                     });
-                    console.log(calendar.getEvents());
                     calendar.render();
 
                     function displayMessage(message) {
