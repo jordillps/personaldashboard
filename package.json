@@ -28,6 +28,7 @@
         "@fullcalendar/daygrid": "^4.3.0",
         "acorn": "^7.1.1",
         "datatables.net-bs4": "^1.10.19",
+        "dot-prop": "^5.2.0",
         "elliptic": "^6.5.3",
         "minimist": "^1.2.5",
         "serialize-javascript": "^3.0.0",
