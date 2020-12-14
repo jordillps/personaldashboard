@@ -18,7 +18,7 @@
         "lodash": "^4.17.19",
         "popper.js": "^1.12",
         "resolve-url-loader": "2.3.1",
-        "sass": "^1.27.0",
+        "sass": "^1.30.0",
         "sass-loader": "7.*",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
@@ -30,6 +30,7 @@
         "datatables.net-bs4": "^1.10.19",
         "dot-prop": "^5.2.0",
         "elliptic": "^6.5.3",
+        "ini": "^2.0.0",
         "minimist": "^1.2.5",
         "node-forge": "^0.10.0",
         "object-path": "^0.11.5",
