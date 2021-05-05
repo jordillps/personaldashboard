@@ -8,7 +8,7 @@
         @elseif( Request::is('reservationform') || Request::is('reservationform/*'))
           <title>Reservar cita</title>
         @else
-          <title>PersonalDashboard</title>
+          <title>PersonalDashboard - Agenda</title>
         @endif
 
 
