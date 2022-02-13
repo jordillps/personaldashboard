@@ -34,7 +34,7 @@
         "datatables.net-bs4": "^1.11.3",
         "dot-prop": "^5.2.0",
         "elliptic": "^6.5.4",
-        "follow-redirects": "^1.14.7",
+        "follow-redirects": "^1.14.8",
         "ini": "^2.0.0",
         "is-svg": "^4.3.1",
         "minimist": "^1.2.5",
