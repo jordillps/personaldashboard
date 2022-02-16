@@ -27,8 +27,8 @@
                         {!! $errors->first('email', '<span class="help-block" style="color:red;">:message</span>')!!}
                     </div>
                 </div>
-                <div class="form-row" {{ $errors->has('phone')? 'has error': ''}}>
-                    <div class="form-group col-md-6">
+                <div class="form-row" >
+                    <div class="form-group col-md-6" {{ $errors->has('phone')? 'has error': ''}}>
                         <label for="inputPhone">@lang('global.phone')*</label>
                         <input name="phone" type="text" class="form-control" id="inputPhone" value="{{old('phone')}}">
                         {!! $errors->first('phone', '<span class="help-block" style="color:red;">:message</span>')!!}
