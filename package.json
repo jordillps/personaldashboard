@@ -29,6 +29,7 @@
         "acorn": "^7.1.1",
         "ansi-html": "^0.0.9",
         "ansi-regex": "^6.0.1",
+        "async": "^2.6.4",
         "datatables": "^1.10.18",
         "datatables.net": "^1.11.3",
         "datatables.net-bs4": "^1.11.3",
