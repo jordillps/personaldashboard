@@ -12,6 +12,7 @@
         "barryvdh/laravel-dompdf": "^1.0",
         "consoletvs/charts": "6.*",
         "fideloper/proxy": "^4.0",
+        "guzzlehttp/guzzle": "^7.4",
         "guzzlehttp/psr7": "^1.7",
         "intervention/image": "^2.5",
         "laminas/laminas-diactoros": "^2.3",
