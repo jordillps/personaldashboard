@@ -15,7 +15,7 @@
         "guzzlehttp/guzzle": "^7.4",
         "guzzlehttp/psr7": "^1.7",
         "intervention/image": "^2.5",
-        "laminas/laminas-diactoros": "^2.3",
+        "laminas/laminas-diactoros": "^2.14",
         "laravel/framework": "^6.0",
         "laravel/nexmo-notification-channel": "^2.3",
         "laravel/tinker": "^1.0",
