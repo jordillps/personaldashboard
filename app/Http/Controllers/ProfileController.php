@@ -58,6 +58,13 @@ class ProfileController extends Controller
 			//$destinationPath = $path . '/storage/avatars';
 			//$request->avatar->move($destinationPath, $avatarName);
 
+            //Servidor quan fem redirecció a la carpeta public
+            //$path = public_path();
+            //Cal crear les carpetes storage/avatars a la carpeta public
+			//$destinationPath = $path . '/storage/avatars';
+			//$request->avatar->move($destinationPath, $avatarName);
+
+
             $user->avatar = $avatarName;
         }
 
