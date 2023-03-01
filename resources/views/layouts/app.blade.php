@@ -9,6 +9,8 @@
 
     <title>{{ config('app.name', 'Laravel') }} - Agenda Personal</title>
 
+    <meta name="robots" content="noindex">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
