@@ -15,6 +15,8 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
+        <meta name="robots" content="noindex,follow" />
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Montserrat&display=swap" rel="stylesheet">
 
