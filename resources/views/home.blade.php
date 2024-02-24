@@ -22,7 +22,7 @@
         </ol>
         <!-- Area Chart Example-->
         <div class="row mx-auto">
-            <div class="col-md-6">
+            <div class="col-12 col-lg-6">
                 <div class="card mb-3">
                     <div class="card-header">
                         <i class="fas fa-chart-area"></i>
@@ -34,7 +34,7 @@
                      <div class="card-footer small text-muted"></div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-12 col-lg-6">
                 <div class="card mb-3">
                     <div class="card-header">
                         <i class="fas fa-chart-area"></i>
